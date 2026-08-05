@@ -18,30 +18,30 @@ export default function WorksLedger() {
 
   return (
     <>
-      <div className="ledger" onMouseMove={move}>
+      <div className="pop-ledger" onMouseMove={move}>
         {products.map((p) => (
           <Link
             key={p.slug}
             to={`/works/${p.slug}`}
-            className="ledger__row"
+            className="pop-ledger__row"
             onMouseEnter={() => setHovered(p)}
             onMouseLeave={() => setHovered(null)}
             onFocus={() => setHovered(null)}
           >
-            <span className="ledger__idx">{p.index}</span>
+            <span className="pop-ledger__idx">#{p.index}</span>
 
             <span>
-              <span className="ledger__name">{p.name}</span>
-              <span className="ledger__summary">{p.summary}</span>
+              <div className="pop-ledger__name">{p.name}</div>
+              <div style={{ fontSize: '0.9rem', color: '#636e72', marginTop: '0.2rem' }}>{p.summary}</div>
             </span>
 
-            <span className="ledger__kind">
-              <span className={`ledger__tag ledger__tag--${p.status}`}>
+            <span className="pop-ledger__kind">
+              <span className="pop-ledger__tag">
                 {p.kind} · {statusLabel[p.status]}
               </span>
             </span>
 
-            <span className="ledger__year">{p.year}</span>
+            <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, color: 'var(--pop-pink)' }}>{p.year}</span>
           </Link>
         ))}
       </div>

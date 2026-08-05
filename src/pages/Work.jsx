@@ -18,80 +18,99 @@ export default function Work() {
         image={p.cover}
       />
 
-      <div className="wrap">
-        <Link className="back" to="/#works">
-          ← Works
-        </Link>
+      <section className="hero-pop" style={{ padding: '3.5rem 0 4.5rem' }}>
+        <div className="wrap">
+          <Link to="/#works" className="btn-pop btn-pop--white" style={{ padding: '0.4rem 1rem', fontSize: '0.85rem', marginBottom: '1.5rem' }}>
+            ← Back to Works
+          </Link>
+          <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', marginBottom: '1rem' }}>
+            <span className="badge-pop">{p.kind}</span>
+            <span className="badge-pop" style={{ background: 'var(--pop-yellow)', color: '#4a3400' }}>
+              {statusLabel[p.status]} · {p.year}
+            </span>
+          </div>
+          <h1 className="hero-pop__title" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', marginBottom: '1rem' }}>
+            {p.name}
+          </h1>
+          <p className="hero-pop__desc" style={{ maxWidth: '56ch' }}>
+            {p.summary}
+          </p>
+        </div>
+      </section>
+
+      {/* Wave Divider */}
+      <div className="wave-divider" style={{ background: '#fffbf5' }}>
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path
+            fill="#48ecd0"
+            fillOpacity="1"
+            d="M0,32L48,42.7C96,53,192,75,288,80C384,85,480,75,576,58.7C672,43,768,21,864,21.3C960,21,1056,43,1152,53.3C1248,64,1344,64,1392,64L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+          ></path>
+        </svg>
       </div>
 
-      <header className="prod__head">
-        <div className="wrap">
-          <p className="prod__kind">
-            {p.kind} · {statusLabel[p.status]} · {p.year}
-          </p>
-          <h1 className="prod__name">{p.name}</h1>
-          <p className="prod__summary">{p.summary}</p>
-        </div>
-      </header>
-
-      <div className="wrap">
-        <div className="prod__cover">
-          <img src={p.cover} alt={`${p.name} 대표 이미지`} />
+      <div className="wrap" style={{ padding: '3rem var(--gutter)' }}>
+        <div style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 45px rgba(0,0,0,0.1)', border: '4px solid #ffffff', marginBottom: '3rem' }}>
+          <img src={p.cover} alt={`${p.name} 대표 이미지`} style={{ width: '100%', height: 'auto', display: 'block' }} />
         </div>
 
-        <div className="prod__grid">
-          <div>
-            <p className="prod__desc">{p.description}</p>
-            <div className="stores">
+        <div className="pop-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}>
+          <div style={{ background: '#ffffff', borderRadius: '24px', padding: '2rem', boxShadow: '0 12px 30px rgba(0,0,0,0.06)' }}>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: 'var(--pop-pink)', marginTop: 0 }}>Project Overview</h2>
+            <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--pop-text-dark)' }}>{p.description}</p>
+            
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '2rem' }}>
               {p.stores.map((s) => (
-                <a
-                  key={s.label}
-                  className="btn"
-                  href={s.href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {s.label}
+                <a key={s.label} className="btn-pop" href={s.href} target="_blank" rel="noreferrer" style={{ padding: '0.6rem 1.4rem' }}>
+                  {s.label} ↗
                 </a>
               ))}
-              {p.presskit && (
-                <a className="btn btn--ghost" href={`/presskit/${p.slug}.zip`}>
-                  프레스킷 받기
-                </a>
-              )}
             </div>
           </div>
 
-          <div>
-            <p className="eyebrow">Spec</p>
-            <dl className="spec">
+          <div style={{ background: 'var(--pop-pink-bg)', borderRadius: '24px', padding: '2rem', border: '3px solid var(--pop-pink-soft)' }}>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: 'var(--pop-pink)', marginTop: 0 }}>Technical Spec</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {p.spec.map(([k, v]) => (
-                <div className="spec__row" key={k}>
-                  <dt className="spec__k">{k}</dt>
-                  <dd className="spec__v">{v}</dd>
+                <div key={k} style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.75rem', borderBottom: '1px dashed rgba(255,101,132,0.3)' }}>
+                  <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, color: '#4a5568' }}>{k}</span>
+                  <span style={{ fontWeight: 600, color: 'var(--pop-pink-bright)' }}>{v}</span>
                 </div>
               ))}
-            </dl>
+            </div>
           </div>
         </div>
 
         {p.shots?.length > 0 && (
-          <div className="shots">
-            {p.shots.map((s, i) => (
-              <img key={i} src={s} alt={`${p.name} 스크린샷 ${i + 1}`} loading="lazy" />
-            ))}
+          <div style={{ marginTop: '4rem' }}>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', color: 'var(--pop-pink)', textAlign: 'center', marginBottom: '2rem' }}>
+              SCREENSHOTS 📸
+            </h2>
+            <div className="pop-grid">
+              {p.shots.map((s, i) => (
+                <img
+                  key={i}
+                  src={s}
+                  alt={`${p.name} 스크린샷 ${i + 1}`}
+                  loading="lazy"
+                  style={{ borderRadius: '20px', border: '3px solid #ffffff', boxShadow: '0 10px 25px rgba(0,0,0,0.08)' }}
+                />
+              ))}
+            </div>
           </div>
         )}
       </div>
 
-      <section className="cta" style={{ marginTop: 'clamp(3rem, 8vw, 5rem)' }}>
-        <div className="wrap">
-          <h2 className="cta__title">{p.name}에 대해 더 궁금하다면</h2>
-          <p className="cta__body">
-            취재, 리뷰, 제휴 문의를 받고 있습니다.
+      <section className="mint-sec" style={{ marginTop: '4rem' }}>
+        <div className="wrap" style={{ textAlign: 'center' }}>
+          <h2 className="mint-sec__title" style={{ margin: '0 auto 1rem' }}>
+            {p.name} 프로젝트가 마음에 드시나요?
+          </h2>
+          <p className="mint-sec__desc" style={{ margin: '0 auto 2rem' }}>
+            비슷한 형태의 서비스 구축, 제휴, 협업 문의는 언제나 환영합니다.
           </p>
-          <Link className="btn" to="/contact">
-            문의 보내기
+          <Link className="btn-pop" to="/contact" style={{ background: 'linear-gradient(135deg, #ff9f43, #ff5252)' }}>
+            문의 보내기 💌
           </Link>
         </div>
       </section>
