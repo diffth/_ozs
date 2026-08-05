@@ -1,0 +1,4 @@
+# Cloudflare Pages — SPA 폴백.
+# /works/xxx/index.html 같은 실제 파일이 있으면 그 파일이 먼저 나가고,
+# 없는 경로만 index.html 로 넘어갑니다.
+/*  /index.html  200
