@@ -12,6 +12,13 @@ import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { site } from '../src/data/site.js'
 import { products } from '../src/data/products.js'
+import { DEFAULT_LANG, OG_LOCALE, tr, translate } from '../src/i18n/index.js'
+
+// 크롤러가 보는 정적 HTML 은 기본 언어(한국어) 기준으로 만듭니다.
+// 방문자가 실제로 보는 화면은 브라우저에서 선택한 언어로 다시 그려집니다.
+const L = DEFAULT_LANG
+const s = (v) => tr(v, L)
+const d = (path) => translate(path, L)
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const dist = resolve(root, 'dist')
@@ -21,13 +28,13 @@ const esc = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
 const routes = [
-  { path: '/', title: `${site.name} — 1인 개발 스튜디오`, desc: site.description, img: '/img/og-default.svg', priority: '1.0' },
-  { path: '/about', title: `About — ${site.name}`, desc: `${site.name} 소개. ${site.tagline}`, img: '/img/og-default.svg', priority: '0.7' },
-  { path: '/contact', title: `Contact — ${site.name}`, desc: '제품 제휴, 퍼블리싱, 개발 의뢰 문의를 받습니다.', img: '/img/og-default.svg', priority: '0.7' },
+  { path: '/', title: `${site.name} — ${d('seo.siteTitle')}`, desc: s(site.description), img: '/img/og-default.svg', priority: '1.0' },
+  { path: '/about', title: `About — ${site.name}`, desc: `${site.name} ${d('seo.aboutDesc')}. ${s(site.tagline)}`, img: '/img/og-default.svg', priority: '0.7' },
+  { path: '/contact', title: `Contact — ${site.name}`, desc: d('seo.contactDesc'), img: '/img/og-default.svg', priority: '0.7' },
   ...products.map((p) => ({
     path: `/works/${p.slug}`,
     title: `${p.name} — ${site.name}`,
-    desc: p.summary,
+    desc: s(p.summary),
     img: p.cover,
     priority: '0.9',
   })),
@@ -39,7 +46,8 @@ const head = (r) => `
     <link rel="canonical" href="${site.url}${r.path}" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="${esc(site.name)}" />
-    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:locale" content="${OG_LOCALE[L]}" />
+    <meta property="og:locale:alternate" content="${OG_LOCALE[L === 'ko' ? 'en' : 'ko']}" />
     <meta property="og:title" content="${esc(r.title)}" />
     <meta property="og:description" content="${esc(r.desc)}" />
     <meta property="og:url" content="${site.url}${r.path}" />
