@@ -1,28 +1,45 @@
 import Seo from '../components/Seo.jsx'
-import { site } from '../data/site.js'
+import { useLang } from '../i18n/LanguageProvider.jsx'
 
 const FORM_ENDPOINT = 'https://api.web3forms.com/submit'
 const ACCESS_KEY = 'YOUR-ACCESS-KEY-HERE'
 
+const LABEL_STYLE = {
+  display: 'block',
+  fontFamily: 'var(--font-heading)',
+  fontWeight: 600,
+  color: 'var(--pop-text-dark)',
+  marginBottom: '0.5rem',
+}
+
+const FIELD_STYLE = {
+  width: '100%',
+  padding: '0.9rem 1.25rem',
+  borderRadius: '16px',
+  border: '2px solid #e2e8f0',
+  fontSize: '1rem',
+  fontFamily: 'var(--font-body)',
+  outline: 'none',
+}
+
 export default function Contact() {
+  const { lang, t, tr, raw } = useLang()
+  const topics = raw('contact.topics')
+
   return (
     <>
-      <Seo
-        title="Contact"
-        description="제품 제휴, 퍼블리싱, 개발 의뢰 문의를 받습니다."
-        path="/contact"
-      />
+      <Seo title="Contact" description={t('seo.contactDesc')} path="/contact" />
 
       <section className="hero-pop" style={{ padding: '4rem 0 5rem' }}>
         <div className="wrap" style={{ textAlign: 'center' }}>
           <span className="badge-pop" style={{ marginBottom: '1rem' }}>
-            LET'S TALK 💌
+            {t('contact.badge')}
           </span>
           <h1 className="hero-pop__title" style={{ fontSize: 'clamp(2.5rem, 6vw, 4rem)', margin: '0 auto 1.5rem' }}>
-            무엇을 함께 <span>만들어볼까요?</span>
+            {t('contact.titleLead')} <span>{t('contact.titleHighlight')}</span>
           </h1>
           <p className="hero-pop__desc" style={{ margin: '0 auto', maxWidth: '52ch' }}>
-            제품 제휴, 퍼블리싱, 웹서비스 및 게임 개발 의뢰 모두 환영합니다. 보통 영업일 기준 2일 안에 답변드립니다.
+            {t('contact.desc')}
           </p>
         </div>
       </section>
@@ -53,100 +70,55 @@ export default function Contact() {
           >
             <form action={FORM_ENDPOINT} method="POST">
               <input type="hidden" name="access_key" value={ACCESS_KEY} />
+              <input type="hidden" name="language" value={lang} />
               <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex="-1" />
 
               <div style={{ marginBottom: '1.5rem' }}>
-                <label style={{ display: 'block', fontFamily: 'var(--font-heading)', fontWeight: 600, color: 'var(--pop-text-dark)', marginBottom: '0.5rem' }}>
-                  이름 / 회사명
-                </label>
+                <label style={LABEL_STYLE}>{t('contact.nameLabel')}</label>
                 <input
                   type="text"
                   name="name"
                   required
-                  placeholder="성함이나 회사명을 입력해 주세요"
-                  style={{
-                    width: '100%',
-                    padding: '0.9rem 1.25rem',
-                    borderRadius: '16px',
-                    border: '2px solid #e2e8f0',
-                    fontSize: '1rem',
-                    fontFamily: 'var(--font-body)',
-                    outline: 'none'
-                  }}
+                  placeholder={t('contact.namePlaceholder')}
+                  style={FIELD_STYLE}
                 />
               </div>
 
               <div style={{ marginBottom: '1.5rem' }}>
-                <label style={{ display: 'block', fontFamily: 'var(--font-heading)', fontWeight: 600, color: 'var(--pop-text-dark)', marginBottom: '0.5rem' }}>
-                  회신받을 이메일
-                </label>
+                <label style={LABEL_STYLE}>{t('contact.emailLabel')}</label>
                 <input
                   type="email"
                   name="email"
                   required
                   placeholder="name@example.com"
-                  style={{
-                    width: '100%',
-                    padding: '0.9rem 1.25rem',
-                    borderRadius: '16px',
-                    border: '2px solid #e2e8f0',
-                    fontSize: '1rem',
-                    fontFamily: 'var(--font-body)',
-                    outline: 'none'
-                  }}
+                  style={FIELD_STYLE}
                 />
               </div>
 
               <div style={{ marginBottom: '1.5rem' }}>
-                <label style={{ display: 'block', fontFamily: 'var(--font-heading)', fontWeight: 600, color: 'var(--pop-text-dark)', marginBottom: '0.5rem' }}>
-                  문의 종류
-                </label>
-                <select
-                  name="topic"
-                  style={{
-                    width: '100%',
-                    padding: '0.9rem 1.25rem',
-                    borderRadius: '16px',
-                    border: '2px solid #e2e8f0',
-                    fontSize: '1rem',
-                    fontFamily: 'var(--font-body)',
-                    outline: 'none',
-                    background: '#ffffff'
-                  }}
-                >
-                  <option>제품 제휴 · 퍼블리싱</option>
-                  <option>웹사이트 제작</option>
-                  <option>웹서비스 개발</option>
-                  <option>게임 관련</option>
-                  <option>취재 · 리뷰</option>
-                  <option>그 외</option>
+                <label style={LABEL_STYLE}>{t('contact.topicLabel')}</label>
+                <select name="topic" style={{ ...FIELD_STYLE, background: '#ffffff' }}>
+                  {topics.map((o) => (
+                    <option key={o.value} value={o.value}>
+                      {tr(o)}
+                    </option>
+                  ))}
                 </select>
               </div>
 
               <div style={{ marginBottom: '1.5rem' }}>
-                <label style={{ display: 'block', fontFamily: 'var(--font-heading)', fontWeight: 600, color: 'var(--pop-text-dark)', marginBottom: '0.5rem' }}>
-                  내용
-                </label>
+                <label style={LABEL_STYLE}>{t('contact.messageLabel')}</label>
                 <textarea
                   name="message"
                   required
                   rows={5}
-                  placeholder="만들고 싶은 프로젝트, 일정, 예산이나 희망 사항을 자유롭게 적어주세요."
-                  style={{
-                    width: '100%',
-                    padding: '0.9rem 1.25rem',
-                    borderRadius: '16px',
-                    border: '2px solid #e2e8f0',
-                    fontSize: '1rem',
-                    fontFamily: 'var(--font-body)',
-                    outline: 'none',
-                    resize: 'vertical'
-                  }}
+                  placeholder={t('contact.messagePlaceholder')}
+                  style={{ ...FIELD_STYLE, resize: 'vertical' }}
                 />
               </div>
 
               <button type="submit" className="btn-pop" style={{ width: '100%', padding: '1rem', marginTop: '1rem' }}>
-                🚀 메시지 전송하기
+                {t('contact.submit')}
               </button>
             </form>
           </div>
