@@ -78,9 +78,17 @@ body {
   overflow-x: hidden;
 }
 
+/* 404 처럼 내용이 짧은 페이지에서도 푸터가 화면 아래에 붙도록. */
 #root {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#main {
+  flex: 1 0 auto;
 }
 
 a {
@@ -102,6 +110,29 @@ img {
 ::selection {
   background: var(--pop-pink);
   color: #ffffff;
+}
+
+/* ── Skip Link ──────────────────────────────── */
+/* 평소에는 숨어 있다가 키보드 포커스가 닿으면 나타납니다. */
+.skip {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  translate: -50% -150%;
+  z-index: 100;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--pop-pink-bright);
+  background: #ffffff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0 0 var(--radius-pill) var(--radius-pill);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transition: translate 0.2s var(--ease-smooth);
+}
+
+.skip:focus-visible {
+  translate: -50% 0;
 }
 
 /* ── Layout Primitives ──────────────────────── */
@@ -226,6 +257,40 @@ img {
 .hdr__nav a[aria-current='page'] {
   color: var(--pop-pink);
   background: var(--pop-pink-bg);
+}
+
+/* ── Language Switch (KO / EN) ──────────────── */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.2rem;
+  border-radius: var(--radius-pill);
+  background: var(--pop-pink-bg);
+}
+
+.lang-switch__btn {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #4a5568;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lang-switch__btn:hover {
+  color: var(--pop-pink);
+}
+
+.lang-switch__btn[aria-pressed='true'] {
+  color: var(--pop-pink);
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* ── Hero Section ────────────────────────────── */
