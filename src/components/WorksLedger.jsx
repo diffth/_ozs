@@ -1,6 +1,7 @@
 import { useRef, useState, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { products, statusLabel } from '../data/products.js'
+import { useLang } from '../i18n/LanguageProvider.jsx'
 
 /**
  * 출시 순서대로 쌓이는 장부(ledger). 행에 커서를 올리면
@@ -9,6 +10,7 @@ import { products, statusLabel } from '../data/products.js'
 export default function WorksLedger() {
   const peek = useRef(null)
   const [hovered, setHovered] = useState(null)
+  const { tr } = useLang()
 
   const move = useCallback((e) => {
     const el = peek.current
@@ -32,12 +34,12 @@ export default function WorksLedger() {
 
             <span>
               <div className="pop-ledger__name">{p.name}</div>
-              <div style={{ fontSize: '0.9rem', color: '#636e72', marginTop: '0.2rem' }}>{p.summary}</div>
+              <div style={{ fontSize: '0.9rem', color: '#636e72', marginTop: '0.2rem' }}>{tr(p.summary)}</div>
             </span>
 
             <span className="pop-ledger__kind">
               <span className="pop-ledger__tag">
-                {p.kind} · {statusLabel[p.status]}
+                {p.kind} · {tr(statusLabel[p.status])}
               </span>
             </span>
 
