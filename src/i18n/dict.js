@@ -14,6 +14,8 @@ export const dict = {
     mainNavAria: { ko: '주요 메뉴', en: 'Main menu' },
     subNavAria: { ko: '보조 메뉴', en: 'Secondary menu' },
     langSwitchAria: { ko: '언어 선택', en: 'Select language' },
+    menuOpen: { ko: '메뉴 열기', en: 'Open menu' },
+    menuClose: { ko: '메뉴 닫기', en: 'Close menu' },
     detail: { ko: '자세히 보기 →', en: 'View details →' },
     // 버튼(.btn-pop)에는 text-transform: capitalize 가 걸려 있어
     // 영문 문구는 낱말마다 대문자로 보입니다. 관사가 홀로 남지 않도록 골랐습니다.
