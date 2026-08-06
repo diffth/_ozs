@@ -25,7 +25,7 @@ export default function Work() {
           <Link to="/#works" className="btn-pop btn-pop--white" style={{ padding: '0.4rem 1rem', fontSize: '0.85rem', marginBottom: '1.5rem' }}>
             {t('work.back')}
           </Link>
-          <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', marginBottom: '1rem' }}>
+          <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '1rem' }}>
             <span className="badge-pop">{p.kind}</span>
             <span className="badge-pop" style={{ background: 'var(--pop-yellow)', color: '#4a3400' }}>
               {tr(statusLabel[p.status])} · {p.year}
@@ -56,7 +56,7 @@ export default function Work() {
           <img src={p.cover} alt={`${p.name} ${t('work.coverAlt')}`} style={{ width: '100%', height: 'auto', display: 'block' }} />
         </div>
 
-        <div className="pop-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}>
+        <div className="pop-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))' }}>
           <div style={{ background: '#ffffff', borderRadius: '24px', padding: '2rem', boxShadow: '0 12px 30px rgba(0,0,0,0.06)' }}>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: 'var(--pop-pink)', marginTop: 0 }}>Project Overview</h2>
             <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--pop-text-dark)' }}>{tr(p.description)}</p>
@@ -74,7 +74,7 @@ export default function Work() {
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', color: 'var(--pop-pink)', marginTop: 0 }}>Technical Spec</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {p.spec.map((row) => (
-                <div key={tr(row.label)} style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '0.75rem', borderBottom: '1px dashed rgba(255,101,132,0.3)' }}>
+                <div key={tr(row.label)} style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem 1rem', justifyContent: 'space-between', paddingBottom: '0.75rem', borderBottom: '1px dashed rgba(255,101,132,0.3)' }}>
                   <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, color: '#4a5568' }}>{tr(row.label)}</span>
                   <span style={{ fontWeight: 600, color: 'var(--pop-pink-bright)' }}>{tr(row.value)}</span>
                 </div>
