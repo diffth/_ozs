@@ -27,7 +27,7 @@ export default function Home() {
             <p className="hero-pop__desc">
               {t('home.heroDesc')}
             </p>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <div className="hero-pop__cta" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               <Link className="btn-pop" to="/contact">
                 {t('home.heroCtaPrimary')}
               </Link>
@@ -126,11 +126,11 @@ export default function Home() {
             </Link>
           </div>
 
-          <div style={{ textCenter: 'center' }}>
+          <div style={{ textAlign: 'center' }}>
             <img
               src="/img/pop_product_packages.png"
               alt={t('home.mintImgAlt')}
-              style={{ borderRadius: '24px', boxShadow: '0 16px 36px rgba(0,0,0,0.12)', border: '4px solid #ffffff' }}
+              style={{ width: '100%', height: 'auto', borderRadius: '24px', boxShadow: '0 16px 36px rgba(0,0,0,0.12)', border: '4px solid #ffffff' }}
             />
           </div>
         </div>

@@ -45,7 +45,7 @@ export default function About() {
 
       <section className="sec-pop">
         <div className="wrap">
-          <div className="pop-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+          <div className="pop-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))' }}>
             {cards.map((c, i) => (
               <div key={c.tag} className={`pop-card ${CARD_COLORS[i % CARD_COLORS.length]}`}>
                 <div>
