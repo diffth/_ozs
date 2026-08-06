@@ -43,7 +43,7 @@ export default function WorksLedger() {
               </span>
             </span>
 
-            <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, color: 'var(--pop-pink)' }}>{p.year}</span>
+            <span className="pop-ledger__year">{p.year}</span>
           </Link>
         ))}
       </div>
