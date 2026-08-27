@@ -38,8 +38,8 @@ export const site = {
 }
 
 export const nav = [
-  { label: 'Works', to: '/#works' },
   { label: 'About', to: '/about' },
+  { label: 'Works', to: '/#works' },
   { label: 'Contact', to: '/contact' },
 ]
 
