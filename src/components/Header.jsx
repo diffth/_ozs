@@ -55,7 +55,7 @@ export default function Header() {
         </button>
 
         <nav id="site-nav" className="hdr__nav" aria-label={t('common.mainNavAria')}>
-          <NavLink to="/" onClick={close}>Home</NavLink>
+
           <Link to="/#works" onClick={close}>Works</Link>
           <NavLink to="/about" onClick={close}>About</NavLink>
           <NavLink to="/contact" onClick={close}>Contact</NavLink>
