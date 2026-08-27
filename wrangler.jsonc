@@ -1,0 +1,9 @@
+// Cloudflare Pages build config.
+// Pinning the output dir here so a wrong "Build output directory" in the
+// dashboard cannot break the deployment again — this file wins over it.
+// The build command still lives in the dashboard: `npm run build`.
+{
+  "name": "ozs-e4m",
+  "compatibility_date": "2026-08-27",
+  "pages_build_output_dir": "dist"
+}
