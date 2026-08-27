@@ -14,7 +14,7 @@ export default function Footer() {
             ⚡ {site.name} <span style={{ fontSize: '1rem', color: 'var(--pop-yellow)', fontWeight: 500 }}>Studio</span>
           </div>
           <nav className="ftr-pop__links" aria-label={t('common.subNavAria')}>
-            <Link to="/">Home</Link>
+
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
             {site.links.map((l) => (
