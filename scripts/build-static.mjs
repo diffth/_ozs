@@ -97,18 +97,18 @@ const routes = [
 ]
 
 const head = (r) => `
-    <title>${esc(r.title)}</title>
-    <meta name="description" content="${esc(r.desc)}" />
-    <link rel="canonical" href="${site.url}${r.path}" />
+    <title data-seo="static">${esc(r.title)}</title>
+    <meta name="description" data-seo="static" content="${esc(r.desc)}" />
+    <link rel="canonical" data-seo="static" href="${site.url}${r.path}" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="${esc(site.name)}" />
-    <meta property="og:locale" content="${OG_LOCALE[L]}" />
+    <meta property="og:locale" data-seo="static" content="${OG_LOCALE[L]}" />
     <meta property="og:locale:alternate" content="${OG_LOCALE[L === 'ko' ? 'en' : 'ko']}" />
-    <meta property="og:title" content="${esc(r.title)}" />
-    <meta property="og:description" content="${esc(r.desc)}" />
-    <meta property="og:url" content="${site.url}${r.path}" />
-    <meta property="og:image" content="${site.url}${r.img}" />
-    <meta name="twitter:card" content="summary_large_image" />${jsonLd(r.ld)}`
+    <meta property="og:title" data-seo="static" content="${esc(r.title)}" />
+    <meta property="og:description" data-seo="static" content="${esc(r.desc)}" />
+    <meta property="og:url" data-seo="static" content="${site.url}${r.path}" />
+    <meta property="og:image" data-seo="static" content="${site.url}${r.img}" />
+    <meta name="twitter:card" data-seo="static" content="summary_large_image" />${jsonLd(r.ld)}`
 
 let written = 0
 for (const r of routes) {
@@ -127,14 +127,14 @@ for (const r of routes) {
 // canonical 을 달고 색인될 수 있습니다. 전용 head 로 갈아 끼우고
 // noindex 를 달아 색인 대상에서 빼둡니다. canonical 은 넣지 않습니다.
 const notFoundHead = `
-    <title>404 — ${esc(site.name)}</title>
-    <meta name="description" content="${esc(d('seo.notFound'))}" />
-    <meta name="robots" content="noindex, follow" />
+    <title data-seo="static">404 — ${esc(site.name)}</title>
+    <meta name="description" data-seo="static" content="${esc(d('seo.notFound'))}" />
+    <meta name="robots" data-seo="static" content="noindex, follow" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="${esc(site.name)}" />
-    <meta property="og:locale" content="${OG_LOCALE[L]}" />
-    <meta property="og:title" content="404 — ${esc(site.name)}" />
-    <meta property="og:description" content="${esc(d('seo.notFound'))}" />`
+    <meta property="og:locale" data-seo="static" content="${OG_LOCALE[L]}" />
+    <meta property="og:title" data-seo="static" content="404 — ${esc(site.name)}" />
+    <meta property="og:description" data-seo="static" content="${esc(d('seo.notFound'))}" />`
 
 writeFileSync(
   resolve(dist, '404.html'),
