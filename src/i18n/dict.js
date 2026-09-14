@@ -94,6 +94,10 @@ export const dict = {
       },
     ],
 
+    mintTitle: {
+      ko: '프로젝트에 에너지가 필요하신가요?',
+      en: 'NEED SOME ENERGY ON YOUR PROJECT?',
+    },
     mintDesc: {
       ko: '기획부터 UI/UX 디자인, 풀스택 개발까지! 망설이지 말고 당신의 아디이어에 통통 튀는 활력을 불어넣어 보세요.',
       en: 'From planning to UI/UX design to full-stack development — give your idea the energy it deserves.',

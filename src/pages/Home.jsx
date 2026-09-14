@@ -123,7 +123,7 @@ export default function Home() {
             <span className="badge-pop" style={{ background: '#ffffff', color: '#004d40', marginBottom: '1.25rem' }}>
               READY TO LAUNCH
             </span>
-            <h2 className="mint-sec__title">NEED SOME ENERGY ON YOUR PROJECT?</h2>
+            <h2 className="mint-sec__title">{t('home.mintTitle')}</h2>
             <p className="mint-sec__desc">
               {t('home.mintDesc')}
             </p>
