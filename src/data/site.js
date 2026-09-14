@@ -36,9 +36,12 @@ export const site = {
   ],
 }
 
+// 헤더 주요 메뉴. 배열 순서가 곧 화면에 나오는 순서입니다.
+// to 에 # 이 들어간 항목은 홈 안의 구역으로 가는 앵커입니다.
 export const nav = [
   { label: 'About', to: '/about' },
   { label: 'Works', to: '/#works' },
+  { label: 'Launch', to: '/#launch' },
   { label: 'Contact', to: '/contact' },
 ]
 

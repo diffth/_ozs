@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { site } from '../data/site.js'
+import { nav, site } from '../data/site.js'
 import { useLang } from '../i18n/LanguageProvider.jsx'
 import LangSwitch from './LangSwitch.jsx'
 
@@ -56,10 +56,19 @@ export default function Header() {
 
         <nav id="site-nav" className="hdr__nav" aria-label={t('common.mainNavAria')}>
 
-          <NavLink to="/about" onClick={close}>About</NavLink>
-          <Link to="/#works" onClick={close}>Works</Link>
-          <Link to="/#launch" onClick={close}>Launch</Link>
-          <NavLink to="/contact" onClick={close}>Contact</NavLink>
+          {/* 앵커(#) 항목은 특정 페이지에 머무는 링크가 아니라서 현재 위치
+              표시가 맞지 않습니다. 그래서 NavLink 대신 Link 로 그립니다. */}
+          {nav.map((item) =>
+            item.to.includes('#') ? (
+              <Link key={item.to} to={item.to} onClick={close}>
+                {item.label}
+              </Link>
+            ) : (
+              <NavLink key={item.to} to={item.to} onClick={close}>
+                {item.label}
+              </NavLink>
+            )
+          )}
           <LangSwitch />
           <Link to="/contact" className="btn-pop hdr__cta" onClick={close}>
             Get Started 🚀
