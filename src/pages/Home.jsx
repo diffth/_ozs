@@ -22,7 +22,7 @@ export default function Home() {
               {t('home.heroBadge')}
             </span>
             <h1 className="hero-pop__title">
-              WE BREW <span>CREATIVE</span> ENERGY!
+              {t('home.heroTitleLead')} <span>{t('home.heroTitleHighlight')}</span> {t('home.heroTitleTrail')}
             </h1>
             <p className="hero-pop__desc">
               {t('home.heroDesc')}
