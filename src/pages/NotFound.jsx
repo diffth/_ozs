@@ -7,7 +7,7 @@ export default function NotFound() {
 
   return (
     <>
-      <Seo title="404" description={t('seo.notFound')} path="/404" />
+      <Seo title="404" description={t('seo.notFound')} path="/404" noindex />
 
       <section className="hero-pop" style={{ padding: '4rem 0 5rem' }}>
         <div className="wrap" style={{ textAlign: 'center' }}>

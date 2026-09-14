@@ -6,7 +6,7 @@ import { OG_LOCALE } from '../i18n/index.js'
  * React 19 는 컴포넌트 안의 <title>/<meta>/<link> 를 <head> 로 올려줍니다.
  * 크롤러(카카오톡, 디스코드 등)를 위한 정적 HTML 은 scripts/build-static.mjs 가 따로 만듭니다.
  */
-export default function Seo({ title, description, path = '/', image }) {
+export default function Seo({ title, description, path = '/', image, noindex = false }) {
   const { lang, t, tr } = useLang()
 
   const full = title ? `${title} — ${site.name}` : `${site.name} — ${t('seo.siteTitle')}`
@@ -18,7 +18,13 @@ export default function Seo({ title, description, path = '/', image }) {
     <>
       <title>{full}</title>
       <meta name="description" content={desc} />
-      <link rel="canonical" href={url} />
+      {/* 404 처럼 색인되면 안 되는 화면은 canonical 대신 noindex 를 답니다.
+          없는 주소에 canonical 을 달면 그 주소가 정식 페이지로 읽힙니다. */}
+      {noindex ? (
+        <meta name="robots" content="noindex, follow" />
+      ) : (
+        <link rel="canonical" href={url} />
+      )}
       <meta property="og:title" content={full} />
       <meta property="og:description" content={desc} />
       <meta property="og:url" content={url} />
