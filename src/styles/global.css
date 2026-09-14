@@ -380,6 +380,8 @@ img {
   color: #ffffff;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   margin: 0 0 1.25rem;
+  /* 한글 제목이 낱말 중간에서 끊기지 않도록 어절 단위로만 줄바꿈합니다. */
+  word-break: keep-all;
 }
 
 .hero-pop__title span {
