@@ -117,6 +117,17 @@ export default function Home() {
       </section>
 
       {/* ── 3. Mint Energy Banner Section ───────────────── */}
+      {/* 민트 섹션의 위·아래 경계도 히어로와 같은 파형으로 잡습니다.
+          아래쪽 물결은 1/4 주기 어긋나게 두어 두 변이 엇갈려 보입니다. */}
+      <div className="mint-wave">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path
+            fill="var(--pop-mint-bright)"
+            d="M0,60 C183,86.7 367,86.7 550,60 C733,33.3 917,33.3 1100,60 C1283,86.7 1467,86.7 1650,60 L1650,120 L-1100,120 Z"
+          ></path>
+        </svg>
+      </div>
+
       <section className="mint-sec">
         <div className="wrap mint-sec__wrap">
           <div>
@@ -141,6 +152,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <div className="mint-wave">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path
+            fill="var(--pop-mint-bright)"
+            d="M-825,60 C-642,86.7 -458,86.7 -275,60 C-92,33.3 92,33.3 275,60 C458,86.7 642,86.7 825,60 C1008,33.3 1192,33.3 1375,60 C1558,86.7 1742,86.7 1925,60 L1925,0 L-1100,0 Z"
+          ></path>
+        </svg>
+      </div>
 
       {/* ── 4. Works Ledger Section ────────────────────── */}
       <section className="sec-pop" id="works" style={{ background: '#fffbf5' }}>
