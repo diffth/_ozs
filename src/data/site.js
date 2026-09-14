@@ -32,8 +32,7 @@ export const site = {
   },
 
   links: [
-    { label: 'GitHub', href: 'https://github.com/' },
-    { label: 'X', href: 'https://x.com/' },
+    { label: 'GitHub', href: 'https://github.com/diffth' },
   ],
 }
 
