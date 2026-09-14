@@ -58,6 +58,7 @@ export default function Header() {
 
           <NavLink to="/about" onClick={close}>About</NavLink>
           <Link to="/#works" onClick={close}>Works</Link>
+          <Link to="/#launch" onClick={close}>Launch</Link>
           <NavLink to="/contact" onClick={close}>Contact</NavLink>
           <LangSwitch />
           <Link to="/contact" className="btn-pop hdr__cta" onClick={close}>
