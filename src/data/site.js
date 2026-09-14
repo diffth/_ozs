@@ -21,9 +21,9 @@ export const site = {
 
   // 사이트 하단 표기 의무 항목
   business: {
-    company: { ko: '오즈에스', en: 'OZS' },
+    company: { ko: '오즈스', en: 'OZS' },
     ceo: { ko: '오세헌', en: 'Seheon Oh' },
-    regNumber: '000-00-00000',
+    regNumber: '324-66-00784',
     address: {
       ko: '인천광역시 ○○구 ○○로 000',
       en: '000, ○○-ro, ○○-gu, Incheon, Republic of Korea',
