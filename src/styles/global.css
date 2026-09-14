@@ -574,6 +574,23 @@ img {
 }
 
 /* ── Mint Banner Section ────────────────────── */
+/* 민트 섹션의 위·아래 물결. .wave-divider 와 달리 위아래가 모두 단색이라
+   끌어올릴 필요가 없어, 물결 바깥쪽은 이 요소의 배경(크림)이 채웁니다. */
+.mint-wave {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  background: var(--pop-cream);
+}
+
+.mint-wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: clamp(50px, 8vw, 100px);
+}
+
 .mint-sec {
   background: var(--pop-mint-bright);
   color: #004d40;
