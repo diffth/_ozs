@@ -17,7 +17,7 @@ export const site = {
   },
   founded: '2025',
   location: { ko: '경기 부천', en: 'Bucheon, KR' },
-  email: 'contact@ozs.co.kr',
+  email: 'info@ozs.co.kr',
 
   // 사이트 하단 표기 의무 항목
   business: {
@@ -28,7 +28,7 @@ export const site = {
       ko: '경기도 부천시 소사구 은성로 110-1, 206동 202호',
       en: '#202, Bldg 206, 110-1 Eunseong-ro, Sosa-gu, Bucheon-si, Gyeonggi-do, Republic of Korea',
     },
-    tel: '000-0000-0000',
+    tel: '010-6343-4414',
   },
 
   links: [
