@@ -73,7 +73,7 @@ export default function Home() {
             <span className="badge-pop" style={{ background: 'var(--pop-pink-bg)', color: 'var(--pop-pink)' }}>
               FEATURED PROJECTS
             </span>
-            <h2 className="sec-pop__title">EXPLORE OUR WORKS! ⚡</h2>
+            <h2 className="sec-pop__title">{t('home.featuredTitle')}</h2>
             {/* Squiggle wave decoration line */}
             <svg className="squiggle-line" viewBox="0 0 100 20" fill="none">
               <path
