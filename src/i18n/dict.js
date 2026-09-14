@@ -64,7 +64,7 @@ export const dict = {
     featured: [
       {
         slug: 'atelier-noct',
-        tag: 'Interactive Game',
+        tag: { ko: '인터랙티브 게임', en: 'Interactive Game' },
         name: 'Atelier Noct',
         date: '2026.04',
         desc: {
@@ -74,7 +74,7 @@ export const dict = {
       },
       {
         slug: 'lumen-drift',
-        tag: '3D Web App',
+        tag: { ko: '3D 웹 앱', en: '3D Web App' },
         name: 'Lumen Drift',
         date: '2025.11',
         desc: {
@@ -84,7 +84,7 @@ export const dict = {
       },
       {
         slug: 'tideboard',
-        tag: 'SaaS Dashboard',
+        tag: { ko: 'SaaS 대시보드', en: 'SaaS Dashboard' },
         name: 'Tideboard',
         date: '2025.06',
         desc: {

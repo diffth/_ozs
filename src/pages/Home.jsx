@@ -92,7 +92,7 @@ export default function Home() {
             {featured.map((f, i) => (
               <div key={f.slug} className={`pop-card ${CARD_COLORS[i % CARD_COLORS.length]}`}>
                 <div>
-                  <span className="pop-card__tag">{f.tag}</span>
+                  <span className="pop-card__tag">{tr(f.tag)}</span>
                   <h3 className="pop-card__title">{f.name}</h3>
                   <p className="pop-card__desc">{tr(f.desc)}</p>
                 </div>
