@@ -16,7 +16,7 @@ export const site = {
     en: 'A solo development studio that plans and builds websites, web services, and games.',
   },
   founded: '2025',
-  location: { ko: '대한민국 인천', en: 'Incheon, KR' },
+  location: { ko: '경기 부천', en: 'Bucheon, KR' },
   email: 'contact@ozs.co.kr',
 
   // 사이트 하단 표기 의무 항목
@@ -25,8 +25,8 @@ export const site = {
     ceo: { ko: '오세헌', en: 'Seheon Oh' },
     regNumber: '324-66-00784',
     address: {
-      ko: '인천광역시 ○○구 ○○로 000',
-      en: '000, ○○-ro, ○○-gu, Incheon, Republic of Korea',
+      ko: '경기도 부천시 소사구 은성로 110-1, 206동 202호',
+      en: '#202, Bldg 206, 110-1 Eunseong-ro, Sosa-gu, Bucheon-si, Gyeonggi-do, Republic of Korea',
     },
     tel: '000-0000-0000',
   },
