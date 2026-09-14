@@ -108,10 +108,12 @@ export const dict = {
       en: 'ozs Brand Package Mockup',
     },
 
+    worksTitle: { ko: '지금까지 출시한 전체 작품 📜', en: 'ALL SHIPPED PROJECTS 📜' },
     worksSubtitle: {
       ko: 'ozs 스튜디오가 하나씩 완성하고 출시한 전체 프로젝트 아카이브입니다.',
       en: 'The complete archive of every project ozs has finished and shipped, one at a time.',
     },
+    capabilitiesTitle: { ko: '스튜디오가 할 수 있는 일 💡', en: 'STUDIO CAPABILITIES 💡' },
   },
 
   about: {

@@ -149,7 +149,7 @@ export default function Home() {
             <span className="badge-pop" style={{ background: 'var(--pop-pink-bg)', color: 'var(--pop-pink)' }}>
               FULL ARCHIVE
             </span>
-            <h2 className="sec-pop__title">ALL SHIPPED PROJECTS 📜</h2>
+            <h2 className="sec-pop__title">{t('home.worksTitle')}</h2>
             <p className="sec-pop__subtitle">
               {t('home.worksSubtitle')}
             </p>
@@ -164,7 +164,7 @@ export default function Home() {
         <div className="wrap">
           <div className="sec-pop__head">
             <span className="badge-pop">WHAT I BUILD</span>
-            <h2 className="sec-pop__title">STUDIO CAPABILITIES 💡</h2>
+            <h2 className="sec-pop__title">{t('home.capabilitiesTitle')}</h2>
           </div>
 
           <div className="pop-grid">
