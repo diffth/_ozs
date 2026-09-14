@@ -602,6 +602,9 @@ img {
   color: #004d40;
   padding: clamp(4rem, 10vw, 7rem) 0;
   position: relative;
+  /* 헤더 높이는 html 의 scroll-padding-top 이 이미 비워 준다. 여기서는
+     위쪽 물결이 화면 밖으로 밀리지 않도록 물결 높이만 더 띄운다. */
+  scroll-margin-top: clamp(50px, 8vw, 100px);
 }
 
 .mint-sec__wrap {

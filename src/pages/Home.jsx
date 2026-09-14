@@ -128,7 +128,7 @@ export default function Home() {
         </svg>
       </div>
 
-      <section className="mint-sec">
+      <section className="mint-sec" id="launch">
         <div className="wrap mint-sec__wrap">
           <div>
             <span className="badge-pop" style={{ background: '#ffffff', color: '#004d40', marginBottom: '1.25rem' }}>
