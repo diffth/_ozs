@@ -357,6 +357,14 @@ img {
   overflow: hidden;
 }
 
+/* wave-divider 를 자기 높이만큼 끌어올리기 때문에, 그만큼 히어로 아래에 자리를
+   되돌려 줍니다. 페이지마다 인라인 padding 을 쓰고 있어 더해지는 ::after 로 잡습니다. */
+.hero-pop::after {
+  content: '';
+  display: block;
+  height: clamp(50px, 8vw, 100px);
+}
+
 .hero-pop__content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -423,6 +431,9 @@ img {
   width: 100%;
   overflow: hidden;
   line-height: 0;
+  /* 히어로 위로 자기 높이만큼 끌어올립니다. 윗물결보다 위쪽은 칠하지 않으므로
+     히어로 그라데이션이 물결선까지 그대로 이어집니다. */
+  margin-top: calc(-1 * clamp(50px, 8vw, 100px));
 }
 
 .wave-divider svg {
