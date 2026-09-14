@@ -1,4 +1,12 @@
-# Cloudflare Pages — SPA 폴백.
-# /works/xxx/index.html 같은 실제 파일이 있으면 그 파일이 먼저 나가고,
-# 없는 경로만 index.html 로 넘어갑니다.
-/*  /index.html  200
+# Cloudflare Pages.
+#
+# SPA 폴백(/* /index.html 200)은 쓰지 않습니다. 그 규칙이 있으면 없는 주소도
+# 200 을 돌려줘서 검색엔진이 "소프트 404" 로 보고, 존재하지 않는 URL 이
+# 색인될 수 있습니다.
+#
+# 실제 라우트(/, /about, /contact, /works/{slug})는 scripts/build-static.mjs 가
+# 모두 정적 HTML 로 만들어 두므로 폴백 없이도 직접 열립니다. 그 밖의 주소는
+# Pages 가 404.html 을 404 상태로 내보내고, 그 안에서 앱이 404 화면을 그립니다.
+#
+# 주의: 새 라우트를 추가하면 build-static.mjs 의 routes 에도 넣어야 합니다.
+# 넣지 않으면 그 주소는 404 가 됩니다.
