@@ -40,6 +40,11 @@ export const dict = {
       ko: '🌟 1인 개발 스튜디오 ozs',
       en: '🌟 ozs — a solo development studio',
     },
+    // 히어로 제목은 About 과 같이 lead / highlight / trail 로 나눠
+    // 가운데 낱말만 노란색(.hero-pop__title span)으로 강조합니다.
+    heroTitleLead: { ko: '상상을 채우는', en: 'WE BREW' },
+    heroTitleHighlight: { ko: '크리에이티브', en: 'CREATIVE' },
+    heroTitleTrail: { ko: '에너지!', en: 'ENERGY!' },
     heroDesc: {
       ko: '트렌디한 웹사이트, 감각적인 웹서비스, 몰입감 넘치는 게임까지! 상상을 생동감 있는 디지털 경험으로 직접 기획하고 구현합니다.',
       en: 'Trendy websites, sharp web services, immersive games — I plan and build every idea into a vivid digital experience myself.',
