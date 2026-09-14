@@ -123,7 +123,27 @@ for (const r of routes) {
 }
 
 // Cloudflare Pages 는 404.html 을 자동으로 사용합니다.
-writeFileSync(resolve(dist, '404.html'), shell)
+// 여기에 홈의 SEO 블록이 그대로 남아 있으면 없는 주소가 홈의 제목과
+// canonical 을 달고 색인될 수 있습니다. 전용 head 로 갈아 끼우고
+// noindex 를 달아 색인 대상에서 빼둡니다. canonical 은 넣지 않습니다.
+const notFoundHead = `
+    <title>404 — ${esc(site.name)}</title>
+    <meta name="description" content="${esc(d('seo.notFound'))}" />
+    <meta name="robots" content="noindex, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="${esc(site.name)}" />
+    <meta property="og:locale" content="${OG_LOCALE[L]}" />
+    <meta property="og:title" content="404 — ${esc(site.name)}" />
+    <meta property="og:description" content="${esc(d('seo.notFound'))}" />`
+
+writeFileSync(
+  resolve(dist, '404.html'),
+  shell.replace(
+    /<!-- SEO:START -->[\s\S]*?<!-- SEO:END -->/,
+    `<!-- SEO:START -->${notFoundHead}
+    <!-- SEO:END -->`
+  )
+)
 
 const today = new Date().toISOString().slice(0, 10)
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
