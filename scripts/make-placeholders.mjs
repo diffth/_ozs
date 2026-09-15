@@ -29,9 +29,6 @@ const card = (title, kind) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="
 </svg>`
 
 const files = {
-  'lumen-drift.svg': ['Lumen Drift', 'Game'],
-  'tideboard.svg': ['Tideboard', 'Web Service'],
-  'atelier-noct.svg': ['Atelier Noct', 'Website'],
   'og-default.svg': ['ozs', 'Solo studio'],
 }
 
