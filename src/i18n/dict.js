@@ -56,7 +56,7 @@ export const dict = {
       en: 'ozs Pop Energy Drink & Coffee Mockup',
     },
 
-    featuredTitle: { ko: '직접 만든 작품들! ⚡', en: 'EXPLORE OUR WORKS! ⚡' },
+    featuredTitle: { ko: 'EXPLORE OUR WORKS! ⚡', en: 'EXPLORE OUR WORKS! ⚡' },
     featuredSubtitle: {
       ko: '직접 개발하고 출품한 비비드하고 독창적인 웹서비스 및 라인업을 만나보세요.',
       en: 'Meet the vivid, one-of-a-kind services and products built and shipped in-house.',
@@ -108,7 +108,7 @@ export const dict = {
       en: 'ozs Brand Package Mockup',
     },
 
-    worksTitle: { ko: '지금까지 출시한 전체 작품 📜', en: 'ALL SHIPPED PROJECTS 📜' },
+    worksTitle: { ko: 'ALL SHIPPED PROJECTS 📜', en: 'ALL SHIPPED PROJECTS 📜' },
     worksSubtitle: {
       ko: 'ozs 스튜디오가 하나씩 완성하고 출시한 전체 프로젝트 아카이브입니다.',
       en: 'The complete archive of every project ozs has finished and shipped, one at a time.',
