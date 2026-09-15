@@ -22,7 +22,7 @@ export const site = {
   // 사이트 하단 표기 의무 항목
   business: {
     company: { ko: '오즈스', en: 'OZS' },
-    ceo: { ko: '오세헌', en: 'Seheon Oh' },
+    ceo: { ko: '오세헌', en: 'OH SEHEON' },
     regNumber: '324-66-00784',
     address: {
       ko: '경기도 부천시 소사구 은성로 110-1, 206동 202호',
