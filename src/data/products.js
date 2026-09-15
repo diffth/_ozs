@@ -90,30 +90,33 @@ export const products = [
     presskit: false,
   },
   {
-    slug: 'atelier-noct',
+    slug: 'lawful',
     index: '01',
-    name: 'Atelier Noct',
+    name: '오세영 변호사 웹사이트',
     kind: 'Website',
-    year: '2025',
+    year: '2026',
     status: 'released',
     summary: {
-      ko: '공예 스튜디오를 위한 브랜드 사이트.',
-      en: 'A brand site for a craft studio.',
+      ko: '형사 사건을 다루는 법무법인의 브랜드 사이트.',
+      en: 'A brand site for a criminal defence law firm.',
     },
     description: {
-      ko: '작업물 사진이 주인공이 되도록 인터페이스를 최대한 물러나게 설계했습니다. 정적 배포로 월 유지비 0원, 첫 화면 로딩 0.4초.',
-      en: 'The interface steps back so the photographs of the work can lead. Static hosting keeps running costs at zero, and the first screen loads in 0.4 seconds.',
+      ko: '상담이 급한 사람이 변호사의 경력과 전문 분야를 한 화면에서 확인하고 바로 연락까지 이어지도록 동선을 짧게 잡았습니다. 프레임워크 없이 정적 페이지로 만들어 첫 화면이 빠르게 뜨고, 유지비도 거의 들지 않습니다.',
+      en: 'Someone who needs a lawyer in a hurry can see the record and the specialities on one screen and reach out from there — the path is kept short. Built as static pages with no framework, so the first screen arrives fast and running costs stay near zero.',
     },
-    thumb: '/img/atelier-noct.svg',
-    cover: '/img/atelier-noct.svg',
-    shots: ['/img/atelier-noct.svg'],
+    thumb: '/img/lawful.jpg',
+    cover: '/img/lawful.jpg',
+    shots: [],
     spec: [
       {
         label: { ko: '플랫폼', en: 'Platform' },
         value: { ko: '웹', en: 'Web' },
       },
-      { label: { ko: '스택', en: 'Stack' }, value: 'Astro, Cloudflare Pages' },
-      { label: { ko: '공개', en: 'Launched' }, value: '2025.06' },
+      {
+        label: { ko: '스택', en: 'Stack' },
+        value: 'HTML, CSS, JavaScript, Cloudflare',
+      },
+      { label: { ko: '공개', en: 'Launched' }, value: '2026.08' },
       {
         label: { ko: '역할', en: 'Role' },
         value: { ko: '기획, 디자인, 개발', en: 'Planning, design, development' },
@@ -122,7 +125,7 @@ export const products = [
     stores: [
       {
         label: { ko: '사이트 보기', en: 'Visit the site' },
-        href: 'https://ozs.co.kr',
+        href: 'https://www.lawful.co.kr',
       },
     ],
     presskit: false,
