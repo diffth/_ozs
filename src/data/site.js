@@ -15,7 +15,7 @@ export const site = {
     ko: '웹사이트, 웹서비스, 게임을 직접 기획하고 만드는 1인 개발 스튜디오입니다.',
     en: 'A solo development studio that plans and builds websites, web services, and games.',
   },
-  founded: '2025',
+  founded: '2026',
   location: { ko: '경기 부천', en: 'Bucheon, KR' },
   email: 'info@ozs.co.kr',
 
