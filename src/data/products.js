@@ -8,45 +8,45 @@
 // ─────────────────────────────────────────────
 export const products = [
   {
-    slug: 'lumen-drift',
+    slug: 'zoomin',
     index: '03',
-    name: 'Lumen Drift',
-    kind: 'Game',
+    name: 'zoomin',
+    kind: 'Web Service',
     year: '2026',
-    status: 'in-development', // released | in-development | archived
+    status: 'released',
     summary: {
-      ko: '빛을 밀어내며 길을 만드는 2D 퍼즐 플랫포머.',
-      en: 'A 2D puzzle platformer where you push light around to carve out a path.',
+      ko: '셀카를 여권·증명사진 규격으로 바꿔 주는 AI 변환기.',
+      en: 'An AI converter that turns a selfie into a passport or ID photo that meets the official spec.',
     },
     description: {
-      ko: '플레이어는 빛을 직접 밟을 수 없습니다. 대신 광원을 밀고 당겨 그림자를 만들고, 그 그림자 위를 걸어 다음 방으로 넘어갑니다. 40개 방, 한 번의 플레이에 약 3시간.',
-      en: 'You cannot step on light. Instead you push and pull the light sources to cast shadows, then walk across those shadows into the next room. 40 rooms, roughly three hours per playthrough.',
+      ko: '평범한 인물 사진을 올리면 Gemini 가 배경을 지우고 얼굴 위치와 여백까지 규격에 맞춰 잘라 줍니다. 여권, 주민등록증, 운전면허증 등 용도별 규격을 미리 담아 두어 어디에 쓸지만 고르면 몇 초 만에 끝납니다. 한국어, 영어, 일본어를 지원합니다.',
+      en: 'Upload an ordinary photo of a person and Gemini strips the background, then crops the face position and margins to the required spec. Passport, national ID, driver’s licence and more are preloaded, so you only pick what it is for and it finishes in seconds. Available in Korean, English and Japanese.',
     },
-    thumb: '/img/lumen-drift.svg',
-    cover: '/img/lumen-drift.svg',
-    shots: ['/img/lumen-drift.svg', '/img/lumen-drift.svg'],
+    thumb: '/img/zoomin.jpg',
+    cover: '/img/zoomin.jpg',
+    shots: [],
     spec: [
       {
         label: { ko: '플랫폼', en: 'Platform' },
-        value: 'PC (Windows, macOS)',
-      },
-      { label: { ko: '엔진', en: 'Engine' }, value: 'Unity 6' },
-      {
-        label: { ko: '출시', en: 'Release' },
-        value: { ko: '2026 예정', en: 'Planned for 2026' },
+        value: { ko: '웹', en: 'Web' },
       },
       {
-        label: { ko: '가격', en: 'Price' },
-        value: { ko: '미정', en: 'TBD' },
+        label: { ko: '스택', en: 'Stack' },
+        value: 'React, Tailwind CSS, Gemini API, Cloudflare Pages',
+      },
+      { label: { ko: '공개', en: 'Launched' }, value: '2026.07' },
+      {
+        label: { ko: '역할', en: 'Role' },
+        value: { ko: '기획, 디자인, 개발', en: 'Planning, design, development' },
       },
     ],
     stores: [
       {
-        label: { ko: 'Steam 위시리스트', en: 'Wishlist on Steam' },
-        href: 'https://store.steampowered.com/',
+        label: { ko: '바로 사용하기', en: 'Open the app' },
+        href: 'https://zoomin-61h.pages.dev/ko',
       },
     ],
-    presskit: true,
+    presskit: false,
   },
   {
     slug: 'tideboard',
