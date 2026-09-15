@@ -72,6 +72,6 @@ export const capabilities = [
       ko: '작은 규모의 인디 게임. 프로토타입에서 스토어 출시, 업데이트 운영까지 직접 맡습니다.',
       en: 'Small indie games — prototype, store release, and ongoing updates, all handled in-house.',
     },
-    stack: ['Unity', 'Godot', 'WebGL'],
+    stack: ['Unity', 'Unreal', 'HTML5'],
   },
 ]
