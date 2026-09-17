@@ -657,14 +657,14 @@ img {
 .ftr-pop__brand {
   font-size: 1.6rem;
   font-weight: 800;
-  color: var(--pop-dark);
+  color: #ffffff;
   letter-spacing: -0.02em;
 }
 
 .ftr-pop__tagline {
   margin-top: 0.35rem;
   font-weight: 700;
-  color: var(--pop-teal);
+  color: var(--pop-yellow);
 }
 
 .ftr-pop__links {
@@ -674,11 +674,11 @@ img {
 }
 
 .ftr-pop__links a {
-  color: #495057;
+  color: var(--pop-mint-bright);
   transition: color 0.2s ease;
 }
 .ftr-pop__links a:hover {
-  color: var(--pop-teal);
+  color: #ffffff;
 }
 
 /* 라벨 열 너비를 고정해 값이 세로로 정렬되게 합니다. */
