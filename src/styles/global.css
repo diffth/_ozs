@@ -636,6 +636,72 @@ img {
   max-width: 44ch;
 }
 
+/* ── Legal Documents ─────────────────────────── */
+.legal {
+  max-width: 48rem;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: clamp(1.75rem, 5vw, 3.5rem);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.06);
+  color: var(--pop-text-dark);
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+.legal__intro {
+  margin: 0 0 2rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--pop-mint-bg);
+  border-radius: var(--radius-md);
+}
+
+.legal__sec + .legal__sec {
+  margin-top: 2rem;
+}
+
+.legal__heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--pop-teal-dark);
+  margin: 0 0 0.6rem;
+}
+
+.legal__sec p {
+  margin: 0 0 0.5rem;
+}
+
+.legal__list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.legal__list li + li {
+  margin-top: 0.35rem;
+}
+
+.legal__date {
+  margin: 2.5rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e9ecef;
+  font-size: 0.9rem;
+  color: #868e96;
+}
+
+.legal__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.legal__nav a {
+  color: var(--pop-teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ── Footer ──────────────────────────────────── */
 .ftr-pop {
   background: var(--pop-teal-dark);
