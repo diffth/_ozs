@@ -15,6 +15,7 @@ import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { site } from '../src/data/site.js'
 import { products } from '../src/data/products.js'
+import { legalDocs } from '../src/data/legal.js'
 import { DEFAULT_LANG, OG_LOCALE, tr, translate } from '../src/i18n/index.js'
 
 // 크롤러가 보는 정적 HTML 은 기본 언어(한국어) 기준으로 만듭니다.
@@ -93,6 +94,14 @@ const routes = [
     img: p.cover,
     priority: '0.9',
     ld: [organization, breadcrumb(p)],
+  })),
+  ...legalDocs.map((doc) => ({
+    path: doc.path,
+    title: `${s(doc.title)} — ${site.name}`,
+    desc: s(doc.intro),
+    img: '/img/og-default.svg',
+    priority: '0.3',
+    ld: [organization],
   })),
 ]
 
