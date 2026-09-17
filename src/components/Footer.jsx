@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom'
 import { site } from '../data/site.js'
 import { useLang } from '../i18n/LanguageProvider.jsx'
 
+// Wrap each character so flex can space them out; CSS justify skips Hangul without spaces.
+const spread = (text) => [...text].map((ch, i) => <span key={i}>{ch}</span>)
+
 export default function Footer() {
   const { t, tr } = useLang()
   const b = site.business
@@ -29,7 +32,10 @@ export default function Footer() {
           <dl className="ftr-pop__dl">
             <dt>{t('footer.company')}</dt>
             <dd className="ftr-pop__strong">{tr(b.company)}</dd>
-            <dt>{t('footer.ceo')}</dt>
+            <dt className="ftr-pop__dt--spread">
+              <span className="ftr-pop__chars">{spread(t('footer.ceo'))}</span>
+              <span className="ftr-pop__sizer" aria-hidden="true">{t('footer.company')}</span>
+            </dt>
             <dd>{tr(b.ceo)}</dd>
             <dt>{t('footer.regNumber')}</dt>
             <dd>{b.regNumber}</dd>
