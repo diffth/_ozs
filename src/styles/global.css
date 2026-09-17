@@ -702,6 +702,31 @@ img {
   color: rgba(224, 247, 250, 0.6);
 }
 
+/* 한글 두 글자 라벨을 세 글자(회사명) 폭에 맞춰 글자 사이를 벌립니다.
+   글꼴마다 한글 폭이 달라서 고정 em 대신, 보이지 않는 '회사명'을 겹쳐 폭을 잡습니다. */
+.ftr-pop__dt--spread {
+  display: inline-grid;
+  justify-self: start;
+}
+
+.ftr-pop__dt--spread > span {
+  grid-area: 1 / 1;
+}
+
+.ftr-pop__sizer {
+  display: none;
+}
+
+:lang(ko) .ftr-pop__chars {
+  display: flex;
+  justify-content: space-between;
+}
+
+:lang(ko) .ftr-pop__sizer {
+  display: block;
+  visibility: hidden;
+}
+
 .ftr-pop__dl dd {
   margin: 0;
   color: #e0f7fa;
