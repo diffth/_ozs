@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
 
         <div className="ftr-pop__bottom">
-          <p>© {new Date().getFullYear()} {tr(b.company)}({tr(b.ceo)}). All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} {tr(b.company)}. All Rights Reserved.</p>
           <p>{t('footer.copy')}</p>
         </div>
       </div>
