@@ -699,12 +699,12 @@ img {
 }
 
 .ftr-pop__dl dt {
-  color: #868e96;
+  color: rgba(224, 247, 250, 0.6);
 }
 
 .ftr-pop__dl dd {
   margin: 0;
-  color: #343a40;
+  color: #e0f7fa;
 }
 
 .ftr-pop__strong {
@@ -713,11 +713,11 @@ img {
 
 .ftr-pop__accent {
   font-weight: 700;
-  color: var(--pop-teal);
+  color: var(--pop-yellow);
 }
 
 .ftr-pop__mail {
-  color: #343a40;
+  color: #e0f7fa;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -729,7 +729,7 @@ img {
   gap: 0.5rem 2rem;
   padding-top: 1.25rem;
   font-size: 0.85rem;
-  color: #868e96;
+  color: rgba(224, 247, 250, 0.6);
 }
 
 .ftr-pop__bottom p {
