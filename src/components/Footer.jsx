@@ -41,9 +41,15 @@ export default function Footer() {
             <dd>{b.regNumber}</dd>
           </dl>
           <dl className="ftr-pop__dl">
-            <dt>{t('footer.address')}</dt>
+            <dt className="ftr-pop__dt--spread">
+              <span className="ftr-pop__chars">{spread(t('footer.address'))}</span>
+              <span className="ftr-pop__sizer" aria-hidden="true">{t('footer.company')}</span>
+            </dt>
             <dd>{tr(b.address)}</dd>
-            <dt>{t('footer.tel')}</dt>
+            <dt className="ftr-pop__dt--spread">
+              <span className="ftr-pop__chars">{spread(t('footer.tel'))}</span>
+              <span className="ftr-pop__sizer" aria-hidden="true">{t('footer.company')}</span>
+            </dt>
             <dd>
               <a className="ftr-pop__accent" href={`tel:${b.tel}`}>{b.tel}</a>
             </dd>
