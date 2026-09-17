@@ -10,11 +10,11 @@ export default function Footer() {
     <footer className="ftr-pop">
       <div className="wrap">
         <div className="ftr-pop__in">
-          <div className="ftr-pop__brand">
-            ⚡ {site.name} <span style={{ fontSize: '1rem', color: 'var(--pop-yellow)', fontWeight: 500 }}>Studio</span>
+          <div>
+            <div className="ftr-pop__brand">{tr(b.company)} ({site.name})</div>
+            <p className="ftr-pop__tagline">{tr(site.tagline)}</p>
           </div>
           <nav className="ftr-pop__links" aria-label={t('common.subNavAria')}>
-
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
             {site.links.map((l) => (
@@ -25,14 +25,32 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div style={{ marginTop: '2rem', fontSize: '0.85rem', color: 'rgba(224, 247, 250, 0.75)', lineHeight: 1.8 }}>
-          <span>{t('footer.company')}: {tr(b.company)}</span> | <span>{t('footer.ceo')}: {tr(b.ceo)}</span> | <span>{t('footer.regNumber')}: {b.regNumber}</span>
-          <br />
-          <span>{t('footer.address')}: {tr(b.address)}</span> | <span>{t('footer.tel')}: {b.tel}</span> | <span>{t('footer.email')}: <a href={`mailto:${site.email}`} style={{ color: 'var(--pop-yellow)' }}>{site.email}</a></span>
+        <div className="ftr-pop__info">
+          <dl className="ftr-pop__dl">
+            <dt>{t('footer.company')}</dt>
+            <dd className="ftr-pop__strong">{tr(b.company)}</dd>
+            <dt>{t('footer.ceo')}</dt>
+            <dd>{tr(b.ceo)}</dd>
+            <dt>{t('footer.regNumber')}</dt>
+            <dd>{b.regNumber}</dd>
+          </dl>
+          <dl className="ftr-pop__dl">
+            <dt>{t('footer.address')}</dt>
+            <dd>{tr(b.address)}</dd>
+            <dt>{t('footer.tel')}</dt>
+            <dd>
+              <a className="ftr-pop__accent" href={`tel:${b.tel}`}>{b.tel}</a>
+            </dd>
+            <dt>{t('footer.email')}</dt>
+            <dd>
+              <a className="ftr-pop__mail" href={`mailto:${site.email}`}>{site.email}</a>
+            </dd>
+          </dl>
         </div>
 
-        <div className="ftr-pop__copy">
-          © {new Date().getFullYear()} {tr(b.company)}. {t('footer.copy')}
+        <div className="ftr-pop__bottom">
+          <p>© {new Date().getFullYear()} {tr(b.company)}({tr(b.ceo)}). All Rights Reserved.</p>
+          <p>{t('footer.copy')}</p>
         </div>
       </div>
     </footer>
