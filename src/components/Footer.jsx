@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { site } from '../data/site.js'
+import { legalDocs } from '../data/legal.js'
 import { useLang } from '../i18n/LanguageProvider.jsx'
 
 // Wrap each character so flex can space them out; CSS justify skips Hangul without spaces.
@@ -18,12 +19,10 @@ export default function Footer() {
             <p className="ftr-pop__tagline">{tr(site.tagline)}</p>
           </div>
           <nav className="ftr-pop__links" aria-label={t('common.subNavAria')}>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
-            {site.links.map((l) => (
-              <a key={l.label} href={l.href} target="_blank" rel="noreferrer">
-                {l.label}
-              </a>
+            {legalDocs.map((d) => (
+              <Link key={d.key} to={d.path}>
+                {tr(d.title)}
+              </Link>
             ))}
           </nav>
         </div>
