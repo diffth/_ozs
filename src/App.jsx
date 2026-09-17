@@ -6,8 +6,10 @@ import Home from './pages/Home.jsx'
 import Work from './pages/Work.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
+import Legal from './pages/Legal.jsx'
 import NotFound from './pages/NotFound.jsx'
 import { useLang } from './i18n/LanguageProvider.jsx'
+import { legalDocs } from './data/legal.js'
 
 export default function App() {
   const { t } = useLang()
@@ -23,6 +25,9 @@ export default function App() {
           <Route path="/works/:slug" element={<Work />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          {legalDocs.map((d) => (
+            <Route key={d.key} path={d.path} element={<Legal docKey={d.key} />} />
+          ))}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
