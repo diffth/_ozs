@@ -219,8 +219,8 @@ export const dict = {
     tel: { ko: '전화', en: 'Tel' },
     email: { ko: '이메일', en: 'Email' },
     copy: {
-      ko: 'Built with Energy & Passion 🌟',
-      en: 'Built with Energy & Passion 🌟',
+      ko: '본 사이트의 모든 콘텐츠는 무단 전재 및 배포를 금합니다.',
+      en: 'All content on this site may not be reproduced or distributed without permission.',
     },
   },
 }
