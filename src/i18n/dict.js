@@ -212,7 +212,7 @@ export const dict = {
   },
 
   footer: {
-    company: { ko: '상호', en: 'Company' },
+    company: { ko: '회사명', en: 'Company' },
     ceo: { ko: '대표', en: 'CEO' },
     regNumber: { ko: '사업자등록번호', en: 'Business reg. no.' },
     address: { ko: '주소', en: 'Address' },
