@@ -211,6 +211,12 @@ export const dict = {
     works: { ko: '작품 보러가기 ✨', en: 'See Our Works ✨' },
   },
 
+  legal: {
+    badge: { ko: 'POLICY 📄', en: 'POLICY 📄' },
+    effective: { ko: '시행일', en: 'Effective date' },
+    navAria: { ko: '다른 정책 문서', en: 'Other policies' },
+  },
+
   footer: {
     company: { ko: '회사명', en: 'Company' },
     ceo: { ko: '대표', en: 'CEO' },
