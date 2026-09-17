@@ -638,10 +638,11 @@ img {
 
 /* ── Footer ──────────────────────────────────── */
 .ftr-pop {
-  background: var(--pop-teal-dark);
-  color: #e0f7fa;
-  padding: 4rem 0 2.5rem;
-  position: relative;
+  background: #ffffff;
+  color: var(--pop-text-dark);
+  border-top: 1px solid #e9ecef;
+  padding: 3.5rem 0 2rem;
+  font-size: 0.95rem;
 }
 
 .ftr-pop__in {
@@ -649,41 +650,91 @@ img {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
-  padding-bottom: 2.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  gap: 1.5rem 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e9ecef;
 }
 
 .ftr-pop__brand {
-  font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--pop-dark);
+  letter-spacing: -0.02em;
+}
+
+.ftr-pop__tagline {
+  margin-top: 0.35rem;
   font-weight: 700;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  color: var(--pop-teal);
 }
 
 .ftr-pop__links {
   display: flex;
-  gap: 2rem;
-  font-family: var(--font-heading);
-  font-size: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
 }
 
 .ftr-pop__links a {
-  color: var(--pop-mint-bright);
+  color: #495057;
   transition: color 0.2s ease;
 }
 .ftr-pop__links a:hover {
-  color: #ffffff;
+  color: var(--pop-teal);
 }
 
-.ftr-pop__copy {
-  text-align: center;
-  font-size: 0.9rem;
-  color: rgba(224, 247, 250, 0.6);
-  margin-top: 2rem;
+/* 라벨 열 너비를 고정해 값이 세로로 정렬되게 합니다. */
+.ftr-pop__info {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.8fr);
+  gap: 0.6rem 3rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.ftr-pop__dl {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.45rem 1.5rem;
+  margin: 0;
+  align-content: start;
+}
+
+.ftr-pop__dl dt {
+  color: #868e96;
+}
+
+.ftr-pop__dl dd {
+  margin: 0;
+  color: #343a40;
+}
+
+.ftr-pop__strong {
+  font-weight: 700;
+}
+
+.ftr-pop__accent {
+  font-weight: 700;
+  color: var(--pop-teal);
+}
+
+.ftr-pop__mail {
+  color: #343a40;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ftr-pop__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-top: 1.25rem;
+  font-size: 0.85rem;
+  color: #868e96;
+}
+
+.ftr-pop__bottom p {
+  margin: 0;
 }
 
 /* ── Works Ledger Table in Pop Style ────────── */
