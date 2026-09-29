@@ -8,12 +8,12 @@ export const site = {
   name: 'ozs',
   url: 'https://ozs.co.kr',
   tagline: {
-    ko: '혼자 기획하고, 혼자 만들고, 혼자 배포합니다.',
-    en: 'Planned alone, built alone, shipped alone.',
+    ko: 'AI × Game × Content. We Build with AI.',
+    en: 'AI × Game × Content. We Build with AI.',
   },
   description: {
-    ko: '웹사이트, 웹서비스, 게임을 직접 기획하고 만드는 1인 개발 스튜디오입니다.',
-    en: 'A solo development studio that plans and builds websites, web services, and games.',
+    ko: '웹사이트, 웹서비스, 게임을 직접 기획하고 만드는 AI Creative Studio입니다.',
+    en: 'An AI creative studio that plans and builds websites, web services, and games.',
   },
   founded: '2026',
   location: { ko: '경기 부천', en: 'Bucheon, KR' },
@@ -51,8 +51,8 @@ export const capabilities = [
     key: 'web',
     title: { ko: '웹사이트', en: 'Websites' },
     body: {
-      ko: '브랜드 사이트, 랜딩 페이지, 프레스킷. 디자인부터 배포와 도메인 연결까지 한 사람이 이어서 처리합니다.',
-      en: 'Brand sites, landing pages, press kits. One person carries it from design through deployment and domain setup.',
+      ko: '브랜드 사이트, 랜딩 페이지, 프레스킷. 디자인부터 배포와 도메인 연결까지 한 곳에서 이어서 처리합니다.',
+      en: 'Brand sites, landing pages, press kits. One studio carries it from design through deployment and domain setup.',
     },
     stack: ['React', 'Vite', 'Cloudflare'],
   },
