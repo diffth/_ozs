@@ -23,7 +23,7 @@ export const dict = {
   },
 
   seo: {
-    siteTitle: { ko: '1인 개발 스튜디오', en: 'Solo Development Studio' },
+    siteTitle: { ko: 'AI Creative Studio', en: 'AI Creative Studio' },
     notFound: {
       ko: '요청한 페이지를 찾을 수 없습니다.',
       en: 'The page you requested could not be found.',
@@ -37,8 +37,8 @@ export const dict = {
 
   home: {
     heroBadge: {
-      ko: '🌟 1인 개발 스튜디오 ozs',
-      en: '🌟 ozs — a solo development studio',
+      ko: '🌟 AI Creative Studio',
+      en: '🌟 AI Creative Studio',
     },
     // 히어로 제목은 About 과 같이 lead / highlight / trail 로 나눠
     // 가운데 낱말만 노란색(.hero-pop__title span)으로 강조합니다.
@@ -65,7 +65,18 @@ export const dict = {
       ko: '직접 개발하고 출품한 비비드하고 독창적인 웹서비스 및 라인업을 만나보세요.',
       en: 'Meet the vivid, one-of-a-kind services and products built and shipped in-house.',
     },
+    featuredAria: { ko: '대표 작품', en: 'Featured projects' },
     featured: [
+      {
+        slug: 'wind-courier',
+        tag: { ko: '3D 비행 어드벤처 게임', en: '3D Flying Adventure' },
+        name: 'Wind Courier',
+        date: '2026.09',
+        desc: {
+          ko: '노란 복엽기를 몰고 1920년대 유럽 시골을 닮은 수채화 세계의 마을들 사이로 편지를 나르는 우편 비행 어드벤처입니다. 지금 알파 테스트 중입니다.',
+          en: 'Fly a yellow biplane and carry mail between villages in a watercolour world inspired by 1920s rural Europe. Now in alpha testing.',
+        },
+      },
       {
         slug: 'lawful',
         tag: { ko: '법률 브랜드 사이트', en: 'Law Firm Website' },
@@ -123,19 +134,19 @@ export const dict = {
 
   about: {
     badge: { ko: 'ABOUT OZS STUDIO 🌟', en: 'ABOUT OZS STUDIO 🌟' },
-    titleLead: { ko: '1인 스튜디오의', en: 'A solo studio with' },
+    titleLead: { ko: 'AI Creative Studio의', en: 'An AI Creative Studio with' },
     titleHighlight: { ko: '특별한 에너지', en: 'special energy' },
     desc: {
-      ko: '기획부터 디자인, 풀스택 개발 및 배포까지! 한 사람의 밀도 높은 직관과 에너지로 최고의 디지털 제품을 만들어냅니다.',
-      en: 'Planning, design, full-stack development, deployment — one person’s focused intuition and energy, poured into every digital product.',
+      ko: '기획부터 디자인, 풀스택 개발 및 배포까지! AI 와 함께하는 밀도 높은 직관과 에너지로 최고의 디지털 제품을 만들어냅니다.',
+      en: 'Planning, design, full-stack development, deployment — focused intuition and energy, amplified by AI and poured into every digital product.',
     },
     cards: [
       {
         tag: 'PHILOSOPHY',
-        title: { ko: '왜 1인 개발인가? 💡', en: 'Why solo development? 💡' },
+        title: { ko: '왜 AI Creative Studio인가? 💡', en: 'Why an AI Creative Studio? 💡' },
         body: {
-          ko: '소규모 제품에선 전달과 인수인계 비용이 개발보다 큰 법입니다. 기획, 시안, 코드 사이의 손실 없이 원래의 명확한 의도를 끝까지 유지합니다.',
-          en: 'On small products, handoff costs more than the build itself. Nothing is lost between the brief, the mockup, and the code — the original intent survives to the end.',
+          ko: '소규모 제품에선 전달과 인수인계 비용이 개발보다 큰 법입니다. AI 를 손발처럼 부리며 기획, 시안, 코드를 한 흐름으로 이어, 원래의 명확한 의도를 끝까지 유지합니다.',
+          en: 'On small products, handoff costs more than the build itself. With AI as an extra pair of hands, the brief, the mockup, and the code run as one flow — the original intent survives to the end.',
         },
       },
       {
