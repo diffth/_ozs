@@ -38,12 +38,21 @@ export default function Home() {
           </div>
 
           <div className="hero-pop__img-wrap">
-            <div className="hero-pop__img-frame">
-              <img
-                src="/img/pop_hero_drink.png"
-                alt={t('home.heroImgAlt')}
-                style={{ width: '100%', height: 'auto', display: 'block' }}
-              />
+            <div className="hero-pop__img-float">
+              <div className="hero-pop__img-frame">
+                <picture>
+                  <source srcSet="/img/wind-courier.webp" type="image/webp" />
+                  <img
+                    src="/img/wind-courier.jpg"
+                    alt={t('home.heroImgAlt')}
+                    width="1672"
+                    height="941"
+                    fetchPriority="high"
+                    style={{ width: '100%', height: 'auto', display: 'block' }}
+                  />
+                </picture>
+              </div>
+              <span className="hero-pop__sticker">{t('home.heroSticker')}</span>
             </div>
           </div>
         </div>
@@ -143,12 +152,21 @@ export default function Home() {
             </Link>
           </div>
 
-          <div style={{ textAlign: 'center' }}>
-            <img
-              src="/img/pop_product_packages.png"
-              alt={t('home.mintImgAlt')}
-              style={{ width: '100%', height: 'auto', borderRadius: '24px', boxShadow: '0 16px 36px rgba(0,0,0,0.12)', border: '4px solid #ffffff' }}
-            />
+          <div className="mint-sec__img-float">
+            <div className="mint-sec__img-frame">
+              <picture>
+                <source srcSet="/img/naias.webp" type="image/webp" />
+                <img
+                  src="/img/naias.jpg"
+                  alt={t('home.mintImgAlt')}
+                  width="1672"
+                  height="941"
+                  loading="lazy"
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                />
+              </picture>
+            </div>
+            <span className="mint-sec__sticker">{t('home.mintSticker')}</span>
           </div>
         </div>
       </section>
