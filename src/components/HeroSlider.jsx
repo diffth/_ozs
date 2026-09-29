@@ -14,6 +14,7 @@ const SLIDES = [
     alt: 'home.heroImgAlt',
     sticker: 'home.heroSticker',
     tone: 'yellow',
+    href: 'https://diffth.itch.io/wind-courier',
   },
   {
     key: 'naias',
