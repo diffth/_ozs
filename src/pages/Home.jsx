@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import HeroSlider from '../components/HeroSlider.jsx'
 import Seo from '../components/Seo.jsx'
 import WorksLedger from '../components/WorksLedger.jsx'
 import { capabilities } from '../data/site.js'
@@ -38,22 +39,7 @@ export default function Home() {
           </div>
 
           <div className="hero-pop__img-wrap">
-            <div className="hero-pop__img-float">
-              <div className="hero-pop__img-frame">
-                <picture>
-                  <source srcSet="/img/wind-courier.webp" type="image/webp" />
-                  <img
-                    src="/img/wind-courier.jpg"
-                    alt={t('home.heroImgAlt')}
-                    width="1672"
-                    height="941"
-                    fetchPriority="high"
-                    style={{ width: '100%', height: 'auto', display: 'block' }}
-                  />
-                </picture>
-              </div>
-              <span className="hero-pop__sticker">{t('home.heroSticker')}</span>
-            </div>
+            <HeroSlider />
           </div>
         </div>
       </section>
