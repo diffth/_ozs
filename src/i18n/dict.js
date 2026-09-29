@@ -52,6 +52,9 @@ export const dict = {
     heroCtaPrimary: { ko: '프로젝트 의뢰하기 🚀', en: 'Start Your Project 🚀' },
     heroCtaSecondary: { ko: '작품 구경하기 ✨', en: 'See Our Works ✨' },
     heroSticker: { ko: '✈️ 출시 준비중', en: '✈️ COMING SOON' },
+    sliderAria: { ko: '출시 준비 중인 게임', en: 'Upcoming games' },
+    sliderPause: { ko: '자동 넘김 멈추기', en: 'Pause slideshow' },
+    sliderPlay: { ko: '자동 넘김 다시 시작', en: 'Play slideshow' },
     heroImgAlt: {
       ko: 'Wind Courier — 노란 복엽기를 탄 우편 비행사가 강과 언덕 마을 위를 나는 일러스트',
       en: 'Wind Courier — a courier pilot flying a yellow biplane over a river and hilltop villages',
