@@ -1,6 +1,6 @@
 # ozs.co.kr
 
-1인 개발 스튜디오 홈페이지. React 19 + Vite 6 + React Router 7, Cloudflare Pages 배포.
+AI Creative Studio 홈페이지. React 19 + Vite 6 + React Router 7, Cloudflare Pages 배포.
 
 ```bash
 npm install
