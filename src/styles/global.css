@@ -482,6 +482,98 @@ img {
   white-space: nowrap;
 }
 
+.hero-pop__sticker--blue {
+  background: #1e88e5;
+  color: #ffffff;
+}
+
+/* 장면이 바뀔 때 스티커를 새로 붙이는 느낌으로 톡 튀어나오게 합니다. */
+.hero-slider .hero-pop__sticker {
+  animation: sticker-pop 0.5s var(--ease-pop) both;
+}
+
+@keyframes sticker-pop {
+  from {
+    opacity: 0;
+    transform: rotate(-6deg) scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-6deg) scale(1);
+  }
+}
+
+/* 모든 장면을 같은 칸에 겹쳐 두고 투명도만 바꿉니다.
+   그림 비율이 같아서 액자 크기가 흔들리지 않습니다. */
+.hero-slider__frame {
+  display: grid;
+}
+
+.hero-slider__stage {
+  position: relative;
+}
+
+.hero-slider__slide {
+  grid-area: 1 / 1;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.hero-slider__slide[data-active='true'] {
+  opacity: 1;
+}
+
+.hero-slider__slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-slider__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
+
+.hero-slider__dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: width 0.3s var(--ease-pop), background 0.3s ease;
+}
+
+.hero-slider__dot[aria-current='true'] {
+  width: 32px;
+  background: #ffffff;
+}
+
+.hero-slider__toggle {
+  width: 28px;
+  height: 28px;
+  margin-left: 0.4rem;
+  padding: 0;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.65rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.hero-slider__dot:focus-visible,
+.hero-slider__toggle:focus-visible {
+  outline: 3px solid var(--pop-yellow);
+  outline-offset: 2px;
+}
+
 @keyframes hero-float {
   0%,
   100% {
