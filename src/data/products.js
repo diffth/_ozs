@@ -8,6 +8,47 @@
 // ─────────────────────────────────────────────
 export const products = [
   {
+    slug: 'wind-courier',
+    index: '04',
+    name: 'Wind Courier',
+    kind: 'Game',
+    year: '2026',
+    status: 'in-development',
+    summary: {
+      ko: '1920년대 유럽 시골을 닮은 수채화 세계를 나는 우편 비행 어드벤처.',
+      en: 'A peaceful flying adventure through a watercolour world inspired by 1920s rural Europe.',
+    },
+    description: {
+      ko: '젊은 우편 비행사 리브가 되어 노란 복엽기를 몰고 외딴 마을 사이로 편지를 나릅니다. 바람의 흐름을 읽으며 항로를 잡고, 배달을 이어 가는 동안 마을 사람들의 이야기를 하나씩 알게 됩니다. 지금은 플레이할 수 있는 알파 빌드를 itch.io 에 공개해 테스트하고 있습니다.',
+      en: 'You play Liv, a young courier flying a yellow biplane to carry mail between remote villages. You read the wind to plot your route, and each delivery uncovers a little more of the villagers’ stories. A playable alpha build is out on itch.io for testing.',
+    },
+    thumb: '/img/wind-courier.jpg',
+    cover: '/img/wind-courier.jpg',
+    shots: [],
+    spec: [
+      {
+        label: { ko: '플랫폼', en: 'Platform' },
+        value: 'Windows',
+      },
+      {
+        label: { ko: '게임엔진', en: 'Game engine' },
+        value: 'Unreal Engine',
+      },
+      { label: { ko: '공개', en: 'Launched' }, value: { ko: '2026.09 (알파)', en: '2026.09 (alpha)' } },
+      {
+        label: { ko: '역할', en: 'Role' },
+        value: { ko: '기획, 디자인, 개발', en: 'Planning, design, development' },
+      },
+    ],
+    stores: [
+      {
+        label: { ko: 'itch.io 에서 보기', en: 'View on itch.io' },
+        href: 'https://diffth.itch.io/wind-courier',
+      },
+    ],
+    presskit: false,
+  },
+  {
     slug: 'zoomin',
     index: '03',
     name: 'zoomin',
