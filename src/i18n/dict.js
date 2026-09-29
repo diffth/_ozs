@@ -51,7 +51,7 @@ export const dict = {
     },
     heroCtaPrimary: { ko: '프로젝트 의뢰하기 🚀', en: 'Start Your Project 🚀' },
     heroCtaSecondary: { ko: '작품 구경하기 ✨', en: 'See Our Works ✨' },
-    heroSticker: { ko: '✈️ 출시 준비중', en: '✈️ COMING SOON' },
+    heroSticker: { ko: '✈️ 알파테스트중', en: '✈️ ALPHA TEST' },
     sliderAria: { ko: '출시 준비 중인 게임', en: 'Upcoming games' },
     sliderPause: { ko: '자동 넘김 멈추기', en: 'Pause slideshow' },
     sliderPlay: { ko: '자동 넘김 다시 시작', en: 'Play slideshow' },
