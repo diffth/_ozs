@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import CardSlider from '../components/CardSlider.jsx'
 import HeroSlider from '../components/HeroSlider.jsx'
 import Seo from '../components/Seo.jsx'
 import WorksLedger from '../components/WorksLedger.jsx'
@@ -83,31 +84,34 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="pop-grid">
-            {featured.map((f, i) => (
-              <div key={f.slug} className={`pop-card ${CARD_COLORS[i % CARD_COLORS.length]}`}>
-                <div>
-                  <span className="pop-card__tag">{tr(f.tag)}</span>
-                  <h3 className="pop-card__title">{f.name}</h3>
-                  <p className="pop-card__desc">{tr(f.desc)}</p>
+          <CardSlider label={t('home.featuredAria')}>
+            {featured.map((f, i) => {
+              const color = CARD_COLORS[i % CARD_COLORS.length]
+              return (
+                <div key={f.slug} className={`pop-card ${color}`}>
+                  <div>
+                    <span className="pop-card__tag">{tr(f.tag)}</span>
+                    <h3 className="pop-card__title">{f.name}</h3>
+                    <p className="pop-card__desc">{tr(f.desc)}</p>
+                  </div>
+                  <div className="pop-card__footer">
+                    <span className="pop-card__price">{f.date}</span>
+                    <Link
+                      to={`/works/${f.slug}`}
+                      className={color === 'pop-card--teal' ? 'btn-pop btn-pop--teal' : 'btn-pop btn-pop--white'}
+                      style={
+                        color === 'pop-card--teal'
+                          ? { padding: '0.5rem 1.25rem', fontSize: '0.9rem', background: '#ffffff', color: 'var(--pop-teal)' }
+                          : { padding: '0.5rem 1.25rem', fontSize: '0.9rem' }
+                      }
+                    >
+                      {t('common.detail')}
+                    </Link>
+                  </div>
                 </div>
-                <div className="pop-card__footer">
-                  <span className="pop-card__price">{f.date}</span>
-                  <Link
-                    to={`/works/${f.slug}`}
-                    className={i === 2 ? 'btn-pop btn-pop--teal' : 'btn-pop btn-pop--white'}
-                    style={
-                      i === 2
-                        ? { padding: '0.5rem 1.25rem', fontSize: '0.9rem', background: '#ffffff', color: 'var(--pop-teal)' }
-                        : { padding: '0.5rem 1.25rem', fontSize: '0.9rem' }
-                    }
-                  >
-                    {t('common.detail')}
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+              )
+            })}
+          </CardSlider>
         </div>
       </section>
 
