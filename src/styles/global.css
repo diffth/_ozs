@@ -654,6 +654,89 @@ img {
   gap: clamp(1.25rem, 4vw, 2rem);
 }
 
+/* 가로로 넘기는 카드 줄. 한 화면에 보일 장수는 여기서 폭으로 정합니다. */
+.card-slider {
+  --card-gap: clamp(1.25rem, 4vw, 2rem);
+  --card-per-view: 3;
+}
+
+.card-slider__track {
+  display: flex;
+  gap: var(--card-gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 8px;
+  scrollbar-width: none;
+  /* 카드가 hover 로 떠오를 때 그림자와 윗부분이 잘리지 않도록 여유를 둡니다. */
+  padding: 14px 8px 24px;
+  margin: -14px -8px -24px;
+}
+
+.card-slider__track::-webkit-scrollbar {
+  display: none;
+}
+
+.card-slider__track > .pop-card {
+  flex: 0 0 calc((100% - (var(--card-per-view) - 1) * var(--card-gap)) / var(--card-per-view));
+  scroll-snap-align: start;
+}
+
+@media (max-width: 1024px) {
+  .card-slider {
+    --card-per-view: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .card-slider {
+    --card-per-view: 1;
+  }
+}
+
+.card-slider__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+
+.card-slider__dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 2px solid var(--pop-pink);
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  transition: width 0.3s var(--ease-pop), background 0.3s ease;
+}
+
+.card-slider__dot[aria-current='true'] {
+  width: 32px;
+  background: var(--pop-pink);
+}
+
+.card-slider__toggle {
+  width: 28px;
+  height: 28px;
+  margin-left: 0.4rem;
+  padding: 0;
+  border: 2px solid var(--pop-pink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--pop-pink);
+  font-size: 0.65rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.card-slider__dot:focus-visible,
+.card-slider__toggle:focus-visible {
+  outline: 3px solid var(--pop-yellow);
+  outline-offset: 2px;
+}
+
 /* Colorful Pop Cards */
 .pop-card {
   border-radius: var(--radius-lg);
