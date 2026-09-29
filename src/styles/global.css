@@ -524,6 +524,15 @@ img {
   opacity: 1;
 }
 
+/* 투명하게 겹쳐 있는 장면이 보이는 장면의 링크 클릭을 가로채지 않게 합니다. */
+.hero-slider__slide[data-active='false'] {
+  pointer-events: none;
+}
+
+.hero-slider__slide picture {
+  display: block;
+}
+
 .hero-slider__slide img {
   width: 100%;
   height: auto;
