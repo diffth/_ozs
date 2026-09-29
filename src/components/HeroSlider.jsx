@@ -64,24 +64,41 @@ export default function HeroSlider() {
       {/* 스티커가 아래 점 버튼이 아니라 액자 모서리에 붙도록 둘을 한 칸에 묶습니다. */}
       <div className="hero-slider__stage">
         <div className="hero-pop__img-frame hero-slider__frame">
-          {SLIDES.map((s, i) => (
-            <picture
-              key={s.key}
-              className="hero-slider__slide"
-              data-active={i === active ? 'true' : 'false'}
-              aria-hidden={i === active ? undefined : 'true'}
-            >
-              <source srcSet={s.webp} type="image/webp" />
-              <img
-                src={s.jpg}
-                alt={t(s.alt)}
-                width="1672"
-                height="941"
-                fetchPriority={i === 0 ? 'high' : undefined}
-                loading={i === 0 ? undefined : 'lazy'}
-              />
-            </picture>
-          ))}
+          {SLIDES.map((s, i) => {
+            const isActive = i === active
+            // 링크가 있는 작품만 액자 전체를 눌러 게임 페이지로 갈 수 있게 합니다.
+            const Slide = s.href ? 'a' : 'div'
+            const linkProps = s.href
+              ? {
+                  href: s.href,
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                  // 겹쳐 숨어 있는 장면의 링크는 Tab 순서에서 뺍니다.
+                  tabIndex: isActive ? undefined : -1,
+                }
+              : {}
+            return (
+              <Slide
+                key={s.key}
+                className="hero-slider__slide"
+                data-active={isActive ? 'true' : 'false'}
+                aria-hidden={isActive ? undefined : 'true'}
+                {...linkProps}
+              >
+                <picture>
+                  <source srcSet={s.webp} type="image/webp" />
+                  <img
+                    src={s.jpg}
+                    alt={t(s.alt)}
+                    width="1672"
+                    height="941"
+                    fetchPriority={i === 0 ? 'high' : undefined}
+                    loading={i === 0 ? undefined : 'lazy'}
+                  />
+                </picture>
+              </Slide>
+            )
+          })}
         </div>
 
         {/* key 를 바꿔 장면이 넘어갈 때마다 스티커가 다시 튀어나오게 합니다. */}
