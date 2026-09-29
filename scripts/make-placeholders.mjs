@@ -29,7 +29,7 @@ const card = (title, kind) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="
 </svg>`
 
 const files = {
-  'og-default.svg': ['ozs', 'Solo studio'],
+  'og-default.svg': ['ozs', 'AI Creative Studio'],
 }
 
 for (const [name, [title, kind]] of Object.entries(files)) {
