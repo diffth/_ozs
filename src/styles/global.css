@@ -668,9 +668,10 @@ img {
   scroll-margin-top: clamp(50px, 8vw, 100px);
 }
 
+/* 히어로와 같은 비율로 일러스트 칸을 넓게 잡습니다. */
 .mint-sec__wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   align-items: center;
   gap: 3rem;
 }
@@ -683,11 +684,12 @@ img {
 
 .mint-sec__title {
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-size: clamp(2.2rem, 4.4vw, 3.2rem);
   font-weight: 700;
   line-height: 1.1;
   color: #00362e;
   margin-bottom: 1.25rem;
+  word-break: keep-all;
 }
 
 .mint-sec__desc {
@@ -695,6 +697,57 @@ img {
   color: #005448;
   margin-bottom: 2rem;
   max-width: 44ch;
+}
+
+/* 히어로 그림과 반대로 기울이고 뜨는 박자도 엇갈리게 두어,
+   두 섹션이 같은 틀이면서 복사해 붙인 느낌이 나지 않게 합니다. */
+.mint-sec__img-float {
+  position: relative;
+  animation: hero-float 6s ease-in-out -3s infinite;
+}
+
+.mint-sec__img-float::before {
+  content: '';
+  position: absolute;
+  inset: -8% -6%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.7), rgba(79, 195, 247, 0.3) 60%, transparent);
+  filter: blur(12px);
+}
+
+.mint-sec__img-frame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 77, 64, 0.2);
+  border: 6px solid #ffffff;
+  transform: rotate(-2deg);
+  transition: transform 0.4s var(--ease-pop);
+}
+
+@media (hover: hover) {
+  .mint-sec__img-frame:hover {
+    transform: rotate(0deg) scale(1.02);
+  }
+}
+
+/* 그림 가운데 위에 로고가 있어 왼쪽 아래에 붙입니다. */
+.mint-sec__sticker {
+  position: absolute;
+  left: -0.75rem;
+  bottom: -1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: #1e88e5;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  border: 3px solid #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  transform: rotate(5deg);
+  white-space: nowrap;
 }
 
 /* ── Legal Documents ─────────────────────────── */
@@ -1110,7 +1163,8 @@ img {
     justify-content: center;
   }
 
-  .hero-pop__img-frame {
+  .hero-pop__img-frame,
+  .mint-sec__img-frame {
     transform: rotate(0deg);
   }
 
