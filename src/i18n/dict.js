@@ -51,9 +51,10 @@ export const dict = {
     },
     heroCtaPrimary: { ko: '프로젝트 의뢰하기 🚀', en: 'Start Your Project 🚀' },
     heroCtaSecondary: { ko: '작품 구경하기 ✨', en: 'See Our Works ✨' },
+    heroSticker: { ko: '✈️ 출시 준비중', en: '✈️ COMING SOON' },
     heroImgAlt: {
-      ko: 'ozs 팝 에너지 드링크 & 커피 목업',
-      en: 'ozs Pop Energy Drink & Coffee Mockup',
+      ko: 'Wind Courier — 노란 복엽기를 탄 우편 비행사가 강과 언덕 마을 위를 나는 일러스트',
+      en: 'Wind Courier — a courier pilot flying a yellow biplane over a river and hilltop villages',
     },
 
     featuredTitle: { ko: 'EXPLORE OUR WORKS! ⚡', en: 'EXPLORE OUR WORKS! ⚡' },
@@ -103,9 +104,10 @@ export const dict = {
       en: 'From planning to UI/UX design to full-stack development — give your idea the energy it deserves.',
     },
     mintCta: { ko: '지금 문의하기 💌', en: 'Contact Me Now 💌' },
+    mintSticker: { ko: '💦 출시 준비중', en: '💦 COMING SOON' },
     mintImgAlt: {
-      ko: 'ozs 브랜드 패키지 목업',
-      en: 'ozs Brand Package Mockup',
+      ko: 'NAIAS World Splash Tour — 카오산 로드에서 물총을 든 여행자 셋이 물싸움을 벌이는 일러스트',
+      en: 'NAIAS World Splash Tour — three travellers in a water-gun fight on Khao San Road',
     },
 
     worksTitle: { ko: 'ALL SHIPPED PROJECTS 📜', en: 'ALL SHIPPED PROJECTS 📜' },
