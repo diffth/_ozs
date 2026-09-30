@@ -1332,6 +1332,345 @@ img {
   }
 }
 
+/* ── Contact: 카카오톡 / 메일 탭 ─────────────── */
+/* 카카오 색은 카카오 로그인·채널 버튼 가이드의 노랑과 글자색을 그대로 씁니다. */
+.contact {
+  word-break: keep-all;
+  --kakao: #fee500;
+  --kakao-ink: rgba(0, 0, 0, 0.85);
+  --kakao-soft: #fffbd6;
+  max-width: 52rem;
+}
+
+.contact__tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2.5vw, 1.25rem);
+  margin-bottom: 1.5rem;
+}
+
+.contact__tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.4rem;
+  border: 3px solid transparent;
+  border-radius: var(--radius-lg);
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  color: var(--pop-text-dark);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-pop), box-shadow 0.3s var(--ease-pop),
+    border-color 0.2s ease, background 0.2s ease;
+}
+
+.contact__tab[aria-selected='false'] {
+  opacity: 0.72;
+}
+
+.contact__tab[aria-selected='true'] {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.contact__tab--kakao[aria-selected='true'] {
+  border-color: var(--kakao);
+  background: var(--kakao-soft);
+}
+
+.contact__tab--mail[aria-selected='true'] {
+  border-color: var(--pop-pink);
+  background: var(--pop-pink-bg);
+}
+
+@media (hover: hover) {
+  .contact__tab:hover {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}
+
+.contact__tab:focus-visible {
+  outline: 3px solid var(--pop-yellow-dark);
+  outline-offset: 3px;
+}
+
+.contact__tab-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+}
+
+.contact__tab--kakao .contact__tab-icon {
+  background: var(--kakao);
+  color: #191919;
+}
+
+.contact__tab--mail .contact__tab-icon {
+  background: var(--pop-orange-gradient);
+  color: #ffffff;
+}
+
+.contact__tab-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.contact__tab-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.contact__tab-desc {
+  font-size: 0.92rem;
+  color: #636e72;
+}
+
+.contact__tab-tag {
+  position: absolute;
+  top: -0.7rem;
+  right: 1rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.contact__tab--kakao .contact__tab-tag {
+  background: var(--pop-dark);
+  color: var(--kakao);
+}
+
+.contact__tab--mail .contact__tab-tag {
+  background: var(--pop-pink);
+  color: #ffffff;
+}
+
+.contact__panel {
+  padding: clamp(1.75rem, 5vw, 3rem);
+  border: 4px solid var(--pop-pink-bg);
+  border-radius: var(--radius-lg);
+  background: #ffffff;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+  animation: contact-in 0.35s var(--ease-smooth);
+}
+
+.contact__panel[hidden] {
+  display: none;
+}
+
+.contact__panel--kakao {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+  align-items: center;
+  border-color: var(--kakao-soft);
+}
+
+@keyframes contact-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+.contact__panel-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  font-weight: 700;
+  color: var(--pop-text-dark);
+}
+
+.contact__panel-desc {
+  margin: 0 0 1.5rem;
+  color: #636e72;
+  line-height: 1.7;
+}
+
+.contact__panel-desc a {
+  color: var(--pop-pink-bright);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact__points {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.contact__points li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 500;
+}
+
+.contact__points li::before {
+  content: '✓';
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--pop-mint-bg);
+  color: var(--pop-teal);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.contact__kakao-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.95rem 1.75rem;
+  border-radius: 14px;
+  background: var(--kakao);
+  color: var(--kakao-ink);
+  font-family: var(--font-heading);
+  font-size: 1.08rem;
+  font-weight: 600;
+  box-shadow: 0 10px 24px rgba(254, 229, 0, 0.45);
+  transition: transform 0.25s var(--ease-pop), box-shadow 0.25s var(--ease-pop);
+}
+
+.contact__kakao-btn:hover {
+  color: var(--kakao-ink);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(230, 200, 0, 0.5);
+}
+
+.contact__kakao-btn:focus-visible {
+  outline: 3px solid var(--pop-dark);
+  outline-offset: 3px;
+}
+
+.contact__note {
+  margin: 0.85rem 0 0;
+  font-size: 0.85rem;
+  color: #8a9499;
+}
+
+/* 카카오톡 채팅방 배경색을 흉내 낸 미니 대화창 */
+.contact__chat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem 1rem 1.25rem;
+  border-radius: 24px;
+  background: #b2c7da;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+  transform: rotate(2deg);
+}
+
+.contact__chat-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #3b4a56;
+}
+
+.contact__chat-avatar {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 11px;
+  background: var(--pop-orange-gradient);
+  color: #ffffff;
+  font-size: 0.75rem;
+}
+
+.contact__bubble {
+  max-width: 85%;
+  margin: 0;
+  padding: 0.6rem 0.85rem;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #191919;
+}
+
+.contact__bubble--in {
+  align-self: flex-start;
+  border-top-left-radius: 4px;
+  background: #ffffff;
+}
+
+.contact__bubble--out {
+  align-self: flex-end;
+  border-top-right-radius: 4px;
+  background: var(--kakao);
+}
+
+.contact__bubble--typing {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.75rem 0.9rem;
+}
+
+.contact__bubble--typing span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #9aa5ad;
+  animation: contact-typing 1.2s ease-in-out infinite;
+}
+
+.contact__bubble--typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.contact__bubble--typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes contact-typing {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact__panel--kakao {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* 좁은 화면에서는 대화창을 버튼 아래가 아니라 위에 두어 무엇을 여는지 먼저 보여 줍니다. */
+  .contact__chat {
+    order: -1;
+    transform: none;
+  }
+}
+
 /* ── 모바일 (≤640px) ────────────────────────── */
 @media (max-width: 640px) {
   .hero-pop__content {
@@ -1404,6 +1743,35 @@ img {
 
   .ftr-pop__bottom {
     flex-direction: column;
+  }
+
+  .contact__tab {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: 1.35rem 1rem 1rem;
+  }
+
+  .contact__tab-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+  }
+
+  .contact__tab-title {
+    font-size: 1.05rem;
+  }
+
+  .contact__tab-desc {
+    font-size: 0.82rem;
+  }
+
+  .contact__tab-tag {
+    right: 0.75rem;
+  }
+
+  .contact__kakao-btn {
+    width: 100%;
   }
 }
 
