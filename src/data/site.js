@@ -18,6 +18,8 @@ export const site = {
   founded: '2026',
   location: { ko: '경기 부천', en: 'Bucheon, KR' },
   email: 'info@ozs.co.kr',
+  // 카카오톡 채널 1:1 채팅 주소. 채널 관리자센터 > 채널 URL 뒤에 /chat 을 붙입니다.
+  kakao: 'https://pf.kakao.com/_TusxiX/chat',
 
   // 사이트 하단 표기 의무 항목
   business: {
