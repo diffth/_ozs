@@ -3,7 +3,7 @@ import CardSlider from '../components/CardSlider.jsx'
 import HeroSlider from '../components/HeroSlider.jsx'
 import Seo from '../components/Seo.jsx'
 import WorksLedger from '../components/WorksLedger.jsx'
-import { capabilities } from '../data/site.js'
+import { capabilities, site } from '../data/site.js'
 import { useLang } from '../i18n/LanguageProvider.jsx'
 
 const CARD_COLORS = ['pop-card--yellow', 'pop-card--pink', 'pop-card--teal']
@@ -105,6 +105,8 @@ export default function Home() {
                           : { padding: '0.5rem 1.25rem', fontSize: '0.9rem' }
                       }
                     >
+                      {/* 링크 문구에 작품 이름을 넣어 어디로 가는 링크인지 드러냅니다. 화면에는 숨깁니다. */}
+                      <span className="sr-only">{f.name} </span>
                       {t('common.detail')}
                     </Link>
                   </div>
@@ -193,6 +195,8 @@ export default function Home() {
           <div className="sec-pop__head">
             <span className="badge-pop">WHAT I BUILD</span>
             <h2 className="sec-pop__title">{t('home.capabilitiesTitle')}</h2>
+            {/* 스튜디오 정의 문장. 검색엔진·AI 가 인용하기 좋게 사실만 담은 한 단락입니다. */}
+            <p className="sec-pop__subtitle">{tr(site.definition)}</p>
           </div>
 
           <div className="pop-grid pop-grid--3">

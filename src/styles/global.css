@@ -153,6 +153,19 @@ img {
   padding-inline: var(--gutter);
 }
 
+/* 화면에는 숨기고 스크린리더·크롤러에는 읽히는 글자 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ── Buttons & Pills ────────────────────────── */
 .btn-pop {
   display: inline-flex;
@@ -636,6 +649,7 @@ img {
   color: #636e72;
   max-width: 50ch;
   margin: 0 auto;
+  word-break: keep-all;
 }
 
 /* Squiggle Decoration Line */
@@ -1113,6 +1127,12 @@ img {
 :lang(ko) .ftr-pop__sizer {
   display: block;
   visibility: hidden;
+}
+
+/* 폭을 잡는 글자는 DOM 텍스트가 아니라 가상 요소로 그립니다. 텍스트로 두면
+   크롤러·AI 가 "대표 회사명 오세헌"처럼 라벨이 섞인 문장으로 읽습니다. */
+.ftr-pop__sizer::before {
+  content: attr(data-text);
 }
 
 .ftr-pop__dl dd {

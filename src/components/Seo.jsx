@@ -9,8 +9,9 @@ import { OG_LOCALE } from '../i18n/index.js'
 export default function Seo({ title, description, path = '/', image, noindex = false }) {
   const { lang, t, tr } = useLang()
 
-  const full = title ? `${title} — ${site.name}` : `${site.name} — ${t('seo.siteTitle')}`
-  const desc = description || tr(site.description)
+  const brand = tr(site.brand)
+  const full = title ? `${title} — ${brand}` : `${brand} — ${t('seo.siteTitle')}`
+  const desc = description || tr(site.definition)
   const url = `${site.url}${path}`
   const img = `${site.url}${image || '/img/og-default.png'}`
 

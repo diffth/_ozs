@@ -19,7 +19,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { site } from '../src/data/site.js'
+import { site, capabilities } from '../src/data/site.js'
 import { products } from '../src/data/products.js'
 import { legalDocs } from '../src/data/legal.js'
 import { DEFAULT_LANG, OG_LOCALE, tr, translate } from '../src/i18n/index.js'
@@ -57,33 +57,52 @@ const jsonLd = (nodes) => {
 }
 
 const b = site.business
+const brand = s(site.brand)
+const ORG = { '@id': `${site.url}/#organization` }
 
+// 조직 정보는 AI·검색엔진이 "오즈스가 누구인가"를 답할 때 쓰는 근거입니다.
+// 화면이나 site.js 에 적힌 사실만 넣고, 추측한 값은 넣지 않습니다.
 const organization = {
   '@type': 'Organization',
-  '@id': `${site.url}/#organization`,
+  ...ORG,
   name: s(b.company),
   alternateName: site.name,
   url: site.url,
-  description: s(site.description),
+  logo: { '@type': 'ImageObject', url: `${site.url}/img/logo.png`, width: 512, height: 512 },
+  description: s(site.definition),
   email: site.email,
   telephone: b.tel,
   foundingDate: site.founded,
+  founder: { '@type': 'Person', name: s(b.ceo) },
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'KR',
+    addressRegion: s(b.region),
+    addressLocality: s(b.locality),
     streetAddress: s(b.address),
   },
-  sameAs: site.links.map((l) => l.href),
+  areaServed: { '@type': 'Country', name: 'KR' },
+  knowsAbout: capabilities.map((c) => s(c.title)),
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: `${brand} 서비스`,
+    itemListElement: capabilities.map((c) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: s(c.title), description: s(c.body), provider: ORG },
+    })),
+  },
+  sameAs: site.profiles,
 }
 
 const website = {
   '@type': 'WebSite',
   '@id': `${site.url}/#website`,
   url: site.url,
-  name: site.name,
-  description: s(site.description),
+  name: s(b.company),
+  alternateName: site.name,
+  description: s(site.definition),
   inLanguage: 'ko-KR',
-  publisher: { '@id': `${site.url}/#organization` },
+  publisher: ORG,
 }
 
 // 작품 상세는 "홈 > 작품명" 두 단계로 둡니다. Works 는 홈 안의 구역이라
@@ -96,21 +115,51 @@ const breadcrumb = (p) => ({
   ],
 })
 
+// 작품마다 무엇인지(게임·웹 앱·웹사이트) 드러내는 구조화 데이터.
+// 공개 시점은 spec 의 '공개' 값(예: 2026.09 (알파))에서 연·월만 뽑아 씁니다.
+const PRODUCT_TYPE = { Game: 'VideoGame', 'Web Service': 'WebApplication', Website: 'WebSite' }
+const specValue = (p, en) => {
+  const row = p.spec.find((r) => tr(r.label, 'en') === en)
+  return row ? s(row.value) : undefined
+}
+const creativeWork = (p) => {
+  const type = PRODUCT_TYPE[p.kind] ?? 'CreativeWork'
+  const launched = specValue(p, 'Launched')?.match(/(\d{4})\.(\d{2})/)
+  const node = {
+    '@type': type,
+    '@id': `${site.url}/works/${p.slug}#work`,
+    name: p.name,
+    description: s(p.description),
+    image: `${site.url}${p.cover}`,
+    url: p.stores[0]?.href ?? `${site.url}/works/${p.slug}`,
+    mainEntityOfPage: `${site.url}/works/${p.slug}`,
+    creator: ORG,
+    ...(launched && { datePublished: `${launched[1]}-${launched[2]}` }),
+  }
+  if (type === 'VideoGame') {
+    Object.assign(node, { gamePlatform: specValue(p, 'Platform'), applicationCategory: 'Game', operatingSystem: specValue(p, 'Platform') })
+  }
+  if (type === 'WebApplication') {
+    Object.assign(node, { operatingSystem: 'Web', browserRequirements: 'Requires a modern web browser' })
+  }
+  return node
+}
+
 const routes = [
-  { path: '/', title: `${site.name} — ${d('seo.siteTitle')}`, desc: s(site.description), img: '/img/og-default.png', priority: '1.0', ld: [organization, website] },
-  { path: '/about', title: `About — ${site.name}`, desc: `${site.name} ${d('seo.aboutDesc')}. ${s(site.tagline)}`, img: '/img/og-default.png', priority: '0.7', ld: [organization] },
-  { path: '/contact', title: `Contact — ${site.name}`, desc: d('seo.contactDesc'), img: '/img/og-default.png', priority: '0.7', ld: [organization] },
+  { path: '/', title: `${brand} — ${d('seo.siteTitle')}`, desc: s(site.definition), img: '/img/og-default.png', priority: '1.0', ld: [organization, website] },
+  { path: '/about', title: `About — ${brand}`, desc: `${site.name} ${d('seo.aboutDesc')}. ${s(site.tagline)}`, img: '/img/og-default.png', priority: '0.7', ld: [organization] },
+  { path: '/contact', title: `Contact — ${brand}`, desc: d('seo.contactDesc'), img: '/img/og-default.png', priority: '0.7', ld: [organization] },
   ...products.map((p) => ({
     path: `/works/${p.slug}`,
-    title: `${p.name} — ${site.name}`,
+    title: `${p.name} — ${brand}`,
     desc: s(p.summary),
     img: p.cover,
     priority: '0.9',
-    ld: [organization, breadcrumb(p)],
+    ld: [organization, creativeWork(p), breadcrumb(p)],
   })),
   ...legalDocs.map((doc) => ({
     path: doc.path,
-    title: `${s(doc.title)} — ${site.name}`,
+    title: `${s(doc.title)} — ${brand}`,
     desc: s(doc.intro),
     img: '/img/og-default.png',
     priority: '0.3',
@@ -123,7 +172,7 @@ const head = (r) => `
     <meta name="description" data-seo="static" content="${esc(r.desc)}" />
     <link rel="canonical" data-seo="static" href="${site.url}${r.path}" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="${esc(site.name)}" />
+    <meta property="og:site_name" content="${esc(brand)}" />
     <meta property="og:locale" data-seo="static" content="${OG_LOCALE[L]}" />
     <meta property="og:locale:alternate" content="${OG_LOCALE[L === 'ko' ? 'en' : 'ko']}" />
     <meta property="og:title" data-seo="static" content="${esc(r.title)}" />
@@ -152,13 +201,13 @@ for (const r of routes) {
 // canonical 을 달고 색인될 수 있습니다. 전용 head 로 갈아 끼우고
 // noindex 를 달아 색인 대상에서 빼둡니다. canonical 은 넣지 않습니다.
 const notFoundHead = `
-    <title data-seo="static">404 — ${esc(site.name)}</title>
+    <title data-seo="static">404 — ${esc(brand)}</title>
     <meta name="description" data-seo="static" content="${esc(d('seo.notFound'))}" />
     <meta name="robots" data-seo="static" content="noindex, follow" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="${esc(site.name)}" />
+    <meta property="og:site_name" content="${esc(brand)}" />
     <meta property="og:locale" data-seo="static" content="${OG_LOCALE[L]}" />
-    <meta property="og:title" data-seo="static" content="404 — ${esc(site.name)}" />
+    <meta property="og:title" data-seo="static" content="404 — ${esc(brand)}" />
     <meta property="og:description" data-seo="static" content="${esc(d('seo.notFound'))}" />`
 
 // 없는 주소마다 이 파일이 쓰이므로 NotFound 화면을 미리 렌더링해 둡니다.

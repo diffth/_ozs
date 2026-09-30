@@ -15,6 +15,14 @@ export const site = {
     ko: '웹사이트, 웹서비스, 게임을 직접 기획하고 만드는 AI Creative Studio입니다.',
     en: 'An AI creative studio that plans and builds websites, web services, and games.',
   },
+  // 페이지 제목·og:site_name 에 쓰는 표기. 한글 상호로 검색해도 잡히도록 함께 적습니다.
+  brand: { ko: '오즈스(ozs)', en: 'ozs' },
+  // 스튜디오를 한 문장으로 정의한 문구. 홈 본문, meta description, 구조화 데이터에
+  // 같은 문장을 써서 검색엔진과 AI 가 그대로 인용할 수 있게 합니다. 사실만 적습니다.
+  definition: {
+    ko: '오즈스(ozs)는 경기도 부천에 있는 AI 크리에이티브 스튜디오입니다. 웹사이트, 웹서비스, 게임을 기획부터 디자인, 개발, 배포까지 직접 만듭니다.',
+    en: 'ozs is an AI creative studio based in Bucheon, South Korea. It plans, designs, builds, and ships websites, web services, and games in-house.',
+  },
   founded: '2026',
   location: { ko: '경기 부천', en: 'Bucheon, KR' },
   email: 'info@ozs.co.kr',
@@ -30,11 +38,22 @@ export const site = {
       ko: '경기도 부천시 소사구 은성로 110-1, 206동 202호',
       en: '#202, Bldg 206, 110-1 Eunseong-ro, Sosa-gu, Bucheon-si, Gyeonggi-do, Republic of Korea',
     },
+    // 구조화 데이터(PostalAddress)용으로 주소를 나눈 값
+    region: { ko: '경기도', en: 'Gyeonggi-do' },
+    locality: { ko: '부천시', en: 'Bucheon-si' },
     tel: '010-6343-4414',
   },
 
   links: [
     { label: 'GitHub', href: 'https://github.com/diffth' },
+  ],
+
+  // 구조화 데이터 sameAs 에 넣는 외부 공식 프로필. 같은 주체라는 걸 검색엔진·AI 가
+  // 교차 확인하는 근거가 됩니다. links 는 화면에 노출되는 목록이라 따로 둡니다.
+  profiles: [
+    'https://github.com/diffth',
+    'https://diffth.itch.io',
+    'https://pf.kakao.com/_TusxiX',
   ],
 }
 

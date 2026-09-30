@@ -33,7 +33,7 @@ export default function Footer() {
             <dd className="ftr-pop__strong">{tr(b.company)}</dd>
             <dt className="ftr-pop__dt--spread">
               <span className="ftr-pop__chars">{spread(t('footer.ceo'))}</span>
-              <span className="ftr-pop__sizer" aria-hidden="true">{t('footer.company')}</span>
+              <span className="ftr-pop__sizer" aria-hidden="true" data-text={t('footer.company')} />
             </dt>
             <dd>{tr(b.ceo)}</dd>
             <dt>{t('footer.regNumber')}</dt>
@@ -42,12 +42,12 @@ export default function Footer() {
           <dl className="ftr-pop__dl">
             <dt className="ftr-pop__dt--spread">
               <span className="ftr-pop__chars">{spread(t('footer.address'))}</span>
-              <span className="ftr-pop__sizer" aria-hidden="true">{t('footer.company')}</span>
+              <span className="ftr-pop__sizer" aria-hidden="true" data-text={t('footer.company')} />
             </dt>
             <dd>{tr(b.address)}</dd>
             <dt className="ftr-pop__dt--spread">
               <span className="ftr-pop__chars">{spread(t('footer.tel'))}</span>
-              <span className="ftr-pop__sizer" aria-hidden="true">{t('footer.company')}</span>
+              <span className="ftr-pop__sizer" aria-hidden="true" data-text={t('footer.company')} />
             </dt>
             <dd>
               <a className="ftr-pop__accent" href={`tel:${b.tel}`}>{b.tel}</a>

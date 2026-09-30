@@ -24,7 +24,11 @@ export const dict = {
   },
 
   seo: {
-    siteTitle: { ko: 'AI Creative Studio', en: 'AI Creative Studio' },
+    // 홈 제목의 뒷부분. 실제로 검색하는 말(웹사이트·웹서비스·게임)을 넣습니다.
+    siteTitle: {
+      ko: '웹사이트·웹서비스·게임을 만드는 AI 크리에이티브 스튜디오',
+      en: 'AI Creative Studio for Websites, Web Services & Games',
+    },
     notFound: {
       ko: '요청한 페이지를 찾을 수 없습니다.',
       en: 'The page you requested could not be found.',
