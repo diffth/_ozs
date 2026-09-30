@@ -309,6 +309,17 @@ export const dict = {
       en: 'Tell me about the project, timeline, budget, or anything else you have in mind.',
     },
     submit: { ko: '🚀 메시지 전송하기', en: '🚀 Send message' },
+    sending: { ko: '보내는 중…', en: 'Sending…' },
+    sent: {
+      ko: '✅ 메시지를 보냈습니다. 보통 영업일 기준 2일 안에 적어 주신 이메일로 답장드립니다.',
+      en: '✅ Message sent. You will usually get a reply at your email within two business days.',
+    },
+    failed: {
+      ko: '전송에 실패했습니다. 잠시 후 다시 시도하시거나 이 주소로 직접 메일을 보내 주세요:',
+      en: 'Sending failed. Please try again shortly, or email us directly at',
+    },
+    // 문의가 도착했을 때 받은편지함에 보이는 제목
+    mailSubject: { ko: '[오즈스] 새 문의가 도착했습니다', en: '[ozs] New inquiry from the website' },
 
     // ── 자주 묻는 질문. /contact 의 FAQPage 구조화 데이터도 이 목록으로 만듭니다 ──
     faqBadge: { ko: 'FAQ 🙋', en: 'FAQ 🙋' },
