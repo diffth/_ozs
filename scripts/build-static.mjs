@@ -84,9 +84,9 @@ const breadcrumb = (p) => ({
 })
 
 const routes = [
-  { path: '/', title: `${site.name} — ${d('seo.siteTitle')}`, desc: s(site.description), img: '/img/og-default.svg', priority: '1.0', ld: [organization, website] },
-  { path: '/about', title: `About — ${site.name}`, desc: `${site.name} ${d('seo.aboutDesc')}. ${s(site.tagline)}`, img: '/img/og-default.svg', priority: '0.7', ld: [organization] },
-  { path: '/contact', title: `Contact — ${site.name}`, desc: d('seo.contactDesc'), img: '/img/og-default.svg', priority: '0.7', ld: [organization] },
+  { path: '/', title: `${site.name} — ${d('seo.siteTitle')}`, desc: s(site.description), img: '/img/og-default.png', priority: '1.0', ld: [organization, website] },
+  { path: '/about', title: `About — ${site.name}`, desc: `${site.name} ${d('seo.aboutDesc')}. ${s(site.tagline)}`, img: '/img/og-default.png', priority: '0.7', ld: [organization] },
+  { path: '/contact', title: `Contact — ${site.name}`, desc: d('seo.contactDesc'), img: '/img/og-default.png', priority: '0.7', ld: [organization] },
   ...products.map((p) => ({
     path: `/works/${p.slug}`,
     title: `${p.name} — ${site.name}`,
@@ -99,7 +99,7 @@ const routes = [
     path: doc.path,
     title: `${s(doc.title)} — ${site.name}`,
     desc: s(doc.intro),
-    img: '/img/og-default.svg',
+    img: '/img/og-default.png',
     priority: '0.3',
     ld: [organization],
   })),

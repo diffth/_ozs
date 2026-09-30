@@ -13,7 +13,7 @@ export default function Seo({ title, description, path = '/', image, noindex = f
   const full = title ? `${title} — ${site.name}` : `${site.name} — ${t('seo.siteTitle')}`
   const desc = description || tr(site.description)
   const url = `${site.url}${path}`
-  const img = `${site.url}${image || '/img/og-default.svg'}`
+  const img = `${site.url}${image || '/img/og-default.png'}`
 
   // 정적 HTML 에 미리 박아 둔 태그(data-seo="static")는 JS 를 실행하지 않는
   // 크롤러용입니다. 앱이 뜨면 이 컴포넌트가 같은 태그를 다시 내보내므로,
