@@ -5,7 +5,8 @@ import { site } from '../data/site.js'
 import { useLang } from '../i18n/LanguageProvider.jsx'
 
 const FORM_ENDPOINT = 'https://api.web3forms.com/submit'
-const ACCESS_KEY = 'YOUR-ACCESS-KEY-HERE'
+// Web3Forms 공개용 키. 폼이 info@ozs.co.kr 로 전달되도록 발급받은 키로, 브라우저에 노출돼도 되는 값입니다.
+const ACCESS_KEY = '853c3305-c1da-4a9a-88a1-72be525f94d5'
 
 const CHANNELS = ['kakao', 'mail']
 
@@ -40,6 +41,8 @@ export default function Contact() {
   const { lang, t, tr, raw } = useLang()
   const topics = raw('contact.topics')
   const [channel, setChannel] = useState('kakao')
+  // 메일 양식 전송 상태: idle → sending → sent | failed
+  const [sendState, setSendState] = useState('idle')
   const tabRefs = useRef({})
 
   // /contact#mail 처럼 들어오면 해당 탭을 먼저 엽니다. SSG 셸과 어긋나지 않게 마운트 후에 읽습니다.
@@ -51,6 +54,26 @@ export default function Contact() {
   const select = (key) => {
     setChannel(key)
     window.history.replaceState(null, '', `#${key}`)
+  }
+
+  // 페이지를 떠나지 않고 보냅니다. JS 가 없으면 form 의 action 으로 그대로 전송됩니다.
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    const form = e.currentTarget
+    setSendState('sending')
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok || !data.success) throw new Error(data.message || `HTTP ${res.status}`)
+      form.reset()
+      setSendState('sent')
+    } catch {
+      setSendState('failed')
+    }
   }
 
   // 탭 목록 안에서는 방향키로 옮겨 다니는 WAI-ARIA 탭 패턴을 따릅니다.
@@ -180,9 +203,12 @@ export default function Contact() {
               {t('contact.mailDirect')} <a href={`mailto:${site.email}`}>{site.email}</a>
             </p>
 
-            <form action={FORM_ENDPOINT} method="POST">
+            <form action={FORM_ENDPOINT} method="POST" onSubmit={onSubmit}>
               <input type="hidden" name="access_key" value={ACCESS_KEY} />
               <input type="hidden" name="language" value={lang} />
+              {/* 받은편지함에서 문의 메일을 바로 알아보도록 제목과 보낸 곳 이름을 정해 둡니다. */}
+              <input type="hidden" name="subject" value={t('contact.mailSubject')} />
+              <input type="hidden" name="from_name" value={tr(site.brand)} />
               <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex="-1" />
 
               <div style={{ marginBottom: '1.5rem' }}>
@@ -229,9 +255,29 @@ export default function Contact() {
                 />
               </div>
 
-              <button type="submit" className="btn-pop" style={{ width: '100%', padding: '1rem', marginTop: '1rem' }}>
-                {t('contact.submit')}
+              <button
+                type="submit"
+                className="btn-pop"
+                style={{ width: '100%', padding: '1rem', marginTop: '1rem' }}
+                disabled={sendState === 'sending'}
+                aria-busy={sendState === 'sending'}
+              >
+                {t(sendState === 'sending' ? 'contact.sending' : 'contact.submit')}
               </button>
+
+              <p
+                className={`contact__form-status contact__form-status--${sendState}`}
+                role="status"
+                aria-live="polite"
+                hidden={sendState === 'idle' || sendState === 'sending'}
+              >
+                {sendState === 'sent' && t('contact.sent')}
+                {sendState === 'failed' && (
+                  <>
+                    {t('contact.failed')} <a href={`mailto:${site.email}`}>{site.email}</a>
+                  </>
+                )}
+              </p>
             </form>
           </div>
         </div>
