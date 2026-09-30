@@ -177,6 +177,41 @@ export const dict = {
       ko: '제품 제휴, 퍼블리싱, 웹서비스 및 게임 개발 의뢰 모두 환영합니다. 보통 영업일 기준 2일 안에 답변드립니다.',
       en: 'Partnerships, publishing, web service and game development requests are all welcome. I usually reply within two business days.',
     },
+    channelsAria: { ko: '문의 방법', en: 'How to reach us' },
+    kakaoTab: { ko: '카카오톡 상담', en: 'KakaoTalk Chat' },
+    kakaoTabDesc: {
+      ko: '가볍게 묻고 바로 대화해요',
+      en: 'Quick questions, real-time chat',
+    },
+    kakaoTabTag: { ko: '빠른 상담', en: 'FAST' },
+    mailTab: { ko: '메일 신청', en: 'Email Request' },
+    mailTabDesc: {
+      ko: '자세한 의뢰를 차근차근 남겨요',
+      en: 'Leave a detailed project brief',
+    },
+    mailTabTag: { ko: '상세 의뢰', en: 'DETAILED' },
+    kakaoTitle: { ko: '카카오톡으로 편하게 물어보세요 💬', en: 'Just ask us on KakaoTalk 💬' },
+    kakaoDesc: {
+      ko: '견적이 궁금하거나 아이디어만 있어도 괜찮아요. 채널을 추가하고 메시지를 보내면 바로 이어서 대화할 수 있습니다.',
+      en: 'Curious about pricing, or just have an idea? Add the channel and send a message — we pick it up from there.',
+    },
+    kakaoPoints: [
+      { ko: '간단한 견적 · 일정 문의', en: 'Quick quotes and timelines' },
+      { ko: '참고 이미지 · 링크 바로 공유', en: 'Share reference images and links' },
+      { ko: '대화 기록이 채팅방에 그대로 남아요', en: 'The whole thread stays in your chat' },
+    ],
+    kakaoCta: { ko: '카카오톡으로 상담하기', en: 'Chat on KakaoTalk' },
+    kakaoNote: {
+      ko: '카카오톡 앱 또는 웹에서 ozs 채널 채팅방이 열립니다.',
+      en: 'Opens the ozs channel chat in the KakaoTalk app or web.',
+    },
+    kakaoBubbleIn: { ko: '안녕하세요! 무엇을 도와드릴까요? 🙌', en: 'Hi there! How can we help? 🙌' },
+    kakaoBubbleOut: { ko: '게임 랜딩 페이지 견적이 궁금해요', en: 'How much for a game landing page?' },
+    mailTitle: { ko: '메일로 자세히 알려주세요 ✉️', en: 'Tell us everything by email ✉️' },
+    mailDirect: {
+      ko: '양식 대신 직접 메일을 보내셔도 됩니다:',
+      en: 'Prefer your own mail app? Write to',
+    },
     nameLabel: { ko: '이름 / 회사명', en: 'Name / Company' },
     namePlaceholder: {
       ko: '성함이나 회사명을 입력해 주세요',
