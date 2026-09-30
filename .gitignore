@@ -3,3 +3,6 @@ dist
 .DS_Store
 *.local
 .env
+
+# 내부 문서. 로컬에만 보관하고 GitHub 에는 올리지 않는다.
+docs/
