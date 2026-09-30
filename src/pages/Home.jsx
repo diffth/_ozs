@@ -195,7 +195,7 @@ export default function Home() {
             <h2 className="sec-pop__title">{t('home.capabilitiesTitle')}</h2>
           </div>
 
-          <div className="pop-grid">
+          <div className="pop-grid pop-grid--3">
             {capabilities.map((c, i) => (
               <div key={c.key} className={`pop-card ${CARD_COLORS[i % CARD_COLORS.length]}`}>
                 <div>

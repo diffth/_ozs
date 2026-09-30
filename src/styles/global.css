@@ -654,6 +654,30 @@ img {
   gap: clamp(1.25rem, 4vw, 2rem);
 }
 
+/* 카드가 정확히 3장인 줄. auto-fit 에 맡기면 태블릿에서 2장 + 1장으로 끊겨
+   마지막 카드가 혼자 남으므로, 폭 구간마다 칸 수를 직접 정합니다. */
+.pop-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 960px) {
+  .pop-grid--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* 남는 한 장은 두 칸을 다 쓰게 하고, 넓어진 만큼 세로 높이는 줄입니다. */
+  .pop-grid--3 > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .pop-grid--3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* 가로로 넘기는 카드 줄. 한 화면에 보일 장수는 여기서 폭으로 정합니다. */
 .card-slider {
   --card-gap: clamp(1.25rem, 4vw, 2rem);
