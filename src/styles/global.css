@@ -1376,6 +1376,42 @@ img {
   }
 }
 
+/* ── Contact: 메일 양식 전송 결과 ─────────────── */
+.contact__panel--mail .btn-pop:disabled {
+  opacity: 0.6;
+  cursor: progress;
+  transform: none;
+}
+
+.contact__form-status {
+  margin: 1rem 0 0;
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.contact__form-status[hidden] {
+  display: none;
+}
+
+.contact__form-status--sent {
+  background: var(--pop-mint-bg);
+  color: var(--pop-teal-dark);
+}
+
+.contact__form-status--failed {
+  background: var(--pop-pink-bg);
+  color: #b0243f;
+}
+
+.contact__form-status a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ── About: 한눈에 보기 ─────────────────────── */
 .glance {
   max-width: 52rem;
