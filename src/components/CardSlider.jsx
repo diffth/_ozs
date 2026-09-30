@@ -15,8 +15,13 @@ export default function CardSlider({ label, children }) {
   const [index, setIndex] = useState(0)
   // 화면 폭에 따라 끝까지 넘기는 데 필요한 칸 수가 달라집니다.
   const [maxIndex, setMaxIndex] = useState(0)
-  const [paused, setPaused] = useState(prefersReducedMotion)
+  // 미리 렌더링된 HTML 과 첫 화면을 맞추려고 초기값은 false 로 두고 마운트 후에 읽습니다.
+  const [paused, setPaused] = useState(false)
   const [holding, setHolding] = useState(false)
+
+  useEffect(() => {
+    if (prefersReducedMotion()) setPaused(true)
+  }, [])
 
   const getStep = useCallback(() => {
     const track = trackRef.current

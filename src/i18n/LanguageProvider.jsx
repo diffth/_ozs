@@ -13,7 +13,8 @@ import {
 const LanguageContext = createContext(null)
 
 export function LanguageProvider({ children }) {
-  const [lang, setLangState] = useState(detectLang)
+  // 첫 렌더는 미리 렌더링된 정적 HTML(기본 언어)과 같아야 hydration 이 어긋나지 않습니다.
+  const [lang, setLangState] = useState(DEFAULT_LANG)
 
   // 브라우저 언어 감지는 첫 렌더 이후에 확정합니다. (SSG 셸과의 불일치 방지)
   useEffect(() => {

@@ -35,7 +35,11 @@ export default function HeroSlider() {
   const { t } = useLang()
   const [active, setActive] = useState(0)
   // 모션 최소화를 원하는 사용자에게는 처음부터 멈춘 상태로 보여줍니다.
-  const [paused, setPaused] = useState(prefersReducedMotion)
+  // 미리 렌더링된 HTML 과 첫 화면을 맞추려고 초기값은 false 로 두고 마운트 후에 읽습니다.
+  const [paused, setPaused] = useState(false)
+  useEffect(() => {
+    if (prefersReducedMotion()) setPaused(true)
+  }, [])
   // 마우스를 올려 두거나 키보드 초점이 안에 있을 때는 잠시 멈춥니다.
   const [holding, setHolding] = useState(false)
 

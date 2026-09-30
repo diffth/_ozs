@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { site } from '../data/site.js'
 import { useLang } from '../i18n/LanguageProvider.jsx'
 import { OG_LOCALE } from '../i18n/index.js'
@@ -15,16 +14,7 @@ export default function Seo({ title, description, path = '/', image, noindex = f
   const url = `${site.url}${path}`
   const img = `${site.url}${image || '/img/og-default.png'}`
 
-  // 정적 HTML 에 미리 박아 둔 태그(data-seo="static")는 JS 를 실행하지 않는
-  // 크롤러용입니다. 앱이 뜨면 이 컴포넌트가 같은 태그를 다시 내보내므로,
-  // 그대로 두면 canonical·title·description 이 두 개씩 남습니다.
-  // React 가 자기 태그를 head 에 올린 뒤(=커밋 후) 한 번만 걷어냅니다.
-  // og:type, og:site_name, og:locale:alternate, JSON-LD 는 이 컴포넌트가
-  // 내보내지 않으므로 표식이 없고, 따라서 그대로 남습니다.
-  useEffect(() => {
-    document.querySelectorAll('[data-seo="static"]').forEach((el) => el.remove())
-  }, [])
-
+  // 정적 HTML 의 같은 태그(data-seo="static")는 hydrate 전에 main.jsx 가 걷어냅니다.
   return (
     <>
       <title>{full}</title>

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/build-static.mjs",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/build-static.mjs",
     "preview": "vite preview",
     "placeholders": "node scripts/make-placeholders.mjs"
   },

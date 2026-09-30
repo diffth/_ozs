@@ -9,6 +9,12 @@
 //     → 크롤러가 읽는 HTML 에 이미 들어 있으므로 Seo 컴포넌트에서는 내보내지
 //        않습니다. 양쪽에서 내보내면 문서에 같은 블록이 두 번 들어갑니다.
 //  3) sitemap.xml 과 404.html 을 만듭니다.
+//  4) 본문을 미리 렌더링해 <div id="root"> 안에 넣습니다. (dist-ssr/entry-server.js)
+//     → JS 를 실행하지 않는 크롤러(네이버 등)도 본문을 읽고, 브라우저는 이를 이어받습니다(hydrate).
+//
+//  파일은 /about/index.html 이 아니라 /about.html 로 씁니다. Cloudflare Pages 는
+//  폴더형이면 /about 을 /about/ 로 308 리다이렉트해서, canonical·sitemap 에 적은
+//  주소(/about)와 실제 주소가 어긋납니다. .html 파일이면 /about 으로 바로 응답합니다.
 // ─────────────────────────────────────────────────────────────
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
@@ -17,6 +23,7 @@ import { site } from '../src/data/site.js'
 import { products } from '../src/data/products.js'
 import { legalDocs } from '../src/data/legal.js'
 import { DEFAULT_LANG, OG_LOCALE, tr, translate } from '../src/i18n/index.js'
+import { render } from '../dist-ssr/entry-server.js'
 
 // 크롤러가 보는 정적 HTML 은 기본 언어(한국어) 기준으로 만듭니다.
 // 방문자가 실제로 보는 화면은 브라우저에서 선택한 언어로 다시 그려집니다.
@@ -27,6 +34,12 @@ const d = (path) => translate(path, L)
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const dist = resolve(root, 'dist')
 const shell = readFileSync(resolve(dist, 'index.html'), 'utf8')
+
+// Seo 컴포넌트의 <title>/<meta>/<link> 는 renderToString 결과 맨 앞에 붙어 나옵니다.
+// head 에는 이미 같은 태그가 있으므로 본문에서는 걷어냅니다. 브라우저에서는 앱이 다시 내보냅니다.
+const HOISTED = /^(?:<title>[^<]*<\/title>|<(?:meta|link)\b[^>]*\/?>)+/
+const withBody = (html, url) =>
+  html.replace('<div id="root"></div>', () => `<div id="root">${render(url).replace(HOISTED, '')}</div>`)
 
 const esc = (s) =>
   String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
@@ -121,13 +134,16 @@ const head = (r) => `
 
 let written = 0
 for (const r of routes) {
-  const html = shell.replace(
-    /<!-- SEO:START -->[\s\S]*?<!-- SEO:END -->/,
-    `<!-- SEO:START -->${head(r)}\n    <!-- SEO:END -->`
+  const html = withBody(
+    shell.replace(
+      /<!-- SEO:START -->[\s\S]*?<!-- SEO:END -->/,
+      `<!-- SEO:START -->${head(r)}\n    <!-- SEO:END -->`
+    ),
+    r.path
   )
-  const dir = r.path === '/' ? dist : resolve(dist, `.${r.path}`)
-  mkdirSync(dir, { recursive: true })
-  writeFileSync(resolve(dir, 'index.html'), html)
+  const file = r.path === '/' ? resolve(dist, 'index.html') : resolve(dist, `.${r.path}.html`)
+  mkdirSync(dirname(file), { recursive: true })
+  writeFileSync(file, html)
   written++
 }
 
@@ -145,12 +161,16 @@ const notFoundHead = `
     <meta property="og:title" data-seo="static" content="404 — ${esc(site.name)}" />
     <meta property="og:description" data-seo="static" content="${esc(d('seo.notFound'))}" />`
 
+// 없는 주소마다 이 파일이 쓰이므로 NotFound 화면을 미리 렌더링해 둡니다.
 writeFileSync(
   resolve(dist, '404.html'),
-  shell.replace(
-    /<!-- SEO:START -->[\s\S]*?<!-- SEO:END -->/,
-    `<!-- SEO:START -->${notFoundHead}
+  withBody(
+    shell.replace(
+      /<!-- SEO:START -->[\s\S]*?<!-- SEO:END -->/,
+      `<!-- SEO:START -->${notFoundHead}
     <!-- SEO:END -->`
+    ),
+    '/404'
   )
 )
 
