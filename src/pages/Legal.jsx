@@ -4,7 +4,7 @@ import { legalDocs } from '../data/legal.js'
 import { useLang } from '../i18n/LanguageProvider.jsx'
 
 export default function Legal({ docKey }) {
-  const { t, tr } = useLang()
+  const { t, tr, lp } = useLang()
   const doc = legalDocs.find((d) => d.key === docKey)
   const title = tr(doc.title)
 
@@ -69,7 +69,7 @@ export default function Legal({ docKey }) {
               {legalDocs
                 .filter((d) => d.key !== doc.key)
                 .map((d) => (
-                  <Link key={d.key} to={d.path}>
+                  <Link key={d.key} to={lp(d.path)}>
                     {tr(d.title)}
                   </Link>
                 ))}

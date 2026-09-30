@@ -10,7 +10,7 @@ import { useLang } from '../i18n/LanguageProvider.jsx'
 export default function WorksLedger() {
   const peek = useRef(null)
   const [hovered, setHovered] = useState(null)
-  const { tr } = useLang()
+  const { tr, lp } = useLang()
 
   const move = useCallback((e) => {
     const el = peek.current
@@ -24,7 +24,7 @@ export default function WorksLedger() {
         {products.map((p) => (
           <Link
             key={p.slug}
-            to={`/works/${p.slug}`}
+            to={lp(`/works/${p.slug}`)}
             className="pop-ledger__row"
             onMouseEnter={() => setHovered(p)}
             onMouseLeave={() => setHovered(null)}

@@ -7,7 +7,7 @@ import { useLang } from '../i18n/LanguageProvider.jsx'
 const CARD_COLORS = ['pop-card--yellow', 'pop-card--pink', 'pop-card--teal']
 
 export default function About() {
-  const { t, tr, raw } = useLang()
+  const { t, tr, raw, lp } = useLang()
   const cards = raw('about.cards')
   const b = site.business
 
@@ -25,7 +25,7 @@ export default function About() {
         {products.map((p, i) => (
           <span key={p.slug}>
             {i > 0 && ', '}
-            <Link to={`/works/${p.slug}`}>{p.name}</Link>
+            <Link to={lp(`/works/${p.slug}`)}>{p.name}</Link>
           </span>
         ))}
       </>,
@@ -93,7 +93,7 @@ export default function About() {
                   </p>
                   {c.cta && (
                     <div style={{ marginTop: '1.5rem' }}>
-                      <Link to="/contact" className="btn-pop btn-pop--white" style={{ padding: '0.5rem 1.25rem' }}>
+                      <Link to={lp('/contact')} className="btn-pop btn-pop--white" style={{ padding: '0.5rem 1.25rem' }}>
                         {tr(c.cta)}
                       </Link>
                     </div>

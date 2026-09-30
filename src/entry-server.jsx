@@ -7,10 +7,10 @@ import { LanguageProvider } from './i18n/LanguageProvider.jsx'
 // JS 를 실행하지 않는 크롤러(네이버 등)도 본문을 읽을 수 있게 하려는 것입니다.
 export function render(url) {
   return renderToString(
-    <LanguageProvider>
-      <StaticRouter location={url}>
+    <StaticRouter location={url}>
+      <LanguageProvider>
         <App />
-      </StaticRouter>
-    </LanguageProvider>
+      </LanguageProvider>
+    </StaticRouter>
   )
 }

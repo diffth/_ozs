@@ -9,7 +9,7 @@ import { useLang } from '../i18n/LanguageProvider.jsx'
 const CARD_COLORS = ['pop-card--yellow', 'pop-card--pink', 'pop-card--teal']
 
 export default function Home() {
-  const { t, tr, raw } = useLang()
+  const { t, tr, raw, lp } = useLang()
   const featured = raw('home.featured')
 
   return (
@@ -30,7 +30,7 @@ export default function Home() {
               {t('home.heroDesc')}
             </p>
             <div className="hero-pop__cta" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <Link className="btn-pop" to="/contact">
+              <Link className="btn-pop" to={lp('/contact')}>
                 {t('home.heroCtaPrimary')}
               </Link>
               <a className="btn-pop btn-pop--white" href="#works">
@@ -97,7 +97,7 @@ export default function Home() {
                   <div className="pop-card__footer">
                     <span className="pop-card__price">{f.date}</span>
                     <Link
-                      to={`/works/${f.slug}`}
+                      to={lp(`/works/${f.slug}`)}
                       className={color === 'pop-card--teal' ? 'btn-pop btn-pop--teal' : 'btn-pop btn-pop--white'}
                       style={
                         color === 'pop-card--teal'
@@ -139,7 +139,7 @@ export default function Home() {
             <p className="mint-sec__desc">
               {t('home.mintDesc')}
             </p>
-            <Link className="btn-pop" to="/contact" style={{ background: 'linear-gradient(135deg, #ff9f43, #ff5252)' }}>
+            <Link className="btn-pop" to={lp('/contact')} style={{ background: 'linear-gradient(135deg, #ff9f43, #ff5252)' }}>
               {t('home.mintCta')}
             </Link>
           </div>

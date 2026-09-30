@@ -5,7 +5,7 @@ import { useLang } from '../i18n/LanguageProvider.jsx'
 import LangSwitch from './LangSwitch.jsx'
 
 export default function Header() {
-  const { t } = useLang()
+  const { t, lp } = useLang()
   const [open, setOpen] = useState(false)
   const location = useLocation()
   const close = () => setOpen(false)
@@ -35,7 +35,7 @@ export default function Header() {
   return (
     <header className="hdr" data-open={open ? 'true' : 'false'}>
       <div className="wrap hdr__in">
-        <Link to="/" className="hdr__mark" aria-label={`${site.name} ${t('common.homeAria')}`} onClick={close}>
+        <Link to={lp('/')} className="hdr__mark" aria-label={`${site.name} ${t('common.homeAria')}`} onClick={close}>
           {site.name} <span className="hdr__mark-sun" title="Energetic Studio"></span>
         </Link>
 
@@ -60,17 +60,17 @@ export default function Header() {
               표시가 맞지 않습니다. 그래서 NavLink 대신 Link 로 그립니다. */}
           {nav.map((item) =>
             item.to.includes('#') ? (
-              <Link key={item.to} to={item.to} onClick={close}>
+              <Link key={item.to} to={lp(item.to)} onClick={close}>
                 {item.label}
               </Link>
             ) : (
-              <NavLink key={item.to} to={item.to} onClick={close}>
+              <NavLink key={item.to} to={lp(item.to)} onClick={close}>
                 {item.label}
               </NavLink>
             )
           )}
           <LangSwitch />
-          <Link to="/contact" className="btn-pop hdr__cta" onClick={close}>
+          <Link to={lp('/contact')} className="btn-pop hdr__cta" onClick={close}>
             Get Started 🚀
           </Link>
         </nav>

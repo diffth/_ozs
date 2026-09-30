@@ -6,7 +6,7 @@ import { useLang } from '../i18n/LanguageProvider.jsx'
 
 export default function Work() {
   const { slug } = useParams()
-  const { t, tr } = useLang()
+  const { t, tr, lp } = useLang()
   const p = getProduct(slug)
 
   if (!p) return <NotFound />
@@ -22,7 +22,7 @@ export default function Work() {
 
       <section className="hero-pop" style={{ padding: '3.5rem 0 4.5rem' }}>
         <div className="wrap">
-          <Link to="/#works" className="btn-pop btn-pop--white" style={{ padding: '0.4rem 1rem', fontSize: '0.85rem', marginBottom: '1.5rem' }}>
+          <Link to={lp('/#works')} className="btn-pop btn-pop--white" style={{ padding: '0.4rem 1rem', fontSize: '0.85rem', marginBottom: '1.5rem' }}>
             {t('work.back')}
           </Link>
           <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '1rem' }}>
@@ -117,7 +117,7 @@ export default function Work() {
           <p className="mint-sec__desc" style={{ margin: '0 auto 2rem' }}>
             {t('work.outroDesc')}
           </p>
-          <Link className="btn-pop" to="/contact" style={{ background: 'linear-gradient(135deg, #ff9f43, #ff5252)' }}>
+          <Link className="btn-pop" to={lp('/contact')} style={{ background: 'linear-gradient(135deg, #ff9f43, #ff5252)' }}>
             {t('common.inquire')}
           </Link>
         </div>

@@ -3,7 +3,7 @@ import Seo from '../components/Seo.jsx'
 import { useLang } from '../i18n/LanguageProvider.jsx'
 
 export default function NotFound() {
-  const { t } = useLang()
+  const { t, lp } = useLang()
 
   return (
     <>
@@ -21,10 +21,10 @@ export default function NotFound() {
             {t('notFound.body')}
           </p>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <Link className="btn-pop btn-pop--white" to="/">
+            <Link className="btn-pop btn-pop--white" to={lp('/')}>
               {t('notFound.home')}
             </Link>
-            <Link className="btn-pop" to="/#works">
+            <Link className="btn-pop" to={lp('/#works')}>
               {t('notFound.works')}
             </Link>
           </div>

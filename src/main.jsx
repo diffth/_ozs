@@ -3,15 +3,16 @@ import { createRoot, hydrateRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import { LanguageProvider } from './i18n/LanguageProvider.jsx'
+import { langFromPath } from './i18n/index.js'
 import './styles/global.css'
 
 const app = (
   <React.StrictMode>
-    <LanguageProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <LanguageProvider>
         <App />
-      </BrowserRouter>
-    </LanguageProvider>
+      </LanguageProvider>
+    </BrowserRouter>
   </React.StrictMode>
 )
 
@@ -24,6 +25,13 @@ document.querySelectorAll('[data-seo="static"]').forEach((el) => el.remove())
 
 // 빌드된 페이지는 본문이 미리 렌더링되어 있으므로 이어받고(hydrate),
 // 개발 서버처럼 비어 있으면 새로 그립니다.
+// 미리 렌더링한 언어와 지금 주소의 언어가 다르면(예: /en/없는주소 에 한국어 404.html 이
+// 내려온 경우) 이어받을 수 없으니 비우고 새로 그립니다.
 const root = document.getElementById('root')
-if (root.hasChildNodes()) hydrateRoot(root, app)
-else createRoot(root).render(app)
+const prerendered = root.dataset.prerender
+if (root.hasChildNodes() && langFromPath(prerendered) === langFromPath(window.location.pathname)) {
+  hydrateRoot(root, app)
+} else {
+  root.replaceChildren()
+  createRoot(root).render(app)
+}

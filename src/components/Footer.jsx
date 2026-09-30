@@ -7,7 +7,7 @@ import { useLang } from '../i18n/LanguageProvider.jsx'
 const spread = (text) => [...text].map((ch, i) => <span key={i}>{ch}</span>)
 
 export default function Footer() {
-  const { t, tr } = useLang()
+  const { t, tr, lp } = useLang()
   const b = site.business
 
   return (
@@ -20,7 +20,7 @@ export default function Footer() {
           </div>
           <nav className="ftr-pop__links" aria-label={t('common.subNavAria')}>
             {legalDocs.map((d) => (
-              <Link key={d.key} to={d.path}>
+              <Link key={d.key} to={lp(d.path)}>
                 {tr(d.title)}
               </Link>
             ))}

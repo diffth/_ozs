@@ -30,17 +30,46 @@ export function translate(path, lang = DEFAULT_LANG) {
   return node === undefined ? path : tr(node, lang)
 }
 
+// ── 언어별 주소 ────────────────────────────────
+// 한국어는 접두사 없이(/about), 영어는 /en 을 붙입니다(/en/about).
+// 언어를 주소로 나눠야 검색엔진이 영문판을 따로 색인하고 hreflang 으로 짝지을 수 있습니다.
+export const LANG_PREFIX = { ko: '', en: '/en' }
+
+/** 주소가 어느 언어판인지. /en 또는 /en/… 이면 영어, 그 밖은 기본 언어. */
+export function langFromPath(pathname = '/') {
+  return pathname === '/en' || pathname.startsWith('/en/') || pathname.startsWith('/en#') ? 'en' : DEFAULT_LANG
+}
+
+/** 언어 접두사를 뗀 기준 주소. /en/about → /about, /en → / */
+export function stripLang(pathname = '/') {
+  if (langFromPath(pathname) === DEFAULT_LANG) return pathname
+  const rest = pathname.slice(LANG_PREFIX.en.length)
+  return rest === '' || rest.startsWith('#') ? `/${rest}` : rest
+}
+
+/** 기준 주소(/about, /#works)를 해당 언어판 주소로. 홈은 /en 처럼 끝 슬래시 없이 씁니다. */
+export function localizePath(path, lang) {
+  const prefix = LANG_PREFIX[lang] ?? ''
+  if (!prefix) return path
+  if (path === '/') return prefix
+  if (path.startsWith('/#')) return prefix + path.slice(1)
+  return prefix + path
+}
+
 export function normalizeLang(value) {
   if (typeof value !== 'string') return null
   const short = value.toLowerCase().slice(0, 2)
   return LANGS.includes(short) ? short : null
 }
 
-/** 저장된 선택 → 브라우저 언어 → 기본값 순서로 결정합니다. */
-export function detectLang() {
-  if (typeof window === 'undefined') return DEFAULT_LANG
-  const saved = normalizeLang(window.localStorage?.getItem(STORAGE_KEY))
-  if (saved) return saved
-  const nav = normalizeLang(window.navigator?.language)
-  return nav ?? DEFAULT_LANG
+/** 방문자가 언어 토글로 직접 고른 언어. 고른 적이 없으면 null.
+ *  브라우저 언어로 자동 이동하지 않는 이유: 구글은 언어 기반 자동 리다이렉트를 권하지 않고,
+ *  영어권 크롤러가 한국어판을 못 보게 될 수 있습니다. */
+export function savedLang() {
+  if (typeof window === 'undefined') return null
+  try {
+    return normalizeLang(window.localStorage?.getItem(STORAGE_KEY))
+  } catch {
+    return null
+  }
 }

@@ -1,6 +1,6 @@
 import { site } from '../data/site.js'
 import { useLang } from '../i18n/LanguageProvider.jsx'
-import { OG_LOCALE } from '../i18n/index.js'
+import { DEFAULT_LANG, LANGS, OG_LOCALE, localizePath } from '../i18n/index.js'
 
 /**
  * React 19 는 컴포넌트 안의 <title>/<meta>/<link> 를 <head> 로 올려줍니다.
@@ -12,7 +12,10 @@ export default function Seo({ title, description, path = '/', image, noindex = f
   const brand = tr(site.brand)
   const full = title ? `${title} — ${brand}` : `${brand} — ${t('seo.siteTitle')}`
   const desc = description || tr(site.definition)
-  const url = `${site.url}${path}`
+  // path 는 언어 접두사가 없는 기준 주소(/about)입니다. 언어판마다 주소를 따로 만들어
+  // canonical 은 지금 언어판을, hreflang 은 모든 언어판을 가리키게 합니다.
+  const urlOf = (l) => `${site.url}${localizePath(path, l)}`
+  const url = urlOf(lang)
   const img = `${site.url}${image || '/img/og-default.png'}`
 
   // 정적 HTML 의 같은 태그(data-seo="static")는 hydrate 전에 main.jsx 가 걷어냅니다.
@@ -25,7 +28,13 @@ export default function Seo({ title, description, path = '/', image, noindex = f
       {noindex ? (
         <meta name="robots" content="noindex, follow" />
       ) : (
-        <link rel="canonical" href={url} />
+        <>
+          <link rel="canonical" href={url} />
+          {LANGS.map((l) => (
+            <link key={l} rel="alternate" hrefLang={l} href={urlOf(l)} />
+          ))}
+          <link rel="alternate" hrefLang="x-default" href={urlOf(DEFAULT_LANG)} />
+        </>
       )}
       <meta property="og:title" content={full} />
       <meta property="og:description" content={desc} />
