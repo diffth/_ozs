@@ -22,7 +22,7 @@ import { fileURLToPath } from 'node:url'
 import { site, capabilities } from '../src/data/site.js'
 import { products } from '../src/data/products.js'
 import { legalDocs } from '../src/data/legal.js'
-import { DEFAULT_LANG, OG_LOCALE, tr, translate } from '../src/i18n/index.js'
+import { DEFAULT_LANG, OG_LOCALE, raw, tr, translate } from '../src/i18n/index.js'
 import { render } from '../dist-ssr/entry-server.js'
 
 // 크롤러가 보는 정적 HTML 은 기본 언어(한국어) 기준으로 만듭니다.
@@ -73,6 +73,8 @@ const organization = {
   email: site.email,
   telephone: b.tel,
   foundingDate: site.founded,
+  // 1인 스튜디오
+  numberOfEmployees: { '@type': 'QuantitativeValue', value: 1 },
   founder: { '@type': 'Person', name: s(b.ceo) },
   address: {
     '@type': 'PostalAddress',
@@ -145,10 +147,22 @@ const creativeWork = (p) => {
   return node
 }
 
+// Contact 페이지 하단 FAQ 와 같은 목록. 구글은 FAQ 리치 결과를 일반 사이트에 거의 보여주지
+// 않지만, 질문과 답이 짝지어 있어 AI 가 답변을 인용하기 좋습니다.
+const faqPage = {
+  '@type': 'FAQPage',
+  '@id': `${site.url}/contact#faq`,
+  mainEntity: raw('contact.faq').map((item) => ({
+    '@type': 'Question',
+    name: s(item.q),
+    acceptedAnswer: { '@type': 'Answer', text: s(item.a) },
+  })),
+}
+
 const routes = [
   { path: '/', title: `${brand} — ${d('seo.siteTitle')}`, desc: s(site.definition), img: '/img/og-default.png', priority: '1.0', ld: [organization, website] },
-  { path: '/about', title: `About — ${brand}`, desc: `${site.name} ${d('seo.aboutDesc')}. ${s(site.tagline)}`, img: '/img/og-default.png', priority: '0.7', ld: [organization] },
-  { path: '/contact', title: `Contact — ${brand}`, desc: d('seo.contactDesc'), img: '/img/og-default.png', priority: '0.7', ld: [organization] },
+  { path: '/about', title: `About — ${brand}`, desc: d('seo.aboutDesc'), img: '/img/og-default.png', priority: '0.7', ld: [organization] },
+  { path: '/contact', title: `Contact — ${brand}`, desc: d('seo.contactDesc'), img: '/img/og-default.png', priority: '0.7', ld: [organization, faqPage] },
   ...products.map((p) => ({
     path: `/works/${p.slug}`,
     title: `${p.name} — ${brand}`,
@@ -223,17 +237,56 @@ writeFileSync(
   )
 )
 
-const today = new Date().toISOString().slice(0, 10)
+// lastmod 는 넣지 않습니다. 빌드한 날짜를 넣으면 모든 페이지가 매번 "오늘 수정됨"으로
+// 찍혀, 검색엔진이 이 값을 믿지 않게 됩니다. 페이지별 실제 수정일을 관리하게 되면 그때 넣습니다.
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${routes
   .map(
     (r) =>
-      `  <url>\n    <loc>${site.url}${r.path}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${r.priority}</priority>\n  </url>`
+      `  <url>\n    <loc>${site.url}${r.path}</loc>\n    <priority>${r.priority}</priority>\n  </url>`
   )
   .join('\n')}
 </urlset>
 `
 writeFileSync(resolve(dist, 'sitemap.xml'), sitemap)
 
-console.log(`\n  static: ${written} routes + 404.html + sitemap.xml\n`)
+// ── llms.txt ─────────────────────────────────
+// AI 가 사이트를 요약할 때 읽도록 핵심 사실을 마크다운으로 모아 둔 파일(llmstxt.org 제안 형식).
+// 효과가 공인된 표준은 아니지만, site.js·products.js 에서 자동으로 만들어 내용이 어긋날 일이 없습니다.
+const llms = `# ${brand}
+
+> ${s(site.definition)}
+
+- 상호: ${s(b.company)} (${site.name})
+- 대표: ${s(b.ceo)}
+- 설립: ${site.founded}년
+- 운영 형태: ${d('about.glanceTeam')}
+- 위치: ${s(b.address)}
+- 이메일: ${site.email}
+- 카카오톡 상담: ${site.kakao}
+
+## 서비스
+
+${capabilities.map((c) => `- **${s(c.title)}**: ${s(c.body)} (${c.stack.join(', ')})`).join('\n')}
+
+## 작품
+
+${products
+  .map((p) => `- [${p.name}](${site.url}/works/${p.slug}): ${p.kind}, ${specValue(p, 'Launched') ?? p.year}. ${s(p.summary)}`)
+  .join('\n')}
+
+## 자주 묻는 질문
+
+${raw('contact.faq')
+  .map((item) => `### ${s(item.q)}\n\n${s(item.a)}`)
+  .join('\n\n')}
+
+## 페이지
+
+- [소개](${site.url}/about)
+- [문의](${site.url}/contact)
+`
+writeFileSync(resolve(dist, 'llms.txt'), llms)
+
+console.log(`\n  static: ${written} routes + 404.html + sitemap.xml + llms.txt\n`)

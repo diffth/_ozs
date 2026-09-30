@@ -1,5 +1,6 @@
 import Seo from '../components/Seo.jsx'
 import { site } from '../data/site.js'
+import { products } from '../data/products.js'
 import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageProvider.jsx'
 
@@ -8,12 +9,35 @@ const CARD_COLORS = ['pop-card--yellow', 'pop-card--pink', 'pop-card--teal']
 export default function About() {
   const { t, tr, raw } = useLang()
   const cards = raw('about.cards')
+  const b = site.business
+
+  const glance = [
+    ['company', `${tr(b.company)} (${site.name})`],
+    ['founder', tr(b.ceo)],
+    ['founded', site.founded],
+    ['location', tr(b.address)],
+    ['team', t('about.glanceTeam')],
+    ['services', t('about.glanceServices')],
+    [
+      'works',
+      <>
+        {t('about.glanceWorksCount').replace('{n}', products.length)} —{' '}
+        {products.map((p, i) => (
+          <span key={p.slug}>
+            {i > 0 && ', '}
+            <Link to={`/works/${p.slug}`}>{p.name}</Link>
+          </span>
+        ))}
+      </>,
+    ],
+    ['contact', t('about.glanceContact')],
+  ]
 
   return (
     <>
       <Seo
         title="About"
-        description={`${site.name} ${t('seo.aboutDesc')} — ${tr(site.tagline)}`}
+        description={t('seo.aboutDesc')}
         path="/about"
       />
 
@@ -78,6 +102,47 @@ export default function About() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 한눈에 보기. 소개 카드의 분위기 있는 문구와 달리, 인용할 수 있는 사실만 표로 둡니다. */}
+      <section className="sec-pop" style={{ background: '#ffffff' }}>
+        <div className="wrap">
+          <div className="sec-pop__head">
+            <span className="badge-pop" style={{ background: 'var(--pop-pink-bg)' }}>{t('about.glanceBadge')}</span>
+            <h2 className="sec-pop__title">{t('about.glanceTitle')}</h2>
+            <p className="sec-pop__subtitle">{tr(site.definition)}</p>
+          </div>
+
+          <dl className="glance">
+            {glance.map(([key, value]) => (
+              <div key={key} className="glance__row">
+                <dt>{t(`about.glanceLabels.${key}`)}</dt>
+                <dd>{value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section className="sec-pop">
+        <div className="wrap">
+          <div className="sec-pop__head">
+            <span className="badge-pop">{t('about.processBadge')}</span>
+            <h2 className="sec-pop__title">{t('about.processTitle')}</h2>
+          </div>
+
+          <ol className="process">
+            {raw('about.process').map((step, i) => (
+              <li key={i} className="process__step">
+                <span className="process__num" aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="process__title">{tr(step.title)}</h3>
+                <p className="process__body">{tr(step.body)}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
     </>

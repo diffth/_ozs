@@ -236,6 +236,28 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      {/* 자주 묻는 질문. 답은 접혀 있어도 DOM 에 들어 있어 크롤러·AI 가 읽습니다.
+          같은 목록으로 build-static.mjs 가 FAQPage 구조화 데이터를 만듭니다. */}
+      <section className="sec-pop" style={{ background: '#ffffff' }}>
+        <div className="wrap">
+          <div className="sec-pop__head">
+            <span className="badge-pop" style={{ background: 'var(--pop-pink-bg)' }}>{t('contact.faqBadge')}</span>
+            <h2 className="sec-pop__title">{t('contact.faqTitle')}</h2>
+          </div>
+
+          <div className="faq">
+            {raw('contact.faq').map((item, i) => (
+              <details key={i} className="faq__item" open={i === 0}>
+                <summary className="faq__q">
+                  <h3>{tr(item.q)}</h3>
+                </summary>
+                <p className="faq__a">{tr(item.a)}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   )
 }

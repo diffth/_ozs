@@ -33,7 +33,10 @@ export const dict = {
       ko: '요청한 페이지를 찾을 수 없습니다.',
       en: 'The page you requested could not be found.',
     },
-    aboutDesc: { ko: '소개', en: 'About' },
+    aboutDesc: {
+      ko: '오즈스(ozs)는 경기도 부천의 1인 AI 크리에이티브 스튜디오입니다. 대표 오세헌이 웹사이트·웹서비스·게임의 기획, 디자인, 개발, 배포를 직접 맡습니다.',
+      en: 'ozs is a one-person AI creative studio in Bucheon, South Korea. Founder Oh Seheon plans, designs, builds, and ships websites, web services, and games.',
+    },
     contactDesc: {
       ko: '제품 제휴, 퍼블리싱, 개발 의뢰 문의를 받습니다.',
       en: 'Open for partnerships, publishing, and development inquiries.',
@@ -172,6 +175,74 @@ export const dict = {
         cta: { ko: '의뢰 보내기 💌', en: 'Send Your Request 💌' },
       },
     ],
+
+    // ── 한눈에 보기: 검색엔진·AI 가 그대로 인용할 수 있게 사실만 적습니다 ──
+    glanceBadge: { ko: 'AT A GLANCE 📋', en: 'AT A GLANCE 📋' },
+    glanceTitle: { ko: '오즈스 한눈에 보기', en: 'ozs at a glance' },
+    glanceLabels: {
+      company: { ko: '상호', en: 'Company' },
+      founder: { ko: '대표', en: 'Founder' },
+      founded: { ko: '설립', en: 'Founded' },
+      location: { ko: '위치', en: 'Location' },
+      team: { ko: '운영 형태', en: 'Team' },
+      services: { ko: '하는 일', en: 'Services' },
+      works: { ko: '공개한 작품', en: 'Shipped work' },
+      contact: { ko: '상담', en: 'Contact' },
+    },
+    glanceTeam: {
+      ko: '1인 스튜디오 — 대표가 기획, 디자인, 개발, 배포를 모두 맡습니다.',
+      en: 'One-person studio — the founder handles planning, design, development, and deployment.',
+    },
+    glanceServices: {
+      ko: '웹사이트 제작, 웹서비스 개발, 인디 게임 개발',
+      en: 'Website builds, web service development, indie game development',
+    },
+    glanceContact: {
+      ko: '카카오톡 채널, 이메일 · 전국·해외 원격 진행',
+      en: 'KakaoTalk channel, email · remote, nationwide and overseas',
+    },
+    // {n} 자리에 작품 수가 들어갑니다.
+    glanceWorksCount: { ko: '{n}개', en: '{n} projects' },
+
+    processBadge: { ko: 'HOW WE WORK 🛠️', en: 'HOW WE WORK 🛠️' },
+    processTitle: { ko: '작업은 이렇게 진행됩니다', en: 'How a project runs' },
+    process: [
+      {
+        title: { ko: '상담', en: 'Talk' },
+        body: {
+          ko: '카카오톡이나 메일로 만들고 싶은 것을 알려 주세요. 보통 영업일 기준 2일 안에 답변드립니다.',
+          en: 'Tell us what you want to build via KakaoTalk or email. Replies usually come within two business days.',
+        },
+      },
+      {
+        title: { ko: '기획 · 견적', en: 'Plan & quote' },
+        body: {
+          ko: '필요한 기능과 범위를 정리하고, 그에 맞춰 견적과 예상 일정을 안내합니다.',
+          en: 'We pin down the features and scope, then send a quote and an estimated timeline.',
+        },
+      },
+      {
+        title: { ko: '디자인 시안', en: 'Design' },
+        body: {
+          ko: '화면 시안을 먼저 보여드리고 확인을 받은 뒤 개발로 넘어갑니다.',
+          en: 'You see the screen designs first; development starts once you sign off.',
+        },
+      },
+      {
+        title: { ko: '개발 · 배포', en: 'Build & ship' },
+        body: {
+          ko: '가장 작게 동작하는 버전부터 만들어 확인하고, 완성되면 실제 도메인에 배포합니다.',
+          en: 'The smallest working version comes first; once complete, it goes live on your real domain.',
+        },
+      },
+      {
+        title: { ko: '운영 · 유지보수', en: 'Run & maintain' },
+        body: {
+          ko: '출시 후의 수정, 기능 추가, 운영 지원은 범위와 기간을 별도로 협의해 이어 갑니다.',
+          en: 'Post-launch fixes, new features, and operations support continue under a separately agreed scope.',
+        },
+      },
+    ],
   },
 
   contact: {
@@ -238,6 +309,68 @@ export const dict = {
       en: 'Tell me about the project, timeline, budget, or anything else you have in mind.',
     },
     submit: { ko: '🚀 메시지 전송하기', en: '🚀 Send message' },
+
+    // ── 자주 묻는 질문. /contact 의 FAQPage 구조화 데이터도 이 목록으로 만듭니다 ──
+    faqBadge: { ko: 'FAQ 🙋', en: 'FAQ 🙋' },
+    faqTitle: { ko: '자주 묻는 질문', en: 'Frequently asked questions' },
+    faq: [
+      {
+        q: { ko: '오즈스는 어떤 곳인가요?', en: 'What is ozs?' },
+        a: {
+          ko: '오즈스(ozs)는 경기도 부천에 있는 1인 AI 크리에이티브 스튜디오입니다. 대표 오세헌이 웹사이트, 웹서비스, 게임의 기획부터 디자인, 개발, 배포까지 직접 맡습니다.',
+          en: 'ozs is a one-person AI creative studio in Bucheon, South Korea. Founder Oh Seheon handles planning, design, development, and deployment of websites, web services, and games.',
+        },
+      },
+      {
+        q: { ko: '어떤 일을 맡길 수 있나요?', en: 'What can I hire ozs for?' },
+        a: {
+          ko: '웹사이트(브랜드 사이트, 랜딩 페이지, 프레스킷), 웹서비스(로그인·결제·대시보드가 있는 운영 제품), 게임(소규모 인디 게임의 프로토타입부터 스토어 출시와 업데이트까지)을 맡습니다.',
+          en: 'Websites (brand sites, landing pages, press kits), web services (production products with auth, payments, and dashboards), and games (small indie games, from prototype to store release and updates).',
+        },
+      },
+      {
+        q: { ko: '제작 비용은 얼마인가요?', en: 'How much does it cost?' },
+        a: {
+          ko: '필요한 기능, 범위, 일정에 따라 달라서 정해진 가격표는 없습니다. 카카오톡이나 메일로 만들고 싶은 내용을 알려 주시면 상담 후 견적을 드립니다.',
+          en: 'There is no fixed price list — it depends on features, scope, and timeline. Tell us what you want to build via KakaoTalk or email and we will send a quote after a short consultation.',
+        },
+      },
+      {
+        q: { ko: '기간은 얼마나 걸리나요?', en: 'How long does a project take?' },
+        a: {
+          ko: '프로젝트 규모에 따라 다릅니다. 상담 후 견적과 함께 예상 일정을 안내합니다.',
+          en: 'It depends on the size of the project. You get an estimated timeline together with the quote.',
+        },
+      },
+      {
+        q: { ko: '어떻게 의뢰하나요?', en: 'How do I get started?' },
+        a: {
+          ko: '간단한 질문은 카카오톡 채널로, 자세한 의뢰는 문의 페이지의 메일 양식으로 보내 주세요. 보통 영업일 기준 2일 안에 답변드립니다.',
+          en: 'Send quick questions through the KakaoTalk channel, and detailed requests through the email form on this page. Replies usually come within two business days.',
+        },
+      },
+      {
+        q: { ko: '출시 후 유지보수도 해 주나요?', en: 'Do you offer maintenance after launch?' },
+        a: {
+          ko: '네. 출시 이후의 수정, 기능 추가, 운영 지원은 범위와 기간을 별도로 협의해 진행합니다.',
+          en: 'Yes. Post-launch fixes, new features, and operations support are provided under a separately agreed scope and period.',
+        },
+      },
+      {
+        q: { ko: '부천이 아닌 지역이나 해외에서도 의뢰할 수 있나요?', en: 'Can I work with ozs from outside Bucheon or Korea?' },
+        a: {
+          ko: '네. 상담과 진행을 카카오톡, 메일, 화상 회의로 원격으로 하기 때문에 지역 제한 없이 전국과 해외 의뢰를 받습니다.',
+          en: 'Yes. Consultation and project work happen remotely over KakaoTalk, email, and video calls, so clients anywhere in Korea or abroad are welcome.',
+        },
+      },
+      {
+        q: { ko: '어떤 기술로 만드나요?', en: 'What technology do you use?' },
+        a: {
+          ko: '웹은 React, Vite, TypeScript, Node, Postgres와 Cloudflare를, 게임은 Unity, Unreal Engine, HTML5를 씁니다. 기획, 시안, 코드 작성 전반에 AI를 함께 활용합니다.',
+          en: 'For the web: React, Vite, TypeScript, Node, Postgres, and Cloudflare. For games: Unity, Unreal Engine, and HTML5. AI is used throughout planning, design, and coding.',
+        },
+      },
+    ],
   },
 
   work: {
