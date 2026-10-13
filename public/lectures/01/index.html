@@ -13,7 +13,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
@@ -21,25 +21,26 @@
 <style>
 /* ──────────────────────────────────────────────────────────────
    Wind Courier Lecture — reveal.js theme
-   Palette and type carried over from the source deck's own theme
-   (cream airmail paper, terracotta, gold, navy; Batang headings).
+   "Sky and wind": pale sky paper, one strong sky-blue accent, a warm
+   sun-yellow for small highlights, bold gothic headings and
+   wind-curve ornaments, to echo a game about reading the wind.
    Deliberately single-theme: a projected deck should not follow
    the viewer's OS light/dark setting.
    ────────────────────────────────────────────────────────────── */
 :root{
-  --paper:#F4EFE4;
-  --paper-2:#FBF8F1;
-  --sand:#E6DDC8;
-  --sand-2:#D9D0BD;
-  --ink:#1F2A37;
-  --ink-2:#46505C;
-  --ink-3:#6E7884;
-  --rust:#B8402E;
-  --gold:#E2B866;
-  --navy:#2F6690;
-  --mist:#C9CFD6;
+  --paper:#F7FBFE;
+  --paper-2:#FFFFFF;
+  --sky:#EAF3FA;
+  --line:#D3E3EF;
+  --ink:#14304A;
+  --ink-2:#3D5A73;
+  --ink-3:#6B8296;
+  --accent:#2F7BB8;
+  --sun:#F2B544;
+  --deep:#1D5F96;
+  --mist:#BFD6E8;
 
-  --serif:"Gowun Batang","Apple SD Gothic Neo",Batang,serif;
+  --display:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
   --sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 
@@ -56,25 +57,25 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
    in the same place on every slide; the body centres in what is left. A fixed
    min-height rather than a % keeps this working in print-pdf too. */
 .sbody{min-height:558px;display:flex;flex-direction:column;justify-content:center}
-.reveal ::selection{background:var(--gold);color:var(--ink)}
+.reveal ::selection{background:var(--sun);color:var(--ink)}
 
 /* ── eyebrow rail ───────────────────────────────────────────── */
 .rail{
   display:flex;align-items:baseline;gap:.75rem;flex-wrap:wrap;
   font-family:var(--mono);font-size:.46em;letter-spacing:.13em;text-transform:uppercase;
   color:var(--ink-3);padding-bottom:.45rem;
-  border-bottom:1px solid var(--sand-2);margin-bottom:1.35rem;
+  border-bottom:1px solid var(--line);margin-bottom:1.35rem;
 }
-.rail .pt{color:var(--rust);font-weight:600}
+.rail .pt{color:var(--accent);font-weight:600}
 .rail .tc{margin-left:auto;font-variant-numeric:tabular-nums;letter-spacing:.07em}
 .rail .flag{
-  color:var(--navy);font-weight:600;border:1px solid var(--mist);
+  color:var(--deep);font-weight:600;border:1px solid var(--mist);
   padding:.08rem .4rem;border-radius:2px;letter-spacing:.1em;
 }
 
 /* ── headings ───────────────────────────────────────────────── */
 .reveal h1,.reveal h2,.reveal h3{
-  font-family:var(--serif);color:var(--ink);text-transform:none;
+  font-family:var(--display);color:var(--ink);text-transform:none;
   letter-spacing:-.01em;text-wrap:balance;margin:0;
 }
 .reveal h1{font-size:1.95em;font-weight:700;line-height:1.16}
@@ -89,18 +90,18 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
 
 /* ── statement / divider slides ─────────────────────────────── */
 .on-dark{color:var(--paper)}
-.on-dark .rail{color:var(--sand-2);border-bottom-color:rgba(230,221,200,.28)}
-.on-dark .rail .pt{color:var(--gold)}
-.on-dark .rail .flag{color:var(--gold);border-color:rgba(226,184,102,.45)}
+.on-dark .rail{color:var(--line);border-bottom-color:rgba(255,255,255,.3)}
+.on-dark .rail .pt{color:var(--sun)}
+.on-dark .rail .flag{color:var(--sun);border-color:rgba(242,181,68,.55)}
 .on-dark h1,.on-dark h2,.on-dark h3{color:var(--paper)}
-.on-dark .lede{color:var(--sand-2)}
-.on-dark .say em{color:var(--gold)}
+.on-dark .lede{color:var(--line)}
+.on-dark .say em{color:var(--sun)}
 
 .say{
-  font-family:var(--serif);font-size:1.62em;font-weight:700;
+  font-family:var(--display);font-size:1.62em;font-weight:700;
   line-height:1.34;letter-spacing:-.015em;text-wrap:balance;margin:0;
 }
-.say em{font-style:normal;color:var(--rust)}
+.say em{font-style:normal;color:var(--accent)}
 .say.sm{font-size:1.22em}
 
 /* ── measured figures: the deck's recurring device ──────────── */
@@ -110,26 +111,26 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
   font-family:var(--mono);font-size:.42em;letter-spacing:.12em;text-transform:uppercase;
   color:var(--ink-3);
 }
-.on-dark .fig .lab{color:var(--sand-2)}
+.on-dark .fig .lab{color:var(--line)}
 .fig .val{
-  font-family:var(--serif);font-size:1.72em;font-weight:700;line-height:1.1;
-  font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:var(--rust);
+  font-family:var(--display);font-size:1.72em;font-weight:700;line-height:1.1;
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em;color:var(--accent);
 }
-.fig .val.navy{color:var(--navy)}
+.fig .val.navy{color:var(--deep)}
 .fig .val.ink{color:var(--ink)}
 .fig .note{font-size:.5em;color:var(--ink-2);line-height:1.5;max-width:22ch}
-.on-dark .fig .note{color:var(--sand-2)}
+.on-dark .fig .note{color:var(--line)}
 
 /* before → after */
 .shift{display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}
 .shift .from{
-  font-family:var(--serif);font-size:1.18em;font-weight:400;color:var(--ink-3);
+  font-family:var(--display);font-size:1.18em;font-weight:400;color:var(--ink-3);
   font-variant-numeric:tabular-nums;text-decoration:line-through;
-  text-decoration-thickness:1px;text-decoration-color:var(--sand-2);
+  text-decoration-thickness:1px;text-decoration-color:var(--line);
 }
 .shift .arw{color:var(--ink-3);font-size:.62em}
 .shift .to{
-  font-family:var(--serif);font-size:1.55em;font-weight:700;color:var(--rust);
+  font-family:var(--display);font-size:1.55em;font-weight:700;color:var(--accent);
   font-variant-numeric:tabular-nums;letter-spacing:-.02em;
 }
 
@@ -139,16 +140,16 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
 .cards.c3{grid-template-columns:repeat(3,1fr)}
 .cards.c4{grid-template-columns:repeat(4,1fr)}
 .card{
-  background:var(--paper-2);border:1px solid var(--sand-2);border-radius:3px;
+  background:var(--paper-2);border:1px solid var(--line);border-radius:10px;
   padding:.8rem .95rem;min-width:0;
 }
 .card h3{font-family:var(--sans);font-size:.6em;font-weight:600;margin:0 0 .3rem;line-height:1.35}
 .card p{font-size:.5em;color:var(--ink-2);line-height:1.55}
 .card .n{
   font-family:var(--mono);font-size:.46em;font-weight:600;letter-spacing:.1em;
-  color:var(--rust);display:block;margin-bottom:.3rem;
+  color:var(--accent);display:block;margin-bottom:.3rem;
 }
-.card.hi{background:var(--sand);border-color:var(--gold)}
+.card.hi{background:var(--sky);border-color:var(--mist)}
 
 /* ── columns ────────────────────────────────────────────────── */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
@@ -158,36 +159,36 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
   font-family:var(--mono);font-size:.44em;font-weight:500;letter-spacing:.12em;
   text-transform:uppercase;color:var(--ink-3);margin:0 0 .5rem;
 }
-.col.hi h3{color:var(--rust)}
+.col.hi h3{color:var(--accent)}
 .col ul{list-style:none;margin:0;padding:0}
-.col li{font-size:.56em;line-height:1.48;padding:.3rem 0;border-bottom:1px solid var(--sand-2)}
+.col li{font-size:.56em;line-height:1.48;padding:.3rem 0;border-bottom:1px solid var(--line)}
 .col li:last-child{border-bottom:0}
 
 /* ── chain of steps ─────────────────────────────────────────── */
 .chain{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .45rem;margin:0}
 .chain .step{
   font-family:var(--mono);font-size:.48em;font-weight:500;
-  background:var(--paper-2);border:1px solid var(--sand-2);border-radius:2px;
-  padding:.36rem .62rem;white-space:nowrap;
+  background:var(--paper-2);border:1px solid var(--line);border-radius:999px;
+  padding:.36rem .8rem;white-space:nowrap;
 }
-.chain .step.on{background:var(--sand);border-color:var(--gold);font-weight:600}
+.chain .step.on{background:var(--sky);border-color:var(--accent);color:var(--deep);font-weight:600}
 .chain .arw{color:var(--ink-3);font-size:.46em}
 
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem}
-.steps .s{border-top:2px solid var(--sand-2);padding-top:.5rem;min-width:0}
-.steps .s.on{border-top-color:var(--rust)}
+.steps .s{border-top:2px solid var(--line);padding-top:.5rem;min-width:0}
+.steps .s.on{border-top-color:var(--accent)}
 .steps .s .n{
-  font-family:var(--mono);font-size:.46em;font-weight:600;color:var(--rust);
+  font-family:var(--mono);font-size:.46em;font-weight:600;color:var(--accent);
   letter-spacing:.08em;display:block;
 }
-.steps .s .t{font-family:var(--serif);font-size:.72em;font-weight:700;display:block;margin:.12rem 0 .2rem}
+.steps .s .t{font-family:var(--display);font-size:.72em;font-weight:700;display:block;margin:.12rem 0 .2rem}
 .steps .s .d{font-size:.46em;color:var(--ink-2);line-height:1.5}
 
 /* ── tables ─────────────────────────────────────────────────── */
 .tbl{width:100%;border-collapse:collapse;font-size:.52em}
 .tbl th,.tbl td{
   text-align:left;padding:.42rem .7rem;vertical-align:top;
-  border-bottom:1px solid var(--sand-2);line-height:1.45;
+  border-bottom:1px solid var(--line);line-height:1.45;
 }
 .tbl thead th{
   font-family:var(--mono);font-size:.82em;letter-spacing:.1em;text-transform:uppercase;
@@ -200,39 +201,45 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
 
 /* ── quote ──────────────────────────────────────────────────── */
 .quote{
-  font-family:var(--serif);font-size:.86em;line-height:1.6;color:var(--ink);
-  border-left:4px solid var(--gold);padding:.25rem 0 .25rem .95rem;margin:0;max-width:40ch;
+  font-family:var(--display);font-size:.86em;line-height:1.6;color:var(--ink);
+  border-left:4px solid var(--sun);padding:.25rem 0 .25rem .95rem;margin:0;max-width:40ch;
 }
 .voice{
-  font-family:var(--serif);font-size:.72em;font-style:italic;color:var(--ink-2);
+  font-family:var(--display);font-size:.72em;color:var(--ink-2);
   margin:0;
 }
 
 /* ── request / prompt block ─────────────────────────────────── */
 .req{
-  background:var(--paper-2);border:1px solid var(--sand-2);border-left:4px solid var(--navy);
-  border-radius:0 3px 3px 0;padding:.9rem 1.1rem;display:grid;gap:.5rem;
+  background:var(--paper-2);border:1px solid var(--line);border-left:4px solid var(--deep);
+  border-radius:0 10px 10px 0;padding:.9rem 1.1rem;display:grid;gap:.5rem;
 }
 .req p{font-size:.52em;line-height:1.55;color:var(--ink)}
-.req p::before{content:"— ";color:var(--navy)}
+.req p::before{content:"— ";color:var(--deep)}
 
-/* ── title + closing: airmail edge ──────────────────────────── */
-.airmail{
-  height:7px;width:100%;
-  background:repeating-linear-gradient(135deg,
-    var(--rust) 0 11px, var(--paper) 11px 22px,
-    var(--navy) 22px 33px, var(--paper) 33px 44px);
+/* ── wind ornaments ─────────────────────────────────────────── */
+/* Short gust used as a divider on the closing slides. Colours are baked
+   into the SVG because CSS vars do not reach into a data URI. */
+.wind{
+  height:16px;width:100%;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 16' preserveAspectRatio='none'%3E%3Cpath d='M0 9 C40 1 70 15 110 8 S190 2 260 7' fill='none' stroke='%232F7BB8' stroke-width='2'/%3E%3Cpath d='M30 14 C70 8 100 16 140 12 S200 9 240 12' fill='none' stroke='%23F2B544' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat center/100% 100%;
 }
-.on-dark .airmail{
-  background:repeating-linear-gradient(135deg,
-    var(--rust) 0 11px, var(--ink) 11px 22px,
-    var(--gold) 22px 33px, var(--ink) 33px 44px);
+.on-dark .wind{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 16' preserveAspectRatio='none'%3E%3Cpath d='M0 9 C40 1 70 15 110 8 S190 2 260 7' fill='none' stroke='%23FFFFFF' stroke-width='2'/%3E%3Cpath d='M30 14 C70 8 100 16 140 12 S200 9 240 12' fill='none' stroke='%23F2B544' stroke-width='1.5'/%3E%3C/svg%3E");
 }
-.title-meta{display:flex;gap:2.4rem;flex-wrap:wrap}
+/* Full-bleed gusts behind the title slide. */
+.wind-bg{position:absolute;left:0;bottom:0;width:100%;height:60%;pointer-events:none}
+.title .center{position:relative;z-index:1}
+.title.on-dark .foot{
+  display:inline-block;background:var(--sun);color:var(--ink);font-weight:600;
+  border-radius:999px;padding:.35rem .9rem;
+}
+.title h1{font-size:2.3em}
+.title-meta{display:flex;gap:2.4rem;flex-wrap:wrap;align-items:flex-end}
 .title-meta div{display:flex;flex-direction:column}
 .title-meta .l{
   font-family:var(--mono);font-size:.4em;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--sand-2);
+  color:var(--line);
 }
 .title-meta .v{font-family:var(--mono);font-size:.56em;font-weight:600;color:var(--paper)}
 
@@ -240,25 +247,36 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
   font-family:var(--mono);font-size:.42em;letter-spacing:.11em;text-transform:uppercase;
   color:var(--ink-3);
 }
-.on-dark .foot{color:var(--sand-2)}
+.on-dark .foot{color:var(--line)}
 .cue{
-  font-family:var(--mono);font-size:.44em;letter-spacing:.06em;color:var(--navy);
+  font-family:var(--mono);font-size:.44em;letter-spacing:.06em;color:var(--deep);
   border:1px dashed var(--mist);border-radius:2px;padding:.5rem .7rem;display:inline-block;
 }
-.on-dark .cue{color:var(--gold);border-color:rgba(226,184,102,.45)}
+.on-dark .cue{color:var(--sun);border-color:rgba(242,181,68,.55)}
 
 /* ── reveal chrome ──────────────────────────────────────────── */
-.reveal .progress{color:var(--rust);height:3px}
-.reveal .controls{color:var(--rust)}
+.reveal .progress{color:var(--accent);height:3px}
+.reveal .controls{color:var(--accent)}
 .reveal .slide-number{
   font-family:var(--mono);background:none;color:var(--ink-3);font-size:14px;right:14px;bottom:10px;
 }
-.reveal a{color:var(--navy)}
-:focus-visible{outline:2px solid var(--rust);outline-offset:2px}
+.reveal a{color:var(--deep)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.reveal .slides section{transition:none!important}}
+
+/* ── PDF download (lives in the title slide's meta row) ─────── */
+.reveal .dl{
+  font-family:var(--mono);font-size:.46em;font-weight:600;letter-spacing:.08em;
+  color:var(--deep);text-decoration:none;
+  background:var(--paper-2);border:1px solid var(--paper-2);border-radius:999px;
+  padding:.3rem .85rem;
+}
+.reveal .dl:hover{color:var(--ink);background:var(--sun);border-color:var(--sun)}
+html.print-pdf .dl{display:none}
 
 /* ── print (?print-pdf) ─────────────────────────────────────── */
 @media print{
+  .dl{display:none}
   .card,.req,.chain .step{box-shadow:none}
   body{background:#fff}
 }
@@ -270,18 +288,21 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
 <div class="slides">
 
 <!-- 01 ─────────────────────────────────────────────── TITLE -->
-<section data-background-color="#1F2A37" class="on-dark">
+<section data-background-color="#1D5F96" class="title on-dark">
+  <svg class="wind-bg" viewBox="0 0 1280 430" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-20 300 C 240 200, 460 360, 720 260 S 1120 170, 1300 220" fill="none" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="3"/>
+    <path d="M-20 350 C 260 270, 500 410, 760 320 S 1140 250, 1300 285" fill="none" stroke="#FFFFFF" stroke-opacity=".25" stroke-width="3"/>
+    <path d="M380 395 C 560 350, 720 420, 900 380 S 1160 340, 1300 360" fill="none" stroke="#F2B544" stroke-width="2.5"/>
+  </svg>
   <div class="center" style="gap:1.4rem">
-    <div class="airmail" style="max-width:330px"></div>
     <div>
-      <p class="foot" style="margin-bottom:.7rem">WIND COURIER 개발</p>
-      <h1>1인 개발자의<br>AI 활용</h1>
+      <p class="foot" style="margin-bottom:.7rem">WIND COURIER</p>
+      <h1>1인 개발자의 AI 활용</h1>
     </div>
-    <p class="lede">컨셉 설계부터 Steam 런칭까지</p>
+    <p class="lede">컨셉 기획부터 스팀(Steam) 런칭까지</p>
     <div class="title-meta" style="margin-top:.4rem">
-      <div><span class="l">강의</span><span class="v">2시간</span></div>
       <div><span class="l">제작</span><span class="v">ozs · 2026</span></div>
-      <div><span class="l">엔진</span><span class="v">Unreal Engine 5</span></div>
+      <a class="dl" href="wind-courier-lecture.pdf" download>PDF ▼</a>
     </div>
   </div>
   <aside class="notes">
@@ -397,7 +418,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
 </section>
 
 <!-- 06 ───────────────────────────── 2부 DIVIDER -->
-<section data-background-color="#1F2A37" class="on-dark">
+<section data-background-color="#1D5F96" class="on-dark">
   <div class="center">
     <div class="rail"><span class="pt">2부 · 컨셉 설계와 기획 문서</span><span>15분</span><span class="tc">00:10</span></div>
     <p class="say">아이디어를 늘리지 않는다.<br><em>혼자 끝낼 수 있는 크기로</em> 자른다.</p>
@@ -481,7 +502,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
 </section>
 
 <!-- 10 ────────────────────────────── 청중 활동 -->
-<section data-background-color="#2F6690" class="on-dark">
+<section data-background-color="#2F7BB8" class="on-dark">
   <div class="center">
     <div class="rail"><span class="pt">청중 활동</span><span>3분</span><span class="tc">00:22</span></div>
     <h2 style="color:var(--paper)">첫 프로토타입에 무엇을 넣을까</h2>
@@ -501,7 +522,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
 </section>
 
 <!-- 11 ───────────────────────────── 3부 DIVIDER -->
-<section data-background-color="#1F2A37" class="on-dark">
+<section data-background-color="#1D5F96" class="on-dark">
   <div class="center">
     <div class="rail"><span class="pt">3부 · 프로토타입</span><span>25분</span><span class="tc">00:25</span></div>
     <p class="say">AI의 가장 큰 쓸모는<br>코드 작성이 아니었다.<br><em>플레이 기록에서 원인을 찾는 일</em>이었다.</p>
@@ -636,7 +657,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
 </section>
 
 <!-- 18 ───────────────────────────── 4부 DIVIDER -->
-<section data-background-color="#1F2A37" class="on-dark">
+<section data-background-color="#1D5F96" class="on-dark">
   <div class="center">
     <div class="rail"><span class="pt">4부 · 아트·사운드·에셋</span><span>15분</span><span class="tc">00:50</span></div>
     <p class="say">생성은 금방 끝난다.<br><em>고르고, 넣고, 다시 보는 일</em>이 남는다.</p>
@@ -702,7 +723,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
 </section>
 
 <!-- 21 ────────────────────────────── 휴식 -->
-<section data-background-color="#46505C" class="on-dark">
+<section data-background-color="#5D7A92" class="on-dark">
   <div class="center">
     <div class="rail"><span class="pt">휴식</span><span>5분</span><span class="tc">01:05 – 01:10</span></div>
     <p class="say">휴식 5분</p>
@@ -714,7 +735,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
 </section>
 
 <!-- 22 ───────────────────────────── 5부 DIVIDER -->
-<section data-background-color="#1F2A37" class="on-dark">
+<section data-background-color="#1D5F96" class="on-dark">
   <div class="center">
     <div class="rail"><span class="pt">5부 · 완성과 검증</span><span>20분</span><span class="tc">01:10</span></div>
     <p class="say">AI의 “끝났다”와<br><em>실제 완료</em> 사이</p>
@@ -828,7 +849,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
 </section>
 
 <!-- 27 ───────────────────────────── 6부 DIVIDER -->
-<section data-background-color="#1F2A37" class="on-dark">
+<section data-background-color="#1D5F96" class="on-dark">
   <div class="center">
     <div class="rail"><span class="pt">6부 · Steam 런칭</span><span>20분</span><span class="tc">01:30</span></div>
     <p class="say">출시는 하루의 일이 아니다.<br><em>약속과 빌드를 맞춰 가는</em> 몇 주다.</p>
@@ -954,7 +975,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
     <div class="card hi"><span class="n">03</span><h3>직접 확인하고,<br>기록을 같이 읽는다</h3></div>
     <div class="card hi"><span class="n">04</span><h3>결정과 근거를 파일에.<br>버린 것도</h3></div>
   </div>
-  <div class="airmail" style="max-width:260px;margin-top:1.4rem"></div>
+  <div class="wind" style="max-width:260px;margin-top:1.4rem"></div>
   </div>
   <aside class="notes">
     정리 2분. 각 항목에 오늘의 사례를 하나씩 다시 연결한다: 범위 축소, 투하 요청, 연료 사례, 링 제거.
@@ -962,12 +983,12 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
 </section>
 
 <!-- 33 ──────────────────── 질의응답 -->
-<section data-background-color="#1F2A37" class="on-dark">
+<section data-background-color="#1D5F96" class="on-dark">
   <div class="center">
     <div class="rail"><span class="pt">질의응답</span><span>8분</span><span class="tc">01:52</span></div>
     <p class="say">첫 작업은 게임 전체를<br>요청하는 것이 아닙니다</p>
     <p class="lede" style="margin-top:.8rem">핵심 행동 한 가지를 정하고, 그 행동이 되는지 직접 해 보는 것입니다.</p>
-    <div class="airmail" style="max-width:260px;margin-top:1.4rem"></div>
+    <div class="wind" style="max-width:260px;margin-top:1.4rem"></div>
   </div>
   <aside class="notes">
     예상 질문. 코딩을 몰라도 되는가: 실행, 오류 재현, 변경 확인, 되돌리기는 익혀야 한다. 얼마나 빨라지는가: 비교 기록이 없어 배수로 답하지 않는다. 출시 준비 17개 항목의 1차 구현이 사흘에 끝났고 사람 확인이 그 뒤에 남았다는 기록을 보여준다. AI가 끝났다고 하면 믿어도 되는가: 완료 조건과 증거를 본다. 모든 에셋을 AI로 만드는가: 아니다. 생성 모델, 구매 에셋, 코드 합성을 일관성과 수정 가능성, 출처 기준으로 섞는다. 비용: 결제 기록을 정리한 뒤에만 숫자로 답한다.
@@ -976,6 +997,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}
 
 </div>
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
