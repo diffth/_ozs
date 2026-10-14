@@ -272,8 +272,11 @@ body{margin:0;background:var(--base);color:var(--ink);font-family:var(--sans)}
 /* ── reveal chrome ──────────────────────────────────────────── */
 .reveal .progress{color:var(--accent);height:3px}
 .reveal .controls{color:var(--accent)}
-.reveal .slide-number{
-  font-family:var(--mono);background:none;color:var(--ink-3);font-size:14px;right:14px;bottom:10px;
+/* Bottom centre, in the live deck and on each PDF page (.slide-number-pdf). */
+.reveal .slide-number,
+.reveal .slide-number.slide-number-pdf{
+  font-family:var(--mono);background:none;color:var(--ink-3);font-size:14px;
+  left:50%;right:auto;bottom:10px;transform:translateX(-50%);
 }
 .reveal a{color:var(--deep)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -433,7 +436,10 @@ html.print-pdf .dl{display:none}
 <div class="sbody">
   <div class="split w">
     <div class="col">
-      <p class="cue">[ 플레이 영상 ]</p>
+      <div class="video">
+        <a class="vthumb" href="https://www.youtube.com/watch?v=V49x1bTx8VE"><img src="https://i.ytimg.com/vi/V49x1bTx8VE/hqdefault.jpg" alt="Wind Courier 현재 버전 플레이 영상"></a>
+        <iframe data-src="https://www.youtube-nocookie.com/embed/V49x1bTx8VE?rel=0&amp;enablejsapi=1" title="Wind Courier 현재 버전 플레이 영상" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+      </div>
       <div class="chain" style="margin-top:.9rem">
         <span class="step">이륙</span><span class="arw">→</span>
         <span class="step on">상승기류</span><span class="arw">→</span>
@@ -454,7 +460,7 @@ html.print-pdf .dl{display:none}
   <p class="quote" style="margin-top:1.2rem">오늘의 바람을 보고, 어떤 길로 갈 것인가?</p>
   </div>
   <aside class="notes">
-    영상 자리에는 현재 빌드의 실제 플레이 영상을 넣는다. 현재 베타 단계(0.9.1 기록)이고 Steam 출시 전이라는 점을 여기서 밝힌다.
+    현재 버전 플레이 영상(YouTube V49x1bTx8VE)을 넣었다. 강의장 인터넷이 필요하다. 현재 베타 단계(0.9.1 기록)이고 Steam 출시 전이라는 점을 여기서 밝힌다.
   </aside>
 </section>
 
