@@ -279,6 +279,14 @@ body{margin:0;background:var(--base);color:var(--ink);font-family:var(--sans)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.reveal .slides section{transition:none!important}}
 
+/* ── embedded video ─────────────────────────────────────────── */
+/* The iframe sits over a linked thumbnail: the slide plays the video,
+   while the PDF (which cannot play it) keeps the thumbnail and link. */
+.video{position:relative;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:var(--ink)}
+.video .vthumb,.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video .vthumb img{width:100%;height:100%;object-fit:cover;display:block;margin:0}
+html.print-pdf .video iframe{display:none}
+
 /* ── PDF download (lives in the title slide's meta row) ─────── */
 .reveal .dl{
   font-family:var(--mono);font-size:.46em;font-weight:600;letter-spacing:.08em;
@@ -356,7 +364,10 @@ html.print-pdf .dl{display:none}
 <div class="sbody">
   <div class="split w">
     <div class="col">
-      <p class="cue">[ 프로토타입 플레이 화면 ]</p>
+      <div class="video">
+        <a class="vthumb" href="https://www.youtube.com/watch?v=2mInv9zr3ZI"><img src="https://i.ytimg.com/vi/2mInv9zr3ZI/hqdefault.jpg" alt="Wind Courier 프로토타입 플레이 영상"></a>
+        <iframe data-src="https://www.youtube-nocookie.com/embed/2mInv9zr3ZI?rel=0&amp;enablejsapi=1" title="Wind Courier 프로토타입 플레이 영상" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+      </div>
       <div class="chain" style="margin-top:.9rem">
         <span class="step">기류 탐색</span><span class="arw">→</span>
         <span class="step on">상승</span><span class="arw">→</span>
@@ -377,7 +388,7 @@ html.print-pdf .dl{display:none}
   <p class="quote" style="margin-top:1.2rem">바람을 읽으며 배달하는 일을 계속하고 싶은가?</p>
   </div>
   <aside class="notes">
-    화면 자리에는 프로토타입 시기의 캡처나 짧은 영상을 넣는다. 이 단계의 완료 기준은 재미 검증 하나였다. 내용은 덱의 2부 청중 활동 답(비행·기류·투하), 3부 "한 바퀴의 모양"의 첫 구현 목표, 5부 단계표의 질문에서 가져왔다. 실제 기록과 다르면 고친다.
+    프로토타입 플레이 영상(YouTube 2mInv9zr3ZI)을 넣었다. 강의장 인터넷이 필요하다. 이 단계의 완료 기준은 재미 검증 하나였다. 내용은 덱의 2부 청중 활동 답(비행·기류·투하), 3부 "한 바퀴의 모양"의 첫 구현 목표, 5부 단계표의 질문에서 가져왔다. 실제 기록과 다르면 고친다.
   </aside>
 </section>
 
@@ -393,8 +404,7 @@ html.print-pdf .dl{display:none}
         <span class="step">아침 카운터</span><span class="arw">→</span>
         <span class="step on">노선 선택</span><span class="arw">→</span>
         <span class="step on">비행·배달</span><span class="arw">→</span>
-        <span class="step">귀환</span><span class="arw">→</span>
-        <span class="step">저녁·저장</span>
+        <span class="step">귀환</span>
       </div>
     </div>
     <div class="col">
