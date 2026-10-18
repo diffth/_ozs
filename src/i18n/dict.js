@@ -139,8 +139,8 @@ export const dict = {
     mintBadge: { ko: '데모 공개중', en: 'DEMO LIVE' },
     mintSticker: { ko: '💦 데모 공개중', en: '💦 DEMO LIVE' },
     mintImgAlt: {
-      ko: 'NAIAS World Splash Tour — 카오산 로드에서 물총을 든 여행자 셋이 물싸움을 벌이는 일러스트',
-      en: 'NAIAS World Splash Tour — three travellers in a water-gun fight on Khao San Road',
+      ko: 'NAIAS 태국 2대2 물총 대전 — 코끼리 석상과 축제 깃발이 걸린 거리에서 꽃무늬 셔츠의 소녀와 남색 셔츠의 소년이 물총을 쏘는 일러스트',
+      en: 'NAIAS Thailand 2v2 Water Battle — a girl in a floral shirt and a boy in a navy shirt firing water guns on a festival street with an elephant statue and bunting',
     },
 
     worksTitle: { ko: 'ALL SHIPPED PROJECTS 📜', en: 'ALL SHIPPED PROJECTS 📜' },
