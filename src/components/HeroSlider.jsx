@@ -3,7 +3,7 @@ import { useLang } from '../i18n/LanguageProvider.jsx'
 
 const INTERVAL = 5500
 
-// 출시 준비 중인 게임을 히어로 액자 안에서 번갈아 보여줍니다.
+// 데모 공개 중인 게임을 히어로 액자 안에서 번갈아 보여줍니다.
 // 첫 장면이 가장 많이 보이므로 앞에 둘수록 더 알리고 싶은 작품입니다.
 const SLIDES = [
   {

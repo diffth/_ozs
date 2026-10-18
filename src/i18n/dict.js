@@ -60,7 +60,7 @@ export const dict = {
     heroCtaPrimary: { ko: '프로젝트 의뢰하기 🚀', en: 'Start Your Project 🚀' },
     heroCtaSecondary: { ko: '작품 구경하기 ✨', en: 'See Our Works ✨' },
     heroSticker: { ko: '✈️ 베타 데모 공개중', en: '✈️ BETA DEMO LIVE' },
-    sliderAria: { ko: '출시 준비 중인 게임', en: 'Upcoming games' },
+    sliderAria: { ko: '데모 공개 중인 게임', en: 'Games with playable demos' },
     sliderPause: { ko: '자동 넘김 멈추기', en: 'Pause slideshow' },
     sliderPlay: { ko: '자동 넘김 다시 시작', en: 'Play slideshow' },
     heroImgAlt: {
