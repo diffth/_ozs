@@ -8,6 +8,47 @@
 // ─────────────────────────────────────────────
 export const products = [
   {
+    slug: 'naias',
+    index: '05',
+    name: 'NAIAS',
+    kind: 'Game',
+    year: '2026',
+    status: 'in-development',
+    summary: {
+      ko: '축제가 열린 강변 마을에서 물총 하나로 벌이는 카툰풍 물싸움 대회.',
+      en: 'A cartoon water-gun tournament set in a festival-bound riverside village.',
+    },
+    description: {
+      ko: '휴가차 찾은 강변 마을 아쿠나에서 축제 첫날 폰이라는 소녀에게 물벼락을 맞고, 그날 밤부터 싸구려 장난감 물총 속 물의 정령이 말을 걸어옵니다. 상대를 먼저 세 번 적시면 라운드를 가져가고, 물통이 바닥나기 전에 물드럼에서 채워야 합니다. 지금은 첫 챕터인 아쿠나 마을 편을 데모로 itch.io 에 공개해 두었습니다.',
+      en: 'On holiday in the riverside village of Aquna, you get ambushed with water by a girl named Fon on the first day of the festival — and by nightfall, a water spirit is talking to you from inside your cheap toy water gun. First to three splashes takes the round, and you refill at the water drums before your tank runs dry. The first chapter, the Aquna Village slice, is out as a demo on itch.io.',
+    },
+    thumb: '/img/naias.jpg',
+    cover: '/img/naias.jpg',
+    shots: [],
+    spec: [
+      {
+        label: { ko: '플랫폼', en: 'Platform' },
+        value: 'Windows',
+      },
+      {
+        label: { ko: '게임엔진', en: 'Game engine' },
+        value: 'Unreal Engine',
+      },
+      { label: { ko: '공개', en: 'Launched' }, value: { ko: '2026.10 (데모)', en: '2026.10 (demo)' } },
+      {
+        label: { ko: '역할', en: 'Role' },
+        value: { ko: '기획, 디자인, 개발', en: 'Planning, design, development' },
+      },
+    ],
+    stores: [
+      {
+        label: { ko: 'itch.io 에서 보기', en: 'View on itch.io' },
+        href: 'https://diffth.itch.io/naias',
+      },
+    ],
+    presskit: false,
+  },
+  {
     slug: 'wind-courier',
     index: '04',
     name: 'Wind Courier',

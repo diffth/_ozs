@@ -76,6 +76,16 @@ export const dict = {
     featuredAria: { ko: '대표 작품', en: 'Featured projects' },
     featured: [
       {
+        slug: 'naias',
+        tag: { ko: '물총 액션 게임', en: 'Water-Gun Action Game' },
+        name: 'NAIAS',
+        date: '2026.10',
+        desc: {
+          ko: '축제가 열린 강변 마을 아쿠나에서 물총 하나로 라이벌을 적시며 대회를 치르는 카툰풍 물싸움 게임입니다. 첫 챕터를 데모로 공개해 플레이할 수 있습니다.',
+          en: 'A cartoon water-gun game where you soak rivals through a festival tournament in the riverside village of Aquna. The first chapter is playable as a demo.',
+        },
+      },
+      {
         slug: 'wind-courier',
         tag: { ko: '3D 비행 어드벤처 게임', en: '3D Flying Adventure' },
         name: 'Wind Courier',
@@ -126,7 +136,8 @@ export const dict = {
       en: 'From planning to UI/UX design to full-stack development — give your idea the energy it deserves.',
     },
     mintCta: { ko: '지금 문의하기 💌', en: 'Contact Me Now 💌' },
-    mintSticker: { ko: '💦 출시 준비중', en: '💦 COMING SOON' },
+    mintBadge: { ko: '데모 공개중', en: 'DEMO LIVE' },
+    mintSticker: { ko: '💦 데모 공개중', en: '💦 DEMO LIVE' },
     mintImgAlt: {
       ko: 'NAIAS World Splash Tour — 카오산 로드에서 물총을 든 여행자 셋이 물싸움을 벌이는 일러스트',
       en: 'NAIAS World Splash Tour — three travellers in a water-gun fight on Khao San Road',

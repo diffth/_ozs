@@ -133,7 +133,7 @@ export default function Home() {
         <div className="wrap mint-sec__wrap">
           <div>
             <span className="badge-pop" style={{ background: '#ffffff', color: '#004d40', marginBottom: '1.25rem' }}>
-              READY TO LAUNCH
+              {t('home.mintBadge')}
             </span>
             <h2 className="mint-sec__title">{t('home.mintTitle')}</h2>
             <p className="mint-sec__desc">
@@ -145,19 +145,25 @@ export default function Home() {
           </div>
 
           <div className="mint-sec__img-float">
-            <div className="mint-sec__img-frame">
+            <a
+              className="mint-sec__img-frame"
+              href="https://diffth.itch.io/naias"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'block' }}
+            >
               <picture>
                 <source srcSet="/img/naias.webp" type="image/webp" />
                 <img
                   src="/img/naias.jpg"
                   alt={t('home.mintImgAlt')}
-                  width="1672"
-                  height="941"
+                  width="1280"
+                  height="720"
                   loading="lazy"
                   style={{ width: '100%', height: 'auto', display: 'block' }}
                 />
               </picture>
-            </div>
+            </a>
             <span className="mint-sec__sticker">{t('home.mintSticker')}</span>
           </div>
         </div>

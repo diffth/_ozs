@@ -11,6 +11,8 @@ const SLIDES = [
     name: 'Wind Courier',
     webp: '/img/wind-courier.webp',
     jpg: '/img/wind-courier.jpg',
+    width: 1672,
+    height: 941,
     alt: 'home.heroImgAlt',
     sticker: 'home.heroSticker',
     tone: 'yellow',
@@ -21,9 +23,12 @@ const SLIDES = [
     name: 'NAIAS',
     webp: '/img/naias.webp',
     jpg: '/img/naias.jpg',
+    width: 1280,
+    height: 720,
     alt: 'home.mintImgAlt',
     sticker: 'home.mintSticker',
     tone: 'blue',
+    href: 'https://diffth.itch.io/naias',
   },
 ]
 
@@ -94,8 +99,8 @@ export default function HeroSlider() {
                   <img
                     src={s.jpg}
                     alt={t(s.alt)}
-                    width="1672"
-                    height="941"
+                    width={s.width}
+                    height={s.height}
                     fetchPriority={i === 0 ? 'high' : undefined}
                     loading={i === 0 ? undefined : 'lazy'}
                   />
