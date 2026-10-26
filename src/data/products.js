@@ -8,6 +8,111 @@
 // ─────────────────────────────────────────────
 export const products = [
   {
+    slug: 'where-monsters-live',
+    index: '08',
+    name: 'Where Monsters Live',
+    kind: 'Game',
+    year: '2026',
+    status: 'in-development',
+    summary: {
+      ko: '방바닥 아래 숲에서 괴물 친구들의 마음을 달래며 내 마음을 알아 가는 이야기 모험.',
+      en: 'A story adventure where a boy soothes the hearts of monster friends in a forest beneath his bedroom floor — and finds the same feelings in himself.',
+    },
+    description: {
+      ko: '“아무도 내 마음을 몰라!” 하고 외친 날 밤, 소년은 방바닥 틈 아래로 이어진 숲에 들어섭니다. 그 숲에서는 말하지 못한 마음이 괴물들의 몸과 숲의 날씨로 드러납니다. 대화의 정답을 고르는 대신 괴물과 함께 놀고, 기다리고, 무언가를 만들며 마음을 나누는 게임으로 지금 개발하고 있습니다.',
+      en: 'The night he shouts “Nobody understands me!”, a boy slips through a crack in his bedroom floor into a forest where unspoken feelings show up as the bodies of monsters and the weather itself. Instead of picking the right line of dialogue, you share feelings by playing, waiting and making things together with the monsters. Currently in development.',
+    },
+    thumb: '/img/where-monsters-live.jpg',
+    cover: '/img/where-monsters-live.jpg',
+    shots: [],
+    spec: [
+      {
+        label: { ko: '장르', en: 'Genre' },
+        value: { ko: '이야기 모험', en: 'Story adventure' },
+      },
+      {
+        label: { ko: '게임엔진', en: 'Game engine' },
+        value: 'Unreal Engine',
+      },
+      {
+        label: { ko: '역할', en: 'Role' },
+        value: { ko: '기획, 디자인, 개발', en: 'Planning, design, development' },
+      },
+    ],
+    stores: [],
+    presskit: false,
+  },
+  {
+    slug: 'unsheathed',
+    index: '07',
+    name: 'Unsheathed',
+    kind: 'Game',
+    year: '2026',
+    status: 'in-development',
+    summary: {
+      ko: '시간 밖의 결투장에서 서로 다른 시대의 검객이 맞붙는 3D 검술 대전.',
+      en: 'A 3D sword duel where swordsmen from different eras meet in an arena outside of time.',
+    },
+    description: {
+      ko: '칼에 베여 죽기 직전의 순간, 검객들은 시간 밖의 결투장으로 불려 옵니다. 이기면 그 죽음을 되돌려 준다는 조건 아래 카타나를 쥔 사무라이와 레이피어를 든 유럽 검객이 마주 섭니다. 체력바 없이 거리와 타이밍을 읽어 몇 번의 정확한 일격으로 승부가 갈리는 게임으로 지금 개발하고 있습니다.',
+      en: 'At the instant before a fatal blade lands, swordsmen are pulled into a duelling ground outside of time — win, and your death is undone. A samurai with a katana faces a European swordsman with a rapier. There are no health bars: you read distance and timing, and a few precise strikes decide the bout. Currently in development.',
+    },
+    thumb: '/img/unsheathed.jpg',
+    cover: '/img/unsheathed.jpg',
+    shots: [],
+    spec: [
+      {
+        label: { ko: '장르', en: 'Genre' },
+        value: { ko: '검술 대전', en: 'Sword duelling' },
+      },
+      {
+        label: { ko: '게임엔진', en: 'Game engine' },
+        value: 'Unreal Engine',
+      },
+      {
+        label: { ko: '역할', en: 'Role' },
+        value: { ko: '기획, 디자인, 개발', en: 'Planning, design, development' },
+      },
+    ],
+    stores: [],
+    presskit: false,
+  },
+  {
+    slug: 'divided-kingdoms',
+    index: '06',
+    name: 'The Divided Kingdoms',
+    kind: 'Game',
+    year: '2026',
+    status: 'in-development',
+    summary: {
+      ko: '사이버펑크 정비공이 중세 판타지 세계의 분열된 네 왕국을 가로지르는 팀 액션 RPG.',
+      en: 'A team action RPG in which a cyberpunk mechanic crosses four divided kingdoms in a medieval fantasy world.',
+    },
+    description: {
+      ko: '사이버펑크 도시의 정비공 게일이 할머니의 유품에 이끌려 중세 판타지 세계에 떨어집니다. 오염된 고향의 코어 AI 를 고칠 열쇠를 잃어버린 게일은, 그 열쇠를 차지하려는 네 왕국을 가로지르며 저마다 무언가가 빠진 동료들과 함께 열쇠를 쫓습니다. 지금 개발하고 있습니다.',
+      en: 'Gale, a mechanic from a cyberpunk city, is drawn by an heirloom from Gale’s grandmother into a medieval fantasy world. Having lost the key that could fix the corrupted core AI back home, Gale chases it across four kingdoms that each want it for themselves, joined by companions who are each missing something. Currently in development.',
+    },
+    thumb: '/img/divided-kingdoms.jpg',
+    cover: '/img/divided-kingdoms.jpg',
+    shots: [],
+    spec: [
+      {
+        label: { ko: '장르', en: 'Genre' },
+        value: { ko: '팀 액션 RPG', en: 'Team action RPG' },
+      },
+      {
+        label: { ko: '게임엔진', en: 'Game engine' },
+        value: 'Unreal Engine',
+      },
+      {
+        label: { ko: '역할', en: 'Role' },
+        value: { ko: '기획, 디자인, 개발', en: 'Planning, design, development' },
+      },
+    ],
+    stores: [],
+    presskit: false,
+  },
+  {
     slug: 'naias',
     index: '05',
     name: 'NAIAS',
