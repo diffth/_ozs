@@ -91,6 +91,36 @@ export const dict = {
     featuredAria: { ko: '대표 작품', en: 'Featured projects' },
     featured: [
       {
+        slug: 'where-monsters-live',
+        tag: { ko: '이야기 모험 게임', en: 'Story Adventure Game' },
+        name: 'Where Monsters Live',
+        date: { ko: '개발 중', en: 'In Dev' },
+        desc: {
+          ko: '방바닥 틈 아래 숲에서 괴물 친구들과 놀고 기다리고 무언가를 만들며, 말하지 못한 마음을 나누는 이야기 모험 게임입니다.',
+          en: 'A story adventure where a boy shares unspoken feelings with monster friends in a forest beneath his bedroom floor — by playing, waiting and making things together.',
+        },
+      },
+      {
+        slug: 'unsheathed',
+        tag: { ko: '3D 검술 대전 게임', en: '3D Sword Duel Game' },
+        name: 'Unsheathed',
+        date: { ko: '개발 중', en: 'In Dev' },
+        desc: {
+          ko: '시간 밖의 결투장에서 사무라이와 유럽 검객이 마주 서고, 체력바 없이 거리와 타이밍을 읽어 몇 번의 일격으로 승부가 갈리는 검술 대전입니다.',
+          en: 'A samurai and a European swordsman face off in an arena outside of time. No health bars — read distance and timing, and a few strikes decide the bout.',
+        },
+      },
+      {
+        slug: 'divided-kingdoms',
+        tag: { ko: '팀 액션 RPG', en: 'Team Action RPG' },
+        name: 'The Divided Kingdoms',
+        date: { ko: '개발 중', en: 'In Dev' },
+        desc: {
+          ko: '사이버펑크 도시의 정비공 게일이 중세 판타지 세계에 떨어져, 분열된 네 왕국을 가로지르며 동료들과 잃어버린 열쇠를 쫓는 팀 액션 RPG입니다.',
+          en: 'Gale, a mechanic from a cyberpunk city, falls into a medieval fantasy world and chases a lost key across four divided kingdoms with a band of companions.',
+        },
+      },
+      {
         slug: 'naias',
         tag: { ko: '물총 액션 게임', en: 'Water-Gun Action Game' },
         name: 'NAIAS',

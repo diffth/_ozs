@@ -95,7 +95,7 @@ export default function Home() {
                     <p className="pop-card__desc">{tr(f.desc)}</p>
                   </div>
                   <div className="pop-card__footer">
-                    <span className="pop-card__price">{f.date}</span>
+                    <span className="pop-card__price">{tr(f.date)}</span>
                     <Link
                       to={lp(`/works/${f.slug}`)}
                       className={color === 'pop-card--teal' ? 'btn-pop btn-pop--teal' : 'btn-pop btn-pop--white'}
