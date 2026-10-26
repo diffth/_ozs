@@ -500,6 +500,16 @@ img {
   color: #ffffff;
 }
 
+.hero-pop__sticker--green {
+  background: #2e8b57;
+  color: #ffffff;
+}
+
+.hero-pop__sticker--purple {
+  background: #6a3fb5;
+  color: #ffffff;
+}
+
 /* 장면이 바뀔 때 스티커를 새로 붙이는 느낌으로 톡 튀어나오게 합니다. */
 .hero-slider .hero-pop__sticker {
   animation: sticker-pop 0.5s var(--ease-pop) both;

@@ -60,12 +60,22 @@ export const dict = {
     heroCtaPrimary: { ko: '프로젝트 의뢰하기 🚀', en: 'Start Your Project 🚀' },
     heroCtaSecondary: { ko: '작품 구경하기 ✨', en: 'See Our Works ✨' },
     heroSticker: { ko: '✈️ 베타 데모 공개중', en: '✈️ BETA DEMO LIVE' },
-    sliderAria: { ko: '데모 공개 중인 게임', en: 'Games with playable demos' },
+    sliderAria: { ko: '데모 공개 중이거나 개발 중인 게임', en: 'Games with playable demos and in development' },
     sliderPause: { ko: '자동 넘김 멈추기', en: 'Pause slideshow' },
     sliderPlay: { ko: '자동 넘김 다시 시작', en: 'Play slideshow' },
     heroImgAlt: {
       ko: 'Wind Courier — 노란 복엽기를 탄 우편 비행사가 강과 언덕 마을 위를 나는 일러스트',
       en: 'Wind Courier — a courier pilot flying a yellow biplane over a river and hilltop villages',
+    },
+    kingdomsSticker: { ko: '🛠️ 개발중', en: '🛠️ IN DEVELOPMENT' },
+    kingdomsImgAlt: {
+      ko: 'The Divided Kingdoms — 노을 진 언덕길에서 검은 전투복을 입은 금발 주인공이 풍차 마을과 산 위의 성을 내려다보는 일러스트',
+      en: 'The Divided Kingdoms — a blond hero in a black combat outfit looking out over a windmill village and a hilltop castle at sunset',
+    },
+    monstersSticker: { ko: '🛠️ 개발중', en: '🛠️ IN DEVELOPMENT' },
+    monstersImgAlt: {
+      ko: 'Where Monsters Live — 밤 숲길에서 곱슬머리 소년이 낡은 누비이불로 된 거대한 괴물을 올려다보는 일러스트',
+      en: 'Where Monsters Live — a curly-haired boy on a night forest path looking up at a giant monster made of worn patchwork quilts',
     },
 
     featuredTitle: { ko: 'EXPLORE OUR WORKS! ⚡', en: 'EXPLORE OUR WORKS! ⚡' },

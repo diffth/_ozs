@@ -3,7 +3,7 @@ import { useLang } from '../i18n/LanguageProvider.jsx'
 
 const INTERVAL = 5500
 
-// 데모 공개 중인 게임을 히어로 액자 안에서 번갈아 보여줍니다.
+// 데모 공개 중이거나 개발 중인 게임을 히어로 액자 안에서 번갈아 보여줍니다.
 // 첫 장면이 가장 많이 보이므로 앞에 둘수록 더 알리고 싶은 작품입니다.
 const SLIDES = [
   {
@@ -29,6 +29,29 @@ const SLIDES = [
     sticker: 'home.mintSticker',
     tone: 'blue',
     href: 'https://diffth.itch.io/naias',
+  },
+  {
+    // 아직 공개 페이지가 없어 링크 없이 그림만 보여줍니다.
+    key: 'divided-kingdoms',
+    name: 'The Divided Kingdoms',
+    webp: '/img/divided-kingdoms.webp',
+    jpg: '/img/divided-kingdoms.jpg',
+    width: 1365,
+    height: 768,
+    alt: 'home.kingdomsImgAlt',
+    sticker: 'home.kingdomsSticker',
+    tone: 'green',
+  },
+  {
+    key: 'where-monsters-live',
+    name: 'Where Monsters Live',
+    webp: '/img/where-monsters-live.webp',
+    jpg: '/img/where-monsters-live.jpg',
+    width: 1672,
+    height: 941,
+    alt: 'home.monstersImgAlt',
+    sticker: 'home.monstersSticker',
+    tone: 'purple',
   },
 ]
 
