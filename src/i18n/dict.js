@@ -72,6 +72,11 @@ export const dict = {
       ko: 'The Divided Kingdoms — 노을 진 언덕길에서 검은 전투복을 입은 금발 주인공이 풍차 마을과 산 위의 성을 내려다보는 일러스트',
       en: 'The Divided Kingdoms — a blond hero in a black combat outfit looking out over a windmill village and a hilltop castle at sunset',
     },
+    unsheathedSticker: { ko: '🛠️ 개발중', en: '🛠️ IN DEVELOPMENT' },
+    unsheathedImgAlt: {
+      ko: 'Unsheathed — 노을 진 돌길 위에서 일본도를 쥔 사무라이와 레이피어를 겨눈 유럽 검객이 마주 선 일러스트',
+      en: 'Unsheathed — a samurai gripping a katana facing a European swordsman pointing a rapier on a cobblestone square at sunset',
+    },
     monstersSticker: { ko: '🛠️ 개발중', en: '🛠️ IN DEVELOPMENT' },
     monstersImgAlt: {
       ko: 'Where Monsters Live — 밤 숲길에서 곱슬머리 소년이 낡은 누비이불로 된 거대한 괴물을 올려다보는 일러스트',

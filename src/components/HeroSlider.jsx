@@ -43,6 +43,17 @@ const SLIDES = [
     tone: 'green',
   },
   {
+    key: 'unsheathed',
+    name: 'Unsheathed',
+    webp: '/img/unsheathed.webp',
+    jpg: '/img/unsheathed.jpg',
+    width: 1672,
+    height: 941,
+    alt: 'home.unsheathedImgAlt',
+    sticker: 'home.unsheathedSticker',
+    tone: 'red',
+  },
+  {
     key: 'where-monsters-live',
     name: 'Where Monsters Live',
     webp: '/img/where-monsters-live.webp',
