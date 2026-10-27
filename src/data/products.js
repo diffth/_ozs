@@ -165,8 +165,8 @@ export const products = [
       en: 'A peaceful flying adventure through a watercolour world inspired by 1920s rural Europe.',
     },
     description: {
-      ko: '젊은 우편 비행사 리브가 되어 노란 복엽기를 몰고 외딴 마을 사이로 편지를 나릅니다. 바람의 흐름을 읽으며 항로를 잡고, 배달을 이어 가는 동안 마을 사람들의 이야기를 하나씩 알게 됩니다. 지금은 플레이할 수 있는 베타 데모를 itch.io 에 공개해 두었습니다.',
-      en: 'You play Liv, a young courier flying a yellow biplane to carry mail between remote villages. You read the wind to plot your route, and each delivery uncovers a little more of the villagers’ stories. A playable beta demo is out on itch.io.',
+      ko: '젊은 우편 비행사 리브가 되어 노란 복엽기를 몰고 외딴 마을 사이로 편지를 나릅니다. 바람의 흐름을 읽으며 항로를 잡고, 배달을 이어 가는 동안 마을 사람들의 이야기를 하나씩 알게 됩니다. 지금은 플레이할 수 있는 데모를 itch.io 에 공개해 두었습니다.',
+      en: 'You play Liv, a young courier flying a yellow biplane to carry mail between remote villages. You read the wind to plot your route, and each delivery uncovers a little more of the villagers’ stories. A playable demo is out on itch.io.',
     },
     thumb: '/img/wind-courier.jpg',
     cover: '/img/wind-courier.jpg',
@@ -180,7 +180,7 @@ export const products = [
         label: { ko: '게임엔진', en: 'Game engine' },
         value: 'Unreal Engine',
       },
-      { label: { ko: '공개', en: 'Launched' }, value: { ko: '2026.09 (베타 데모)', en: '2026.09 (beta demo)' } },
+      { label: { ko: '공개', en: 'Launched' }, value: { ko: '2026.09 (데모)', en: '2026.09 (demo)' } },
       {
         label: { ko: '역할', en: 'Role' },
         value: { ko: '기획, 디자인, 개발', en: 'Planning, design, development' },

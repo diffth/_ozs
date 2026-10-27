@@ -59,7 +59,7 @@ export const dict = {
     },
     heroCtaPrimary: { ko: '프로젝트 의뢰하기 🚀', en: 'Start Your Project 🚀' },
     heroCtaSecondary: { ko: '작품 구경하기 ✨', en: 'See Our Works ✨' },
-    heroSticker: { ko: '✈️ 베타 데모 공개중', en: '✈️ BETA DEMO LIVE' },
+    heroSticker: { ko: '✈️ 데모 공개중', en: '✈️ DEMO LIVE' },
     sliderAria: { ko: '데모 공개 중이거나 개발 중인 게임', en: 'Games with playable demos and in development' },
     sliderPause: { ko: '자동 넘김 멈추기', en: 'Pause slideshow' },
     sliderPlay: { ko: '자동 넘김 다시 시작', en: 'Play slideshow' },
@@ -136,8 +136,8 @@ export const dict = {
         name: 'Wind Courier',
         date: '2026.09',
         desc: {
-          ko: '노란 복엽기를 몰고 1920년대 유럽 시골을 닮은 수채화 세계의 마을들 사이로 편지를 나르는 우편 비행 어드벤처입니다. 지금 베타 데모를 공개해 플레이할 수 있습니다.',
-          en: 'Fly a yellow biplane and carry mail between villages in a watercolour world inspired by 1920s rural Europe. Beta demo now playable.',
+          ko: '노란 복엽기를 몰고 1920년대 유럽 시골을 닮은 수채화 세계의 마을들 사이로 편지를 나르는 우편 비행 어드벤처입니다. 지금 데모를 공개해 플레이할 수 있습니다.',
+          en: 'Fly a yellow biplane and carry mail between villages in a watercolour world inspired by 1920s rural Europe. Demo now playable.',
         },
       },
       {
