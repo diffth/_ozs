@@ -118,7 +118,7 @@ export const products = [
     name: 'NAIAS',
     kind: 'Game',
     year: '2026',
-    status: 'in-development',
+    status: 'demo',
     summary: {
       ko: '축제가 열린 강변 마을에서 물총 하나로 벌이는 카툰풍 물싸움 대회.',
       en: 'A cartoon water-gun tournament set in a festival-bound riverside village.',
@@ -159,7 +159,7 @@ export const products = [
     name: 'Wind Courier',
     kind: 'Game',
     year: '2026',
-    status: 'in-development',
+    status: 'demo',
     summary: {
       ko: '1920년대 유럽 시골을 닮은 수채화 세계를 나는 우편 비행 어드벤처.',
       en: 'A peaceful flying adventure through a watercolour world inspired by 1920s rural Europe.',
@@ -320,8 +320,9 @@ export const products = [
 ]
 
 export const statusLabel = {
-  released: { ko: '출시됨', en: 'Released' },
+  released: { ko: '출시', en: 'Released' },
   'in-development': { ko: '개발 중', en: 'In development' },
+  demo: { ko: '데모 공개중', en: 'Demo live' },
   archived: { ko: '보관', en: 'Archived' },
 }
 
